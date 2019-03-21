@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 
 // Material
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -25,6 +26,7 @@ import { LoginModule } from './modules/login/login.module';
 
         // Material
         MatToolbarModule,
+        MatButtonModule,
 
         FrontModule,
         AdminModule,
