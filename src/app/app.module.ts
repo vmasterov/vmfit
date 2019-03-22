@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 // Material
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -13,6 +14,7 @@ import { FrontModule } from './modules/front/front.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { Error404Component } from './components/error404/error404.component';
 import { LoginModule } from './modules/login/login.module';
+
 
 @NgModule({
     declarations: [
@@ -27,6 +29,7 @@ import { LoginModule } from './modules/login/login.module';
         // Material
         MatToolbarModule,
         MatButtonModule,
+        MatIconModule,
 
         FrontModule,
         AdminModule,
