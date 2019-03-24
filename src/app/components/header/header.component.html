@@ -2,9 +2,9 @@
     <span>{{title | uppercase}}</span>
     <span class="spacer"></span>
     
-    <button mat-button class="head__toogle-food-panel" (click)="test()">
+    <button mat-button class="head__toogle-food-panel" (click)="toggleFoodPanel()">
         <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">restaurant_menu</mat-icon>
-        <span class="head__toogle-food-panel-text">Список продуктов</span>
+        <span class="head__toogle-food-panel-text">{{foodPanelButtonName}}</span>
     </button>
 
 </mat-toolbar>

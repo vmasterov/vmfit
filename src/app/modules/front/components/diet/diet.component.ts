@@ -1,34 +1,38 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
 import {MatSidenav} from '@angular/material';
 
-import {ToggleFoodPanelService} from '../../../../services/toggle-food-panel.service';
+import {DataExchangeBetweenComponents} from '../../../../services/data-exchange-between-components.service';
+import {Subscription} from "rxjs/index";
 
 @Component({
     selector: 'app-diet',
     templateUrl: './diet.component.html',
     styleUrls: ['./diet.component.scss']
 })
-export class DietComponent implements OnInit {
+export class DietComponent implements OnInit, OnDestroy {
 
-    @ViewChild('sidenav') sidenav: MatSidenav;
+    @ViewChild('foodPanel') foodPanel: MatSidenav;
 
-    wait: number;
+    toggleFoodPanelSubscribe: Subscription;
 
     constructor(
-        private toggleFoodPanelService: ToggleFoodPanelService
+        private dataExchangeBetweenComponents: DataExchangeBetweenComponents
     ) {
-        toggleFoodPanelService.vv$.subscribe(
-            data => {
-                this.wait = data;
-                data === 0 ? this.sidenav.close() : this.sidenav.open();
-            });
+        this.toggleFoodPanelSubscribe = dataExchangeBetweenComponents.data$
+            .subscribe(
+                (isOpen) => {
+                    if (typeof isOpen === 'string') {
+                        this.foodPanel.toggle();
+                        this.dataExchangeBetweenComponents.send(this.foodPanel.opened);
+                    }
+                }
+            );
     }
 
     ngOnInit() {
     }
 
-    togglePanel() {
-        this.sidenav.toggle();
+    ngOnDestroy() {
+        this.toggleFoodPanelSubscribe.unsubscribe();
     }
-
 }

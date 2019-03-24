@@ -1,28 +1,42 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Subscription} from "rxjs/index";
 
-import {ToggleFoodPanelService} from '../../services/toggle-food-panel.service';
+import {DataExchangeBetweenComponents} from '../../services/data-exchange-between-components.service';
 
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
+
+    toggleFoodPanelSubscribe: Subscription;
 
     constructor(
-        private toggleFoodPanelService: ToggleFoodPanelService
+        private dataExchangeBetweenComponents: DataExchangeBetweenComponents
     ) {
+        this.toggleFoodPanelSubscribe = dataExchangeBetweenComponents.data$
+            .subscribe(
+                (isOpen) => {
+                    if (typeof isOpen === 'boolean') {
+                        isOpen === true ? this.foodPanelButtonName = 'Закрыть список продуктов' : this.foodPanelButtonName = 'Открыть список продуктов';
+                    }
+                }
+            );
     }
 
     title = 'vmfit';
-    count = 1;
+    foodPanelButtonName = 'Закрыть список продуктов';
 
     ngOnInit() {
     }
 
-    test() {
-        this.count === 0 ? this.count = 1 : this.count = 0;
-        this.toggleFoodPanelService.gget(this.count);
+    toggleFoodPanel() {
+        this.dataExchangeBetweenComponents.send('toggling food panel');
+    }
+
+    ngOnDestroy() {
+        this.toggleFoodPanelSubscribe.unsubscribe();
     }
 
 }
