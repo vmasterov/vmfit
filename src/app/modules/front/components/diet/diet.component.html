@@ -1,5 +1,16 @@
 <mat-sidenav-container class="content">
-    <mat-sidenav mode="side" position="end" opened #foodPanel>Sidenav content</mat-sidenav>
+    <mat-sidenav
+        [mode]="mobileQuery1024.matches ? 'over' : 'side'"
+        [fixedInViewport]="mobileQuery1024.matches"
+        [opened]="!mobileQuery1024.matches"
+        [fixedTopGap]="56"
+        position="end"
+        (openedChange)="openedChangeFoodPanel()"
+        #foodPanel>
+        <p>Sidenav content</p>
+        <app-food-panel-accordeon></app-food-panel-accordeon>
+    </mat-sidenav>
+    
     <mat-sidenav-content>
         <h1>Hello world!</h1>
     </mat-sidenav-content>
