@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
+import {FoodService} from '../../services/food.service';
+import {FoodInterface} from '../../../../interfaces/food.interface';
 
 export interface PeriodicElement {
     name: string;
@@ -23,17 +25,23 @@ const ELEMENT_DATA: PeriodicElement[] = [
 @Component({
     selector: 'app-food-panel-table',
     templateUrl: './food-panel-table.component.html',
-    styleUrls: ['./food-panel-table.component.scss']
+    styleUrls: ['./food-panel-table.component.scss'],
+    providers: [FoodService]
 })
 export class FoodPanelTableComponent implements OnInit {
+    @Input() vol: number;
 
     displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
     dataSource = ELEMENT_DATA;
+    food: FoodInterface[];
 
-    constructor() {
+    constructor(
+        private foodService: FoodService
+    ) {
     }
 
     ngOnInit() {
+        console.log('hello from food table: ', this.vol.group);
     }
 
 }

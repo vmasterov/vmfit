@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {FrontRoutingModule} from './front-routing.module';
 import {DietComponent} from './components/diet/diet.component';
-import { FoodPanelAccordeonComponent } from './components/food-panel-accordeon/food-panel-accordeon.component';
+import { FoodPanelAccordeonComponent } from './components/food-panel-accordion/food-panel-accordion.component';
 
 // Material
 import {MatSidenavModule} from '@angular/material/sidenav';

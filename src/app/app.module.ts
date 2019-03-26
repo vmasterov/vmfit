@@ -1,5 +1,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService} from './services/in-memory-data.service';
+import {HttpClientModule} from '@angular/common/http';
 
 // Material
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -10,10 +13,10 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HeaderComponent} from './components/header/header.component';
-import { FrontModule } from './modules/front/front.module';
-import { AdminModule } from './modules/admin/admin.module';
-import { Error404Component } from './components/error404/error404.component';
-import { LoginModule } from './modules/login/login.module';
+import {FrontModule} from './modules/front/front.module';
+import {AdminModule} from './modules/admin/admin.module';
+import {Error404Component} from './components/error404/error404.component';
+import {LoginModule} from './modules/login/login.module';
 
 
 @NgModule({
@@ -25,6 +28,10 @@ import { LoginModule } from './modules/login/login.module';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        HttpClientModule,
+        HttpClientInMemoryWebApiModule.forRoot(
+            InMemoryDataService, {dataEncapsulation: false}
+        ),
 
         // Material
         MatToolbarModule,

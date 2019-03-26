@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FoodPanelAccordeonComponent } from './food-panel-accordeon.component';
+import { FoodPanelAccordeonComponent } from './food-panel-accordion.component';
 
 describe('FoodPanelAccordeonComponent', () => {
   let component: FoodPanelAccordeonComponent;
