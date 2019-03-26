@@ -10,11 +10,14 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { FoodPanelTableComponent } from './components/food-panel-table/food-panel-table.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
     declarations: [
         DietComponent,
-        FoodPanelAccordeonComponent
+        FoodPanelAccordeonComponent,
+        FoodPanelTableComponent
     ],
     imports: [
         CommonModule,
@@ -24,7 +27,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
         MatSidenavModule,
         MatIconModule,
         MatButtonModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatTableModule
     ]
 })
 export class FrontModule {

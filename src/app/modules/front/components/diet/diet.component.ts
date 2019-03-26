@@ -27,9 +27,7 @@ export class DietComponent implements OnInit, OnDestroy {
         media: MediaMatcher
     ) {
         this.mobileQuery1024 = media.matchMedia('(max-width: 1024px)');
-        this._mobileQueryListener = () => {
-            changeDetectorRef.detectChanges();
-        };
+        this._mobileQueryListener = () => changeDetectorRef.detectChanges();
         this.mobileQuery1024.addListener(this._mobileQueryListener);
 
         this.toggleFoodPanelSubscribe = dataExchangeBetweenComponents.data$
@@ -52,5 +50,6 @@ export class DietComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.toggleFoodPanelSubscribe.unsubscribe();
+        this.mobileQuery1024.removeListener(this._mobileQueryListener);
     }
 }
