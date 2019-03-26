@@ -8,11 +8,13 @@
     </mat-expansion-panel>
     
     <mat-expansion-panel (closed)="panelClosed(second)" #second>
-    <!--<mat-expansion-panel #second>-->
         <mat-expansion-panel-header>
             <mat-panel-title> Self aware panel</mat-panel-title>
         </mat-expansion-panel-header>
         
-        <p>I'm visible because I am open</p>
+        <ng-template matExpansionPanelContent>
+            <p>I'm visible because I am open</p>
+        </ng-template>
+        
     </mat-expansion-panel>
 </mat-accordion>
