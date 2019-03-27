@@ -2,25 +2,16 @@ import {Component, OnInit, Input} from '@angular/core';
 import {FoodService} from '../../services/food.service';
 import {FoodInterface} from '../../../../interfaces/food.interface';
 
-export interface PeriodicElement {
+export interface tempI {
+    sectionName: string;
     name: string;
-    position: number;
-    weight: number;
-    symbol: string;
+    protein: string;
+    carbs: string;
+    fat: string;
+    calories: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+let lalka: any;
 
 @Component({
     selector: 'app-food-panel-table',
@@ -29,10 +20,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
     providers: [FoodService]
 })
 export class FoodPanelTableComponent implements OnInit {
-    @Input() vol: number;
+    @Input() vol: FoodInterface;
 
-    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-    dataSource = ELEMENT_DATA;
+    displayedColumns: string[] = ['name', 'protein', 'carbs', 'fat', 'calories', 'add', 'remove'];
+    dataSource: any;
     food: FoodInterface[];
 
     constructor(
@@ -41,7 +32,20 @@ export class FoodPanelTableComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('hello from food table: ', this.vol.group);
+        lalka = [];
+        for (let i = 0, l = this.vol.group.length; i < l; i++) {
+            for (let i1 = 0, l1 = this.vol.group[i].items.length; i1 < l1; i1++) {
+                lalka.push({
+                    sectionName: this.vol.group[i].name,
+                    name: this.vol.group[i].items[i1].name,
+                    protein: this.vol.group[i].items[i1].nutrients.protein,
+                    carbs: this.vol.group[i].items[i1].nutrients.carbs,
+                    fat: this.vol.group[i].items[i1].nutrients.fat,
+                    calories: this.vol.group[i].items[i1].nutrients.calories
+                });
+            }
+        }
+        this.dataSource = lalka;
     }
 
 }

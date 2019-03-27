@@ -9,14 +9,12 @@ export class FoodInterface {
                 {
                     id: number;
                     name: string;
-                    nutrients: [
-                        {
+                    nutrients: {
                             protein: string;
                             carbs: string;
                             fat: string;
                             calories: string;
-                        }
-                    ]
+                    }
                 }
             ]
         }
