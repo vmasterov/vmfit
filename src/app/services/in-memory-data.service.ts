@@ -29,7 +29,7 @@ export class InMemoryDataService implements InMemoryDbService {
                                 id: 112,
                                 name: 'Индейка',
                                 nutrients: {
-                                    protein: '31',
+                                    protein: '30',
                                     carbs: '21',
                                     fat: '11',
                                     calories: '211'
@@ -45,20 +45,20 @@ export class InMemoryDataService implements InMemoryDbService {
                                 id: 121,
                                 name: 'Свинина',
                                 nutrients: {
-                                    protein: '30',
-                                    carbs: '20',
-                                    fat: '10',
-                                    calories: '210'
+                                    protein: '32',
+                                    carbs: '22',
+                                    fat: '12',
+                                    calories: '212'
                                 }
                             },
                             {
                                 id: 122,
                                 name: 'Баранина',
                                 nutrients: {
-                                    protein: '31',
-                                    carbs: '21',
-                                    fat: '11',
-                                    calories: '211'
+                                    protein: '33',
+                                    carbs: '23',
+                                    fat: '13',
+                                    calories: '213'
                                 }
                             },
                         ]

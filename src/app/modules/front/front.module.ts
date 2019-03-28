@@ -1,5 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {ClickOutsideDirective} from '../../directives/click-outside.directive';
+import {AutofocusDirective} from '../../directives/auto-focus.directive';
 
 import {FrontRoutingModule} from './front-routing.module';
 import {DietComponent} from './components/diet/diet.component';
@@ -17,11 +20,14 @@ import {MatTableModule} from '@angular/material/table';
     declarations: [
         DietComponent,
         FoodPanelAccordeonComponent,
-        FoodPanelTableComponent
+        FoodPanelTableComponent,
+        ClickOutsideDirective,
+        AutofocusDirective
     ],
     imports: [
         CommonModule,
         FrontRoutingModule,
+        FormsModule,
 
         // Material
         MatSidenavModule,
@@ -32,4 +38,5 @@ import {MatTableModule} from '@angular/material/table';
     ]
 })
 export class FrontModule {
+    private static AutoFocusDirective: any;
 }

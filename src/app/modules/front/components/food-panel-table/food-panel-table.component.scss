@@ -20,6 +20,26 @@
 }
 
 .food-table td.mat-cell.mat-column-add,
-.food-table td.mat-cell.mat-column-remove {
+.food-table td.mat-cell.mat-column-remove{
   padding: 10px 0;
+}
+
+.food-table__field-name{
+  cursor: pointer;
+}
+
+.food-table__field-input{
+  width: 80px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+
+}
+
+.food-table__field-input:focus{
+  box-shadow: 0 5px 5px rgba(25, 118, 210, 0.1);
+  border-bottom: 1px solid #1976d2;
 }

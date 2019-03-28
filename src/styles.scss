@@ -25,7 +25,11 @@ body{
   flex: 1 1 auto;
 }
 
+.vm__hide{
+  display: none !important;
+}
+
 // Food accordion
-.food-accordion .mat-expansion-panel-content > .mat-expansion-panel-body {
+.food-accordion .mat-expansion-panel-content > .mat-expansion-panel-body{
   padding: 0;
 }
