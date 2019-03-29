@@ -2,6 +2,7 @@ import {Component, OnInit, OnDestroy, ViewChild, ChangeDetectorRef} from '@angul
 import {Subscription} from "rxjs/index";
 
 import {DataExchangeBetweenComponents} from '../../../../services/data-exchange-between-components.service';
+import {FoodService} from '../../services/food.service';
 
 // Material
 import {MatSidenav} from '@angular/material';
@@ -22,6 +23,7 @@ export class DietComponent implements OnInit, OnDestroy {
     private _mobileQueryListener: () => void;
 
     constructor(
+        private foodService: FoodService,
         private dataExchangeBetweenComponents: DataExchangeBetweenComponents,
         changeDetectorRef: ChangeDetectorRef,
         media: MediaMatcher
@@ -32,10 +34,17 @@ export class DietComponent implements OnInit, OnDestroy {
 
         this.toggleFoodPanelSubscribe = dataExchangeBetweenComponents.data$
             .subscribe(
-                (isOpen) => {
-                    if (typeof isOpen === 'string') {
+                (data) => {
+                    // Toggle food panel
+                    if (typeof data === 'string') {
                         this.foodPanel.toggle();
                         this.dataExchangeBetweenComponents.send(this.foodPanel.opened);
+                    }
+
+                    // Get changed data from food table
+                    if (typeof data === 'object') {
+                        console.log(data);
+                        this.foodService.updateFood(data);
                     }
                 }
             );

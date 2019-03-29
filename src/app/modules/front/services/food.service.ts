@@ -4,6 +4,12 @@ import {catchError} from 'rxjs/internal/operators';
 import {FoodInterface} from '../../../interfaces/food.interface';
 import {Injectable} from '@angular/core';
 
+const httpOptions = {
+    headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+    })
+};
+
 @Injectable({ providedIn: 'root' })
 export class FoodService {
 
@@ -18,6 +24,14 @@ export class FoodService {
         return this.http.get<FoodInterface[]>(this.url).pipe(
             catchError(this.handleError<FoodInterface[]>('getFood', []))
         );
+    }
+
+    updateFood(food: FoodInterface): Observable<FoodInterface> {
+        console.log(123, food);
+        return this.http.put<FoodInterface>(this.url, food, httpOptions)
+            .pipe(
+                catchError(this.handleError('updateFood', food))
+            );
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

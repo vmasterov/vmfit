@@ -15,6 +15,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FoodPanelTableComponent } from './components/food-panel-table/food-panel-table.component';
 import {MatTableModule} from '@angular/material/table';
+import { SidenavToolPanelComponent } from './components/sidenav-tool-panel/sidenav-tool-panel.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import {MatTableModule} from '@angular/material/table';
         FoodPanelAccordeonComponent,
         FoodPanelTableComponent,
         ClickOutsideDirective,
-        AutofocusDirective
+        AutofocusDirective,
+        SidenavToolPanelComponent
     ],
     imports: [
         CommonModule,

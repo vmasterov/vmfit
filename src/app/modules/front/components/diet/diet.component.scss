@@ -9,3 +9,11 @@
 .food-sidenav {
   width: 555px;
 }
+
+
+/* Media queries */
+@media(max-width: 560px){
+  .food-sidenav{
+    width: 100%;
+  }
+}

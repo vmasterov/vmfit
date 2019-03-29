@@ -1,0 +1,10 @@
+<div class="sidenav-tool">
+    <button
+        mat-raised-button
+        color="primary"
+        (click)="getDBData($event)"
+    >
+        Get DB data</button>
+    <hr>
+    <pre>{{ food | json }}</pre>
+</div>

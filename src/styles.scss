@@ -33,3 +33,11 @@ body{
 .food-accordion .mat-expansion-panel-content > .mat-expansion-panel-body{
   padding: 0;
 }
+
+
+/* Media queries */
+@media(max-width: 560px){
+  .vm__mobile-hide{
+    display: none !important;
+  }
+}
