@@ -9,8 +9,7 @@ import {DietComponent} from './components/diet/diet.component';
 
 import { FoodPanelAccordeonComponent } from './components/food-panel-accordion/food-panel-accordion.component';
 import { SidenavToolPanelComponent } from './components/sidenav-tool-panel/sidenav-tool-panel.component';
-// import { FoodPanelTableComponent } from './components/food-panel-table/food-panel-table.component';
-import {FoodPanelTable1Component} from "./components/food-panel-table1/food-panel-table1.component";
+import { FoodPanelTableComponent } from './components/food-panel-table/food-panel-table.component';
 
 // Material
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -25,11 +24,10 @@ import {MatTableModule} from '@angular/material/table';
     declarations: [
         DietComponent,
         FoodPanelAccordeonComponent,
-        // FoodPanelTableComponent,
+        FoodPanelTableComponent,
         ClickOutsideDirective,
         AutofocusDirective,
-        SidenavToolPanelComponent,
-        FoodPanelTable1Component
+        SidenavToolPanelComponent
     ],
     imports: [
         CommonModule,

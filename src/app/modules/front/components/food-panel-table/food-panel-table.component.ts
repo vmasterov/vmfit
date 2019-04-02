@@ -3,7 +3,7 @@ import {FoodService} from '../../services/food.service';
 import {FoodInterface} from '../../../../interfaces/food.interface';
 import {FoodTableRowInterface} from '../../../../interfaces/food-table-row.interface';
 import {DataExchangeBetweenComponents} from '../../../../services/data-exchange-between-components.service';
-import {Subscription} from "rxjs/index";
+import {Subscription} from 'rxjs/index';
 
 @Component({
     selector: 'app-food-panel-table',
@@ -22,10 +22,9 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
     currentRowNumber: string;
     changeFoodData: Subscription;
 
-    constructor(
-        private dataExchangeBetweenComponents: DataExchangeBetweenComponents,
-        private foodService: FoodService
-    ) {}
+    constructor(private dataExchangeBetweenComponents: DataExchangeBetweenComponents,
+                private foodService: FoodService) {
+    }
 
     edit(element: FoodTableRowInterface, rowNumber) {
         this.currentFieldID = element[rowNumber + 'ID'];
@@ -52,7 +51,7 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
         const itemName = input.getAttribute('data-item-name');
         // const value1 = input.value;
 
-         // console.log(groupID, itemID, itemName);
+        // console.log(groupID, itemID, itemName);
 
         // foodObject.group[11].items[itemID][itemName] = 'waca';
         return foodObject;
@@ -88,15 +87,11 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
             }
         }
 
-        // this.dataSource = this.foodTableRowsArray;
-
-        // this.dataSource = this.foodForOnePanel.group[1].items;
-
+        this.dataSource = this.foodTableRowsArray;
     }
 
     ngOnInit() {
         this.createFoodTableRowsArray(this.foodForOnePanel, this.displayedColumns);
-        console.log(this.foodForOnePanel);
     }
 
     ngOnDestroy() {
