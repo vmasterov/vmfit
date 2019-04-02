@@ -10,14 +10,14 @@
                 <span
                     [ngClass]="{
                         'food-table__field-name': true,
-                        'vm__hide': currentFieldID === element.nameID
+                        'vm__hide': false
                     }"
                     (click)="edit(element, displayedColumns[0])"
                 >
-                    {{element.name}}
+                    {{element.itemName}}
                 </span>
                 <input
-                    *ngIf="currentFieldID === element.nameID"
+                    *ngIf="false"
                     [ngClass]="{
                         'food-table__field-input': true
                     }"
@@ -41,14 +41,14 @@
                 <span
                     [ngClass]="{
                         'food-table__field-name': true,
-                        'vm__hide': currentFieldID === element.proteinID
+                        'vm__hide': false
                     }"
                     (click)="edit(element, displayedColumns[1])"
                 >
-                    {{element.protein}}
+                    {{element.nutrients.protein}}
                 </span>
                 <input
-                    *ngIf="currentFieldID === element.proteinID"
+                    *ngIf="false"
                     [ngClass]="{'food-table__field-input': true}"
                     [appAutoFocus]
                     (blur)="checkIsEmpty($event)"
@@ -70,14 +70,14 @@
                 <span
                     [ngClass]="{
                         'food-table__field-name': true,
-                        'vm__hide': currentFieldID === element.carbsID
+                        'vm__hide': false
                     }"
                     (click)="edit(element, displayedColumns[2])"
                 >
-                    {{element.carbs}}
+                    {{element.nutrients.carbs}}
                 </span>
                 <input
-                    *ngIf="currentFieldID === element.carbsID"
+                    *ngIf="false"
                     [ngClass]="{'food-table__field-input': true}"
                     [appAutoFocus]
                     (blur)="checkIsEmpty($event)"
@@ -99,14 +99,14 @@
                 <span
                     [ngClass]="{
                         'food-table__field-name': true,
-                        'vm__hide': currentFieldID === element.fatID
+                        'vm__hide': currentElement === displayedColumns[3] + '_' + element.id
                     }"
                     (click)="edit(element, displayedColumns[3])"
                 >
-                    {{element.fat}}
+                    {{element.nutrients.fat}}
                 </span>
                 <input
-                    *ngIf="currentFieldID === element.fatID"
+                    *ngIf="currentElement === displayedColumns[3] + '_' + element.id"
                     [ngClass]="{'food-table__field-input': true}"
                     [appAutoFocus]
                     (blur)="checkIsEmpty($event)"
@@ -128,14 +128,14 @@
                 <span
                     [ngClass]="{
                         'food-table__field-name': true,
-                        'vm__hide': currentFieldID === element.caloriesID
+                        'vm__hide': currentElement === displayedColumns[4] + '_' + element.id
                     }"
                     (click)="edit(element, displayedColumns[4])"
                 >
-                    {{element.calories}}
+                    {{element.nutrients.calories}}
                 </span>
                 <input
-                    *ngIf="currentFieldID === element.caloriesID"
+                    *ngIf="currentElement === displayedColumns[4] + '_' + element.id"
                     [ngClass]="{'food-table__field-input': true}"
                     [appAutoFocus]
                     (blur)="checkIsEmpty($event)"
@@ -147,6 +147,7 @@
                     [attr.data-item-name]="displayedColumns[4]"
                 >
             </div>
+            <!--currentFieldID === element.caloriesID-->
         </td>
     </ng-container>
     

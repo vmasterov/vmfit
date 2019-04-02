@@ -22,15 +22,16 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
     currentRowNumber: string;
     changeFoodData: Subscription;
 
+    // new
+    currentElement: any;
+
     constructor(private dataExchangeBetweenComponents: DataExchangeBetweenComponents,
                 private foodService: FoodService) {
     }
 
-    edit(element: FoodTableRowInterface, rowNumber) {
-        this.currentFieldID = element[rowNumber + 'ID'];
-        this.currentFieldName = element.name;
-        this.currentFoodRow = element;
-        this.currentRowNumber = rowNumber;
+    edit(i, d) {
+        this.currentElement = d + '_' + i.id;
+        console.log(this.currentElement);
     }
 
     checkIsEmpty(event) {
@@ -42,6 +43,8 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
 
         this.currentFieldID = undefined;
         this.currentFieldName = undefined;
+
+        this.currentElement = undefined;
     }
 
     createChangedFoodObject(input: HTMLElement, foodObject: FoodInterface) {
@@ -59,6 +62,8 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
 
     createFoodTableRowsArray(foodFormDB: FoodInterface, displayedColumnsTable: string[]) {
 
+        this.dataSource = foodFormDB.group;
+        /*
         this.foodTableRowsArray = [];
         for (let i = 0, l = foodFormDB.group.length; i < l; i++) {
             for (let i1 = 0, l1 = foodFormDB.group[i].items.length; i1 < l1; i1++) {
@@ -87,7 +92,9 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
             }
         }
 
-        this.dataSource = this.foodTableRowsArray;
+        // this.dataSource = this.foodTableRowsArray;
+        this.dataSource = foodFormDB.group;
+        */
     }
 
     ngOnInit() {
