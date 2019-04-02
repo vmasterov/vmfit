@@ -32,7 +32,7 @@ export class DietComponent implements OnInit, OnDestroy {
         this._mobileQueryListener = () => changeDetectorRef.detectChanges();
         this.mobileQuery1024.addListener(this._mobileQueryListener);
 
-        this.toggleFoodPanelSubscribe = dataExchangeBetweenComponents.data$
+        /*this.toggleFoodPanelSubscribe = dataExchangeBetweenComponents.data$
             .subscribe(
                 (data) => {
                     // Toggle food panel
@@ -43,14 +43,37 @@ export class DietComponent implements OnInit, OnDestroy {
 
                     // Get changed data from food table
                     if (typeof data === 'object') {
-                        console.log(data);
-                        this.foodService.updateFood(data);
+                        let tt = this.foodService.updateFood(data).subscribe(
+                            data1 => {
+                                console.log('data:', data);
+                                console.log('data1:', data1);
+                            }
+                        );
                     }
                 }
-            );
+            );*/
     }
 
     ngOnInit() {
+        this.toggleFoodPanelSubscribe = this.dataExchangeBetweenComponents.data$
+            .subscribe(
+                (data) => {
+                    // Toggle food panel
+                    if (typeof data === 'string') {
+                        this.foodPanel.toggle();
+                        this.dataExchangeBetweenComponents.send(this.foodPanel.opened);
+                    }
+
+                    // Get changed data from food table
+                    if (typeof data === 'object') {
+                        let tt = this.foodService.updateFood(data).subscribe(
+                            data1 => {
+                                console.log('data2:', data1);
+                            }
+                        );
+                    }
+                }
+            );
     }
 
     openedChangeFoodPanel() {

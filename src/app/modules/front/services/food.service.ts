@@ -5,9 +5,7 @@ import {FoodInterface} from '../../../interfaces/food.interface';
 import {Injectable} from '@angular/core';
 
 const httpOptions = {
-    headers: new HttpHeaders({
-        'Content-Type':  'application/json'
-    })
+    headers: new HttpHeaders()
 };
 
 @Injectable({ providedIn: 'root' })
@@ -26,8 +24,7 @@ export class FoodService {
         );
     }
 
-    updateFood(food: FoodInterface): Observable<FoodInterface> {
-        console.log(123, food);
+    updateFood(food: any): Observable<any> {
         return this.http.put<FoodInterface>(this.url, food, httpOptions)
             .pipe(
                 catchError(this.handleError('updateFood', food))

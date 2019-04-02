@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './services/in-memory-data.service';
 import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -23,14 +24,18 @@ import {MatIconModule} from '@angular/material/icon';
     declarations: [
         AppComponent,
         HeaderComponent,
-        Error404Component,
+        Error404Component
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        FormsModule,
         HttpClientInMemoryWebApiModule.forRoot(
-            InMemoryDataService, {dataEncapsulation: false}
+            InMemoryDataService, {
+                dataEncapsulation: false,
+                put204: false
+            }
         ),
 
         // Material
