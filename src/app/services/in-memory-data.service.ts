@@ -9,7 +9,7 @@ export class InMemoryDataService implements InMemoryDbService {
         const food = [
             {
                 id: 1,
-                name: 'Мясо',
+                name: 'Жопа',
                 group: [
                     {
                         id: 11,
