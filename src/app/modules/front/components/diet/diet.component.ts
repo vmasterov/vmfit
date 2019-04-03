@@ -68,7 +68,7 @@ export class DietComponent implements OnInit, OnDestroy {
                     if (typeof data === 'object') {
                         let tt = this.foodService.updateFood(data).subscribe(
                             data1 => {
-                                console.log('data2:', data1);
+                                // console.log('data2:', data1);
                             }
                         );
                     }
