@@ -5,6 +5,25 @@ import {FoodTableRowInterface} from '../../../../interfaces/food-table-row.inter
 import {DataExchangeBetweenComponents} from '../../../../services/data-exchange-between-components.service';
 import {Subscription} from 'rxjs/index';
 
+export class RowDataInterface {
+    id: number;
+    groupName: string;
+    itemName: string;
+    nutrients: {
+        protein: string;
+        carbs: string;
+        fat: string;
+        calories: string;
+    };
+}
+
+export class ChangeFoodObjectInterface {
+    currentRowData: RowDataInterface;
+    currentColumnsName: string;
+    inputValue: string;
+    foodForOnePanel: FoodInterface;
+}
+
 @Component({
     selector: 'app-food-panel-table',
     templateUrl: './food-panel-table.component.html',
@@ -24,38 +43,43 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
 
     // new
     currentElement: any;
-    ii: any;
-    dd: any;
+    currentRowData: RowDataInterface;
+    currentColumnsName: string;
 
-    constructor(private dataExchangeBetweenComponents: DataExchangeBetweenComponents,
-                private foodService: FoodService) {
+    constructor(
+        private dataExchangeBetweenComponents: DataExchangeBetweenComponents,
+        private foodService: FoodService
+    ) {
     }
 
-    edit(i, d) {
-        this.ii= i;
-        this.dd = d;
-        this.currentElement = d + '_' + i.id;
+    edit(rowData: RowDataInterface, columnsName: string) {
+        this.currentRowData = rowData;
+        this.currentColumnsName = columnsName;
+        this.currentElement = columnsName + '_' + rowData.id;
     }
 
     checkIsEmpty(event) {
         if (event.target.value.trim().length) {
-
-            this.changeFoodObject(this.ii, this.dd, event.target.value);
+            this.changeFoodObject({
+                currentRowData: this.currentRowData,
+                currentColumnsName: this.currentColumnsName,
+                inputValue: event.target.value,
+                foodForOnePanel: this.foodForOnePanel
+            });
 
             // this.dataExchangeBetweenComponents.send(this.createChangedFoodObject(event.target, this.foodForOnePanel));
         }
         this.currentElement = undefined;
     }
 
-    changeFoodObject(qw, wq, ee) {
-        console.log(wq, this.displayedColumns[0]);
-        if (qw === this.displayedColumns[0]) {
-            this.foodForOnePanel.group[0][qw] = ee;
+    changeFoodObject(settings: ChangeFoodObjectInterface) {
+        if (settings.currentColumnsName === this.displayedColumns[0]) {
+            settings.foodForOnePanel.group[0][settings.currentColumnsName] = settings.inputValue;
         }
         else {
-            this.foodForOnePanel.group[0]['nutrients'] = ee;
+            settings.foodForOnePanel.group[0].nutrients[settings.currentColumnsName] = settings.inputValue;
         }
-        // console.log(this.foodForOnePanel);
+        console.log(this.foodForOnePanel);
     }
 
     createChangedFoodObject(input: HTMLElement, foodObject: FoodInterface) {
