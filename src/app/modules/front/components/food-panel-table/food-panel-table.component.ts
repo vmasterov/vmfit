@@ -13,7 +13,7 @@ import {Subscription} from 'rxjs/index';
 export class FoodPanelTableComponent implements OnInit, OnDestroy {
     @Input() foodForOnePanel: FoodInterface;
 
-    displayedColumns: string[] = ['name', 'protein', 'carbs', 'fat', 'calories', 'add', 'remove'];
+    displayedColumns: string[] = ['itemName', 'protein', 'carbs', 'fat', 'calories', 'add', 'remove'];
     dataSource: any;
     foodTableRowsArray: FoodTableRowInterface;
     currentFieldName: string;
@@ -24,27 +24,38 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
 
     // new
     currentElement: any;
+    ii: any;
+    dd: any;
 
     constructor(private dataExchangeBetweenComponents: DataExchangeBetweenComponents,
                 private foodService: FoodService) {
     }
 
     edit(i, d) {
+        this.ii= i;
+        this.dd = d;
         this.currentElement = d + '_' + i.id;
-        console.log(this.currentElement);
     }
 
     checkIsEmpty(event) {
         if (event.target.value.trim().length) {
-            this.currentFoodRow[this.currentRowNumber] = event.target.value;
 
-            this.dataExchangeBetweenComponents.send(this.createChangedFoodObject(event.target, this.foodForOnePanel));
+            this.changeFoodObject(this.ii, this.dd, event.target.value);
+
+            // this.dataExchangeBetweenComponents.send(this.createChangedFoodObject(event.target, this.foodForOnePanel));
         }
-
-        this.currentFieldID = undefined;
-        this.currentFieldName = undefined;
-
         this.currentElement = undefined;
+    }
+
+    changeFoodObject(qw, wq, ee) {
+        console.log(wq, this.displayedColumns[0]);
+        if (qw === this.displayedColumns[0]) {
+            this.foodForOnePanel.group[0][qw] = ee;
+        }
+        else {
+            this.foodForOnePanel.group[0]['nutrients'] = ee;
+        }
+        // console.log(this.foodForOnePanel);
     }
 
     createChangedFoodObject(input: HTMLElement, foodObject: FoodInterface) {

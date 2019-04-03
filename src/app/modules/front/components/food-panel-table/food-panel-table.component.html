@@ -10,14 +10,14 @@
                 <span
                     [ngClass]="{
                         'food-table__field-name': true,
-                        'vm__hide': false
+                        'vm__hide': currentElement === displayedColumns[0] + '_' + element.id
                     }"
                     (click)="edit(element, displayedColumns[0])"
                 >
                     {{element.itemName}}
                 </span>
                 <input
-                    *ngIf="false"
+                    *ngIf="currentElement === displayedColumns[0] + '_' + element.id"
                     [ngClass]="{
                         'food-table__field-input': true
                     }"
@@ -41,14 +41,14 @@
                 <span
                     [ngClass]="{
                         'food-table__field-name': true,
-                        'vm__hide': false
+                        'vm__hide': currentElement === displayedColumns[1] + '_' + element.id
                     }"
                     (click)="edit(element, displayedColumns[1])"
                 >
                     {{element.nutrients.protein}}
                 </span>
                 <input
-                    *ngIf="false"
+                    *ngIf="currentElement === displayedColumns[1] + '_' + element.id"
                     [ngClass]="{'food-table__field-input': true}"
                     [appAutoFocus]
                     (blur)="checkIsEmpty($event)"
@@ -70,14 +70,14 @@
                 <span
                     [ngClass]="{
                         'food-table__field-name': true,
-                        'vm__hide': false
+                        'vm__hide': currentElement === displayedColumns[2] + '_' + element.id
                     }"
                     (click)="edit(element, displayedColumns[2])"
                 >
                     {{element.nutrients.carbs}}
                 </span>
                 <input
-                    *ngIf="false"
+                    *ngIf="currentElement === displayedColumns[2] + '_' + element.id"
                     [ngClass]="{'food-table__field-input': true}"
                     [appAutoFocus]
                     (blur)="checkIsEmpty($event)"
