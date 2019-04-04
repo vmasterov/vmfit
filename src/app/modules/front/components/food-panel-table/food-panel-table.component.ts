@@ -1,25 +1,9 @@
 import {Component, OnInit, Input, OnDestroy} from '@angular/core';
+
 import {FoodInterface} from '../../../../interfaces/food.interface';
+import {ChangeFoodObjectInterface} from '../../../../interfaces/changed-food-object.interface';
+import {FoodTableRowInterface} from '../../../../interfaces/food-table-row.interface';
 import {DataExchangeBetweenComponents} from '../../../../services/data-exchange-between-components.service';
-
-export class RowDataInterface {
-    id: number;
-    groupName: string;
-    itemName: string;
-    nutrients: {
-        protein: string;
-        carbs: string;
-        fat: string;
-        calories: string;
-    };
-}
-
-export class ChangeFoodObjectInterface {
-    currentRowIndex: number;
-    currentColumnsName: string;
-    inputValue: string;
-    foodForOnePanel: FoodInterface;
-}
 
 @Component({
     selector: 'app-food-panel-table',
@@ -29,7 +13,7 @@ export class ChangeFoodObjectInterface {
 export class FoodPanelTableComponent implements OnInit, OnDestroy {
     @Input() foodForOnePanel: FoodInterface;
 
-    dataSource: RowDataInterface[];
+    dataSource: FoodTableRowInterface[];
     displayedColumns: string[] = ['itemName', 'protein', 'carbs', 'fat', 'calories', 'add', 'remove'];
 
     currentElement: string;

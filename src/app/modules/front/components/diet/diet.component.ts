@@ -20,7 +20,7 @@ export class DietComponent implements OnInit, OnDestroy {
     toggleFoodPanelSubscribe: Subscription;
     mobileQuery1024: MediaQueryList;
 
-    private _mobileQueryListener: () => void;
+    private mobileQueryListener: () => void;
 
     constructor(
         private foodService: FoodService,
@@ -29,29 +29,8 @@ export class DietComponent implements OnInit, OnDestroy {
         media: MediaMatcher
     ) {
         this.mobileQuery1024 = media.matchMedia('(max-width: 1024px)');
-        this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-        this.mobileQuery1024.addListener(this._mobileQueryListener);
-
-        /*this.toggleFoodPanelSubscribe = dataExchangeBetweenComponents.data$
-            .subscribe(
-                (data) => {
-                    // Toggle food panel
-                    if (typeof data === 'string') {
-                        this.foodPanel.toggle();
-                        this.dataExchangeBetweenComponents.send(this.foodPanel.opened);
-                    }
-
-                    // Get changed data from food table
-                    if (typeof data === 'object') {
-                        let tt = this.foodService.updateFood(data).subscribe(
-                            data1 => {
-                                console.log('data:', data);
-                                console.log('data1:', data1);
-                            }
-                        );
-                    }
-                }
-            );*/
+        this.mobileQueryListener = () => changeDetectorRef.detectChanges();
+        this.mobileQuery1024.addListener(this.mobileQueryListener);
     }
 
     ngOnInit() {
@@ -63,15 +42,6 @@ export class DietComponent implements OnInit, OnDestroy {
                         this.foodPanel.toggle();
                         this.dataExchangeBetweenComponents.send(this.foodPanel.opened);
                     }
-
-                    // Get changed data from food table
-                    if (typeof data === 'object') {
-                        let tt = this.foodService.updateFood(data).subscribe(
-                            data1 => {
-                                // console.log('data2:', data1);
-                            }
-                        );
-                    }
                 }
             );
     }
@@ -82,6 +52,6 @@ export class DietComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.toggleFoodPanelSubscribe.unsubscribe();
-        this.mobileQuery1024.removeListener(this._mobileQueryListener);
+        this.mobileQuery1024.removeListener(this.mobileQueryListener);
     }
 }

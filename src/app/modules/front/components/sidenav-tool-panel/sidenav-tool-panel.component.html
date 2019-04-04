@@ -3,6 +3,7 @@
         mat-raised-button
         color="primary"
         (click)="getDBData($event)"
+        [disabled]="!updatedFoodObject"
     >
         Get DB data</button>
     <hr>
