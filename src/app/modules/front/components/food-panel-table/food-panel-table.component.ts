@@ -57,6 +57,10 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
         return this.foodForOnePanel;
     }
 
+    deleteRow(event) {
+        console.log('delete:', event.target.getAttribute('data-el'));
+    }
+
     ngOnInit() {
         this.dataSource = this.foodForOnePanel.group;
     }
