@@ -16,6 +16,7 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
     dataSource: FoodTableRowInterface[];
     displayedColumns: string[] = ['itemName', 'protein', 'carbs', 'fat', 'calories', 'add', 'remove'];
 
+    rowIndex: number;
     currentElement: string;
     currentRowIndex: number;
     currentColumnsName: string;
@@ -58,7 +59,8 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
     }
 
     deleteRow(event) {
-        console.log('delete:', event.target.getAttribute('data-el'));
+        this.rowIndex = event.target.getAttribute('data-rowID');
+        console.log('delete:', this.rowIndex);
     }
 
     ngOnInit() {
