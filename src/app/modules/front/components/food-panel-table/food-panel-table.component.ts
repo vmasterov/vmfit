@@ -1,5 +1,7 @@
 import {Component, OnInit, Input, OnDestroy} from '@angular/core';
+import {Subscription} from 'rxjs';
 
+import {FoodService} from '../../services/food.service';
 import {FoodInterface} from '../../../../interfaces/food.interface';
 import {ChangeFoodObjectInterface} from '../../../../interfaces/changed-food-object.interface';
 import {FoodTableRowInterface} from '../../../../interfaces/food-table-row.interface';
@@ -21,7 +23,10 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
     currentRowIndex: number;
     currentColumnsName: string;
 
+    updatedFoodData: Subscription;
+
     constructor(
+        private foodService: FoodService,
         private dataExchangeBetweenComponents: DataExchangeBetweenComponents
     ) {
     }
@@ -47,26 +52,30 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
         this.currentElement = undefined;
     }
 
-    changeFoodObject(settings: ChangeFoodObjectInterface) {
+    changeFoodObject(settings: ChangeFoodObjectInterface): FoodInterface {
         if (settings.currentColumnsName === this.displayedColumns[0]) {
             settings.foodForOnePanel.group[settings.currentRowIndex][settings.currentColumnsName] = settings.inputValue;
         }
         else {
             settings.foodForOnePanel.group[settings.currentRowIndex].nutrients[settings.currentColumnsName] = settings.inputValue;
         }
-        // console.log(this.foodForOnePanel);
-        return this.foodForOnePanel;
+
+        return settings.foodForOnePanel;
     }
 
-    deleteRow(event) {
-        this.rowIndex = event.target.getAttribute('data-rowID');
-        console.log('delete:', this.rowIndex);
+    deleteRow(element) {
+        this.dataSource = this.dataSource.filter(i => i !== element);
+
+        this.foodForOnePanel.group = this.dataSource;
+
+        this.updatedFoodData = this.foodService.updateFood(this.foodForOnePanel).subscribe();
     }
 
     ngOnInit() {
         this.dataSource = this.foodForOnePanel.group;
     }
 
-    ngOnDestroy() {}
-
+    ngOnDestroy() {
+        this.updatedFoodData.unsubscribe();
+    }
 }

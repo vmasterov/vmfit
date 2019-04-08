@@ -17,6 +17,8 @@ export class DietComponent implements OnInit, OnDestroy {
 
     @ViewChild('foodPanel') foodPanel: MatSidenav;
 
+    title = 'План питания';
+
     toggleFoodPanelSubscribe: Subscription;
     mobileQuery1024: MediaQueryList;
 

@@ -17,6 +17,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
+import { DietAccordionComponent } from './components/diet-accordion/diet-accordion.component';
 
 
 
@@ -27,7 +28,8 @@ import {MatTableModule} from '@angular/material/table';
         FoodPanelTableComponent,
         ClickOutsideDirective,
         AutofocusDirective,
-        SidenavToolPanelComponent
+        SidenavToolPanelComponent,
+        DietAccordionComponent
     ],
     imports: [
         CommonModule,

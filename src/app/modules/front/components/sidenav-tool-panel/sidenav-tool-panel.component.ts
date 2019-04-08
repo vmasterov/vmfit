@@ -14,7 +14,7 @@ import {ChangeFoodObjectInterface} from '../../../../interfaces/changed-food-obj
 export class SidenavToolPanelComponent implements OnInit, OnDestroy {
     food: FoodInterface[];
     updatedFoodObject: ChangeFoodObjectInterface;
-    undatedFoodData: Subscription;
+    updatedFoodData: Subscription;
     toggleFoodPanelSubscribe: Subscription;
 
     constructor(
@@ -24,7 +24,7 @@ export class SidenavToolPanelComponent implements OnInit, OnDestroy {
     }
 
     getDBData() {
-        this.undatedFoodData = this.foodService.updateFood(this.updatedFoodObject).subscribe();
+        this.updatedFoodData = this.foodService.updateFood(this.updatedFoodObject).subscribe();
 
         this.foodService.getFood()
             .subscribe(
@@ -49,7 +49,7 @@ export class SidenavToolPanelComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.undatedFoodData.unsubscribe();
+        this.updatedFoodData.unsubscribe();
         this.toggleFoodPanelSubscribe.unsubscribe();
     }
 }
