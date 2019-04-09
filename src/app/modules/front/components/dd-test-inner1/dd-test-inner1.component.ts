@@ -19,7 +19,7 @@ export class DdTestInner1Component implements OnInit{
     innerArr = [
         'innerArr1',
         'innerArr2'
-    ]
+    ];
 
     arr1: any;
 

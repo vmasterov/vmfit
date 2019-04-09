@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {Component} from '@angular/core';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
     selector: 'app-dd-test',
@@ -8,28 +8,36 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 })
 export class DdTestComponent {
 
-    todo = [
-        'Get to work',
-        'Pick up groceries'
+    movies = [
+        'Episode I - The Phantom Menace',
+        'Episode II - Attack of the Clones'
     ];
 
-    done = [
-        'Get up',
-        'Brush teeth'
-    ];
-
-    innerArr = [
-        'I',
-        'can'
+    days = [
+        [
+            [
+                '0-Яблоко',
+                '1-Груша',
+            ],
+            [
+                '2-Слива',
+                '3-Перец',
+            ]
+        ],
+        [
+            [
+                '4-Арбуз',
+                '5-Кукуруза',
+            ],
+            [
+                '6-Малина',
+                '7-Дыня',
+            ]
+        ]
     ];
 
     drop(event: CdkDragDrop<string[]>) {
-        if (event.previousContainer === event.container) {
-            moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-        }
-        else {
-            transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
-        }
+        moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
     }
 
 }
