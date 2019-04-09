@@ -1,0 +1,19 @@
+<div
+        cdkDropList
+        class="example-list"
+        id="lal_{{numb}}"
+        [cdkDropListConnectedTo]="arr1"
+        (cdkDropListDropped)="drop($event)"
+        [cdkDropListData]="movies"
+>
+  <div
+          class="example-box"
+          *ngFor="let movie of movies"
+          cdkDrag
+  >
+
+    <H1>MERGE BRANCHES</H1>
+
+    {{movie}}
+  </div>
+</div>

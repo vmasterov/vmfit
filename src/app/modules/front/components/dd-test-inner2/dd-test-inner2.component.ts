@@ -2,24 +2,19 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
-    selector: 'app-dd-test-inner1',
-    templateUrl: './dd-test-inner1.component.html',
-    styleUrls: ['./dd-test-inner1.component.scss']
+  selector: 'app-dd-test-inner2',
+  templateUrl: './dd-test-inner2.component.html',
+  styleUrls: ['./dd-test-inner2.component.scss']
 })
-export class DdTestInner1Component implements OnInit{
+export class DdTestInner2Component implements OnInit {
     @Input() numb: number;
     @Input() arr: any;
     @Input() movies: any;
 
-    todo1 = [
-        '123',
-        '456'
-    ];
-
-    innerArr = [
-        'innerArr1',
-        'innerArr2'
-    ]
+    /*movies = [
+        'Item #1',
+        'Item #2'
+    ];*/
 
     arr1: any;
 
@@ -41,10 +36,11 @@ export class DdTestInner1Component implements OnInit{
                     continue;
                 }
 
-                this.arr1.push('qw_' + i);
+                this.arr1.push('lal_' + i);
             }
 
             console.log(this.arr1);
         }
     }
+
 }

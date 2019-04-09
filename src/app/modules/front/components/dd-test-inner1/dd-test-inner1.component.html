@@ -1,3 +1,21 @@
-<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-  <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>
+<div
+        cdkDropList
+        class="example-list"
+        id="qw_{{numb}}"
+        [cdkDropListConnectedTo]="arr1"
+        (cdkDropListDropped)="drop($event)"
+        [cdkDropListData]="movies"
+>
+    <div
+            class="example-box"
+            *ngFor="let movie of movies; let i = index"
+            cdkDrag
+    >
+        <p>{{movie}}</p>
+        <app-dd-test-inner2
+                [arr]="todo1"
+                [numb]="i"
+                [movies]="innerArr"
+        ></app-dd-test-inner2>
+    </div>
 </div>

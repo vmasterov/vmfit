@@ -21,6 +21,7 @@ import { DietAccordionComponent } from './components/diet-accordion/diet-accordi
 import { DdTestComponent } from './components/dd-test/dd-test.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { DdTestInner1Component } from './components/dd-test-inner1/dd-test-inner1.component';
+import { DdTestInner2Component } from './components/dd-test-inner2/dd-test-inner2.component';
 
 
 
@@ -34,7 +35,8 @@ import { DdTestInner1Component } from './components/dd-test-inner1/dd-test-inner
         SidenavToolPanelComponent,
         DietAccordionComponent,
         DdTestComponent,
-        DdTestInner1Component
+        DdTestInner1Component,
+        DdTestInner2Component
     ],
     imports: [
         CommonModule,

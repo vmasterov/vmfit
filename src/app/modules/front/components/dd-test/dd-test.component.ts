@@ -10,17 +10,17 @@ export class DdTestComponent {
 
     todo = [
         'Get to work',
-        'Pick up groceries',
-        'Go home',
-        'Fall asleep'
+        'Pick up groceries'
     ];
 
     done = [
         'Get up',
-        'Brush teeth',
-        'Take a shower',
-        'Check e-mail',
-        'Walk dog'
+        'Brush teeth'
+    ];
+
+    innerArr = [
+        'I',
+        'can'
     ];
 
     drop(event: CdkDragDrop<string[]>) {
