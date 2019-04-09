@@ -16,20 +16,6 @@ export class FoodPanelAccordeonComponent implements OnInit {
     ) {
     }
 
-    panelOpen(panel) {
-        // console.log('I am opened', panel);
-    }
-
-    panelClosed(panel) {
-        // console.log('I am closed', panel);
-        // panel.remove();
-        // console.log(panel._document.activeElement.parentElement);
-    }
-
-    remove(panel) {
-        // panel._document.activeElement.parentElement.remove();
-    }
-
     ngOnInit() {
         this.foodService.getFood()
             .subscribe(

@@ -18,6 +18,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 import { DietAccordionComponent } from './components/diet-accordion/diet-accordion.component';
+import { DdTestComponent } from './components/dd-test/dd-test.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DdTestInner1Component } from './components/dd-test-inner1/dd-test-inner1.component';
 
 
 
@@ -29,7 +32,9 @@ import { DietAccordionComponent } from './components/diet-accordion/diet-accordi
         ClickOutsideDirective,
         AutofocusDirective,
         SidenavToolPanelComponent,
-        DietAccordionComponent
+        DietAccordionComponent,
+        DdTestComponent,
+        DdTestInner1Component
     ],
     imports: [
         CommonModule,
@@ -41,7 +46,8 @@ import { DietAccordionComponent } from './components/diet-accordion/diet-accordi
         MatIconModule,
         MatButtonModule,
         MatExpansionModule,
-        MatTableModule
+        MatTableModule,
+        DragDropModule
     ]
 })
 export class FrontModule {
