@@ -1,21 +1,16 @@
 <div
         cdkDropList
         class="example-list"
-        id="qw_{{numb}}"
+        id="eating_{{eatingID}}"
         [cdkDropListConnectedTo]="arr1"
         (cdkDropListDropped)="drop($event)"
-        [cdkDropListData]="movies"
+        [cdkDropListData]="eating"
 >
     <div
             class="example-box"
-            *ngFor="let movie of movies; let i = index"
             cdkDrag
     >
-        <p>{{movie}}</p>
-        <app-dd-test-inner2
-                [arr]="todo1"
-                [numb]="i"
-                [movies]="innerArr"
-        ></app-dd-test-inner2>
+        <p>{{eating.name}}</p>
+        <!--<app-dd-test-inner2></app-dd-test-inner2>-->
     </div>
 </div>

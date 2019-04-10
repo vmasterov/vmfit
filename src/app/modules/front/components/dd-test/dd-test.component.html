@@ -1,4 +1,21 @@
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-    <!--<div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>-->
-    <div class="example-box" *ngFor="let day of days; let dayID = index" cdkDrag>day-{{dayID}}</div>
+    <!--<div class="example-box" *ngFor="let movie of movies; let movieID = index" cdkDrag>{{movie.prop}}</div>-->
+    <div class="example-box" *ngFor="let day of days; let dayID = index" cdkDrag>
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>{{day.name}}</mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <ng-template matExpansionPanelContent>
+                    <app-dd-test-inner1
+                            *ngFor="let eating of day.eatings; let eatingID = index"
+                            [eating]="eating"
+                            [eatingID]="eatingID"
+                            [movies]="innerArr"
+                    ></app-dd-test-inner1>
+                </ng-template>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
 </div>

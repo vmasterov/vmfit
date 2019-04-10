@@ -6,22 +6,10 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
     templateUrl: './dd-test-inner1.component.html',
     styleUrls: ['./dd-test-inner1.component.scss']
 })
-export class DdTestInner1Component implements OnInit{
-    @Input() numb: number;
-    @Input() arr: any;
-    @Input() movies: any;
-
-    todo1 = [
-        '123',
-        '456'
-    ];
-
-    innerArr = [
-        'innerArr1',
-        'innerArr2'
-    ];
-
-    arr1: any;
+export class DdTestInner1Component implements OnInit {
+    @Input() eating;
+    @Input() eatingID;
+    @Input() movies;
 
     drop(event: CdkDragDrop<string[]>) {
         if (event.previousContainer === event.container) {
@@ -37,7 +25,7 @@ export class DdTestInner1Component implements OnInit{
             this.arr1 = [];
 
             for (let i = 0, l = this.arr.length; i < l; i++) {
-                if (i === this.numb) {
+                if (i === this.eatingID) {
                     continue;
                 }
 
