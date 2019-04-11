@@ -7,16 +7,13 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
   styleUrls: ['./dd-test-inner2.component.scss']
 })
 export class DdTestInner2Component implements OnInit {
-    @Input() numb: number;
-    @Input() arr: any;
-    @Input() movies: any;
+    @Input() products;
+    @Input() eatingID: number;
+    @Input() eatingsLength: number;
+    @Input() dayID: number;
+    @Input() daysLength: number;
 
-    /*movies = [
-        'Item #1',
-        'Item #2'
-    ];*/
-
-    arr1: any;
+    connectedTo: string[];
 
     drop(event: CdkDragDrop<string[]>) {
         if (event.previousContainer === event.container) {
@@ -27,20 +24,21 @@ export class DdTestInner2Component implements OnInit {
         }
     }
 
-    ngOnInit() {
-        if (this.arr) {
-            this.arr1 = [];
+    createConnectedToArray(length: number, id: number) {
+        const array = [];
 
-            for (let i = 0, l = this.arr.length; i < l; i++) {
-                if (i === this.numb) {
-                    continue;
-                }
-
-                this.arr1.push('lal_' + i);
+        for (let i = 1, l = length; i <= l; i++) {
+            if (i !== id) {
+                array.push('product_' + this.dayID + i);
             }
-
-            console.log(this.arr1);
         }
+        // console.log(array);
+        return array;
+    }
+
+    ngOnInit() {
+        console.log(this.dayID, this.daysLength);
+        this.connectedTo = this.createConnectedToArray(this.eatingsLength, this.eatingID);
     }
 
 }

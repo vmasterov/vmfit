@@ -21,7 +21,7 @@ export class DdTestComponent {
                 {
                     id: 11,
                     name: 'eating1',
-                    food: [
+                    product: [
                         '0-Яблоко',
                         '1-Груша'
                     ]
@@ -29,7 +29,7 @@ export class DdTestComponent {
                 {
                     id: 12,
                     name: 'eating2',
-                    food: [
+                    product: [
                         '2-Слива',
                         '3-Перец'
                     ]
@@ -42,45 +42,22 @@ export class DdTestComponent {
             eatings: [
                 {
                     id: 21,
-                    name: 'eating',
-                    food: [
+                    name: 'eating3',
+                    product: [
                         '4-Арбуз',
                         '5-Кукуруза'
                     ]
                 },
                 {
                     id: 22,
-                    name: 'eating',
-                    food: [
+                    name: 'eating4',
+                    product: [
                         '6-Малина',
                         '7-Дыня'
                     ]
                 }
             ]
         }
-    ];
-
-    days1 = [
-        [
-            [
-                '0-Яблоко',
-                '1-Груша',
-            ],
-            [
-                '2-Слива',
-                '3-Перец',
-            ]
-        ],
-        [
-            [
-                '4-Арбуз',
-                '5-Кукуруза',
-            ],
-            [
-                '6-Малина',
-                '7-Дыня',
-            ]
-        ]
     ];
 
     drop(event: CdkDragDrop<string[]>) {

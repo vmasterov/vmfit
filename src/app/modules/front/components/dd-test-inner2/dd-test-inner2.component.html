@@ -1,16 +1,16 @@
 <div
-        cdkDropList
-        class="example-list"
-        id="lal_{{numb}}"
-        [cdkDropListConnectedTo]="arr1"
-        (cdkDropListDropped)="drop($event)"
-        [cdkDropListData]="movies"
+    cdkDropList
+    class="example-list"
+    id="product_{{eatingID}}"
+    [cdkDropListConnectedTo]="connectedTo"
+    (cdkDropListDropped)="drop($event)"
+    [cdkDropListData]="products"
 >
   <div
-          class="example-box"
-          *ngFor="let movie of movies"
-          cdkDrag
+      *ngFor="let product of products"
+      class="example-box"
+      cdkDrag
   >
-    {{movie}}
+    <p>{{product}}</p>
   </div>
 </div>
