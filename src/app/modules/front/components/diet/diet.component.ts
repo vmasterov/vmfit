@@ -17,7 +17,7 @@ export class DietComponent implements OnInit, OnDestroy {
 
     @ViewChild('foodPanel') foodPanel: MatSidenav;
 
-    title = 'передовать days в дочерние компоненты, чтобы отследить общее кол-во приёмов пищи во все дни и кол-во продуктов, чтобы назначить этим элементам уникальный ID, чтобы можно было перетаскивать дни, приёмы пищи и продукты в пределах всего режима';
+    title = 'Переименовать модули, навести в них порядок';
 
     toggleFoodPanelSubscribe: Subscription;
     mobileQuery1024: MediaQueryList;

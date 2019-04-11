@@ -8,6 +8,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 })
 export class DdTestInner1Component implements OnInit {
     @Input() eatings;
+    @Input() days;
     @Input() dayID: number;
     @Input() daysLength: number;
 

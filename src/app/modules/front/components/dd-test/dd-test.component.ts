@@ -7,12 +7,6 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
     styleUrls: ['./dd-test.component.scss']
 })
 export class DdTestComponent {
-
-    movies = [
-        'Episode I - The Phantom Menace',
-        'Episode II - Attack of the Clones'
-    ];
-
     days = [
         {
             id: 1,
@@ -22,18 +16,27 @@ export class DdTestComponent {
                     id: 11,
                     name: 'eating1',
                     product: [
-                        '0-Яблоко',
-                        '1-Груша'
+                        'Яблоко',
+                        'Груша'
                     ]
                 },
                 {
                     id: 12,
                     name: 'eating2',
                     product: [
-                        '2-Слива',
-                        '3-Перец'
+                        'Слива',
+                        'Перец'
                     ]
-                }
+                },
+                {
+                    id: 13,
+                    name: 'eating3',
+                    product: [
+                        'Картофель',
+                        'Свёкла',
+                        'Огурец',
+                    ]
+                },
             ]
         },
         {
@@ -42,26 +45,47 @@ export class DdTestComponent {
             eatings: [
                 {
                     id: 21,
-                    name: 'eating3',
+                    name: 'eating4',
                     product: [
-                        '4-Арбуз',
-                        '5-Кукуруза'
+                        'Арбуз',
+                        'Кукуруза'
                     ]
                 },
                 {
                     id: 22,
-                    name: 'eating4',
+                    name: 'eating5',
                     product: [
-                        '6-Малина',
-                        '7-Дыня'
+                        'Малина',
+                        'Дыня'
                     ]
                 }
             ]
-        }
+        },
+        {
+            id: 3,
+            name: 'day3',
+            eatings: [
+                {
+                    id: 31,
+                    name: 'eating6',
+                    product: [
+                        'Фейхуа',
+                        'Свинина'
+                    ]
+                },
+                {
+                    id: 32,
+                    name: 'eating7',
+                    product: [
+                        'Баранина',
+                        'Конина'
+                    ]
+                }
+            ]
+        },
     ];
 
     drop(event: CdkDragDrop<string[]>) {
-        // moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
         moveItemInArray(this.days, event.previousIndex, event.currentIndex);
     }
 
