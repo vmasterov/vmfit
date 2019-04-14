@@ -1,7 +1,7 @@
 <div
     cdkDropList
     class="example-list"
-    id="eating_{{dayID}}"
+    id="day_{{dayID}}"
     [cdkDropListConnectedTo]="connectedTo"
     (cdkDropListDropped)="drop($event)"
     [cdkDropListData]="eatings"
@@ -12,13 +12,13 @@
         cdkDrag
     >
         <p>{{eating.name}}</p>
-        <app-dd-test-inner2
+        <app-accordion-products
             [products]="eating.product"
             [eatingID]="eating.id"
             [days]="days"
             [dayID]="dayID"
             [eatingsLength]="eatings.length"
             [daysLength]="daysLength"
-        ></app-dd-test-inner2>
+        ></app-accordion-products>
     </div>
 </div>

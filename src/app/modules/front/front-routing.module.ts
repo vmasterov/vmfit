@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-import {DietComponent} from './components/diet/diet.component';
+import {MainComponent} from './components/diet-components/main/main.component';
 
 const routes: Routes = [
-    {path: 'diet', component: DietComponent},
+    {path: 'diet', component: MainComponent},
     {path: '', redirectTo: '/diet', pathMatch: 'full'}
 ];
 

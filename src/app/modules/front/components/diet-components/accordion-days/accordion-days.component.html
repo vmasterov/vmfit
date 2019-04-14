@@ -6,12 +6,12 @@
                     <mat-panel-title>{{day.name}}</mat-panel-title>
                 </mat-expansion-panel-header>
                 
-                <app-dd-test-inner1
+                <app-accordion-eatings
                     [eatings]="day.eatings"
                     [days]="days"
                     [dayID]="day.id"
                     [daysLength]="days.length"
-                ></app-dd-test-inner1>
+                ></app-accordion-eatings>
             </mat-expansion-panel>
         </mat-accordion>
     </div>

@@ -2,11 +2,11 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
-  selector: 'app-dd-test-inner2',
-  templateUrl: './dd-test-inner2.component.html',
-  styleUrls: ['./dd-test-inner2.component.scss']
+    selector: 'app-accordion-products',
+    templateUrl: './accordion-products.component.html',
+    styleUrls: ['./accordion-products.component.scss']
 })
-export class DdTestInner2Component implements OnInit {
+export class AccordionProductsComponent implements OnInit {
     @Input() products;
     @Input() eatingID: number;
     @Input() eatingsLength: number;
@@ -19,10 +19,13 @@ export class DdTestInner2Component implements OnInit {
     drop(event: CdkDragDrop<string[]>) {
         if (event.previousContainer === event.container) {
             moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+            // console.log('no change');
         }
         else {
             transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+            // console.log('change');
         }
+        // console.log(this.connectedTo);
     }
 
     createConnectedToArray(length: number, id: number) {
@@ -30,14 +33,12 @@ export class DdTestInner2Component implements OnInit {
         let currentID;
 
         for (let i = 1, l = this.daysLength; i <= l; i++) {
-            // for (let i1 = 1, l1 = this.eatingsLength; i1 <= l1; i1++) {
             for (let i1 = 1, l1 = this.days[i - 1].eatings.length; i1 <= l1; i1++) {
                 currentID = i + '' + i1;
 
                 if (+currentID !== this.eatingID) {
-                    array.push('product_' + currentID);
+                    array.push('eating_' + currentID);
                 }
-                // array.push('product_' + currentID);
             }
         }
 
@@ -47,6 +48,7 @@ export class DdTestInner2Component implements OnInit {
 
     ngOnInit() {
         this.connectedTo = this.createConnectedToArray(this.eatingsLength, this.eatingID);
+        // console.log(1);
     }
 
 }

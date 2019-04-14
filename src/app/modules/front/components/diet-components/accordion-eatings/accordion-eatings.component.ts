@@ -2,11 +2,11 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
-    selector: 'app-dd-test-inner1',
-    templateUrl: './dd-test-inner1.component.html',
-    styleUrls: ['./dd-test-inner1.component.scss']
+    selector: 'app-accordion-eatings',
+    templateUrl: './accordion-eatings.component.html',
+    styleUrls: ['./accordion-eatings.component.scss']
 })
-export class DdTestInner1Component implements OnInit {
+export class AccordionEatingsComponent implements OnInit {
     @Input() eatings;
     @Input() days;
     @Input() dayID: number;
@@ -28,7 +28,7 @@ export class DdTestInner1Component implements OnInit {
 
         for (let i = 1, l = length; i <= l; i++) {
             if (i !== id) {
-                array.push('eating_' + i);
+                array.push('day_' + i);
             }
         }
 

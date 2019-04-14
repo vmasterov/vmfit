@@ -1,19 +1,19 @@
 import {Component, OnInit, OnDestroy, ViewChild, ChangeDetectorRef} from '@angular/core';
 import {Subscription} from "rxjs/index";
 
-import {DataExchangeBetweenComponents} from '../../../../services/data-exchange-between-components.service';
-import {FoodService} from '../../services/food.service';
+import {DataExchangeBetweenComponents} from '../../../../../services/data-exchange-between-components.service';
+import {FoodService} from '../../../services/food.service';
 
 // Material
 import {MatSidenav} from '@angular/material';
 import {MediaMatcher} from '@angular/cdk/layout';
 
 @Component({
-    selector: 'app-diet',
-    templateUrl: './diet.component.html',
-    styleUrls: ['./diet.component.scss']
+    selector: 'app-main',
+    templateUrl: './main.component.html',
+    styleUrls: ['./main.component.scss']
 })
-export class DietComponent implements OnInit, OnDestroy {
+export class MainComponent implements OnInit, OnDestroy {
 
     @ViewChild('foodPanel') foodPanel: MatSidenav;
 

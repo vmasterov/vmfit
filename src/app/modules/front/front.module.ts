@@ -5,7 +5,10 @@ import {ClickOutsideDirective} from '../../directives/click-outside.directive';
 import {AutofocusDirective} from '../../directives/auto-focus.directive';
 
 import {FrontRoutingModule} from './front-routing.module';
-import {DietComponent} from './components/diet/diet.component';
+import {MainComponent} from './components/diet-components/main/main.component';
+import {AccordionDaysComponent} from './components/diet-components/accordion-days/accordion-days.component';
+import {AccordionEatingsComponent} from './components/diet-components/accordion-eatings/accordion-eatings.component';
+import {AccordionProductsComponent} from './components/diet-components/accordion-products/accordion-products.component';
 
 import { FoodPanelAccordeonComponent } from './components/food-panel-accordion/food-panel-accordion.component';
 import { SidenavToolPanelComponent } from './components/sidenav-tool-panel/sidenav-tool-panel.component';
@@ -17,26 +20,19 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
-import { DietAccordionComponent } from './components/diet-accordion/diet-accordion.component';
-import { DdTestComponent } from './components/dd-test/dd-test.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import { DdTestInner1Component } from './components/dd-test-inner1/dd-test-inner1.component';
-import { DdTestInner2Component } from './components/dd-test-inner2/dd-test-inner2.component';
-
-
 
 @NgModule({
     declarations: [
-        DietComponent,
+        MainComponent,
         FoodPanelAccordeonComponent,
         FoodPanelTableComponent,
         ClickOutsideDirective,
         AutofocusDirective,
         SidenavToolPanelComponent,
-        DietAccordionComponent,
-        DdTestComponent,
-        DdTestInner1Component,
-        DdTestInner2Component
+        AccordionDaysComponent,
+        AccordionEatingsComponent,
+        AccordionProductsComponent
     ],
     imports: [
         CommonModule,
