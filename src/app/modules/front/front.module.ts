@@ -6,9 +6,9 @@ import {AutofocusDirective} from '../../directives/auto-focus.directive';
 
 import {FrontRoutingModule} from './front-routing.module';
 import {MainComponent} from './components/diet-components/main/main.component';
-import {AccordionDaysComponent} from './components/diet-components/accordion-days/accordion-days.component';
-import {AccordionEatingsComponent} from './components/diet-components/accordion-eatings/accordion-eatings.component';
-import {AccordionProductsComponent} from './components/diet-components/accordion-products/accordion-products.component';
+import {DaysComponent} from './components/diet-components/days/days.component';
+import {EatingsComponent} from './components/diet-components/eatings/eatings.component';
+import {ProductsComponent} from './components/diet-components/products/products.component';
 
 import { FoodPanelAccordeonComponent } from './components/food-panel-accordion/food-panel-accordion.component';
 import { SidenavToolPanelComponent } from './components/sidenav-tool-panel/sidenav-tool-panel.component';
@@ -30,9 +30,9 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
         ClickOutsideDirective,
         AutofocusDirective,
         SidenavToolPanelComponent,
-        AccordionDaysComponent,
-        AccordionEatingsComponent,
-        AccordionProductsComponent
+        DaysComponent,
+        EatingsComponent,
+        ProductsComponent
     ],
     imports: [
         CommonModule,

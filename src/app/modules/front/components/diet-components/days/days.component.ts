@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
-    selector: 'app-accordion-days',
-    templateUrl: './accordion-days.component.html',
-    styleUrls: ['./accordion-days.component.scss']
+    selector: 'app-days',
+    templateUrl: './days.component.html',
+    styleUrls: ['./days.component.scss']
 })
-export class AccordionDaysComponent implements OnInit{
+export class DaysComponent implements OnInit{
     days = [
         {
             id: 1,
@@ -85,15 +85,15 @@ export class AccordionDaysComponent implements OnInit{
         },
     ];
 
-    ConnectDays: string[] = [];
-    ConnectEatings: string[] = [];
+    connectDays: string[] = [];
+    connectEatings: string[] = [];
 
     createConnectArrays(days: any): void {
         for (let i = 1, l = days.length; i <= l; i++) {
-            this.ConnectDays.push('day_' + i);
+            this.connectDays.push('day_' + i);
 
             for (let i1 = 1, l1 = days[i - 1].eatings.length; i1 <= l1; i1++) {
-                this.ConnectEatings.push('eatings_' + i + i1);
+                this.connectEatings.push('eating_' + i + i1);
             }
         }
     }
@@ -104,7 +104,6 @@ export class AccordionDaysComponent implements OnInit{
 
     ngOnInit() {
         this.createConnectArrays(this.days);
-        console.log(this.ConnectDays, this.ConnectEatings);
     }
 
 }
