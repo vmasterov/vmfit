@@ -17,7 +17,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
     @ViewChild('foodPanel') foodPanel: MatSidenav;
 
-    title = 'Переименовать модули, навести в них порядок';
+    title = '--';
 
     toggleFoodPanelSubscribe: Subscription;
     mobileQuery1024: MediaQueryList;

@@ -1,9 +1,21 @@
-<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let day of days" cdkDrag>
+<div cdkDropList class="diet-day-list" (cdkDropListDropped)="drop($event)">
+    <div class="diet-day-box" *ngFor="let day of days" cdkDrag>
         <mat-accordion>
             <mat-expansion-panel>
+                <!--<mat-expansion-panel-header [collapsedHeight]="'48px'" [expandedHeight]="'48px'">-->
                 <mat-expansion-panel-header>
-                    <mat-panel-title>{{day.name}}</mat-panel-title>
+                    <mat-panel-title>
+                        <div class="diet-handle" cdkDragHandle>
+                            <mat-icon
+                                class="example-icon"
+                                aria-hidden="false"
+                                aria-label="Example user verified icon"
+                            >
+                                drag_indicator
+                            </mat-icon>
+                        </div>
+                        {{day.name}}
+                    </mat-panel-title>
                 </mat-expansion-panel-header>
                 
                 <app-eatings

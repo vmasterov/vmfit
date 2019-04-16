@@ -10,7 +10,7 @@ export class DaysComponent implements OnInit{
     days = [
         {
             id: 1,
-            name: 'day1',
+            name: 'День первый',
             eatings: [
                 {
                     id: 11,
@@ -41,7 +41,7 @@ export class DaysComponent implements OnInit{
         },
         {
             id: 2,
-            name: 'day2',
+            name: 'День второй',
             eatings: [
                 {
                     id: 21,
@@ -63,7 +63,7 @@ export class DaysComponent implements OnInit{
         },
         {
             id: 3,
-            name: 'day3',
+            name: 'День тертий',
             eatings: [
                 {
                     id: 31,

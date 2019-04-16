@@ -1,34 +1,44 @@
-.example-container {
-  width: 800px;
-  max-width: 100%;
-  margin: 0 25px 25px 0;
+.diet-day-list {
   display: block;
-  vertical-align: top;
-}
-
-.example-list {
-  border: solid 1px #ccc;
-  min-height: 60px;
-  background: white;
-  border-radius: 4px;
   overflow: hidden;
+  min-height: 60px;
+  border: solid 1px #ccc;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.diet-day-box {
+  position: relative;
+  color: rgba(0, 0, 0, 0.87);
+  box-sizing: border-box;
+  background: #fff;
+  font-size: 14px;
+}
+
+.diet-day-box .mat-expansion-panel-header{
+  padding: 5px 24px;
+  font-weight: 500;
+}
+
+.diet-handle {
+  position: absolute;
+  left:0;
+  margin-top: -3px;
+  display: none;
+  width: 24px;
+  height: 24px;
+  color: #ccc;
+  cursor: move;
+}
+
+.diet-day-box .mat-expansion-panel-header:hover .diet-handle{
   display: block;
 }
 
-.example-box {
-  padding: 20px 10px;
-  border-bottom: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
-  /*
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  */
-  box-sizing: border-box;
-  //cursor: move;
-  background: white;
-  font-size: 14px;
+.diet-day-box .mat-accordion .mat-expansion-panel{
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 }
 
 .cdk-drag-preview {
@@ -47,17 +57,10 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.example-box:last-child {
+.diet-day-box:last-child {
   border: none;
 }
 
-.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+.diet-day-list.cdk-drop-list-dragging .diet-day-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-}
-
-.example-handle {
-  color: #ccc;
-  cursor: move;
-  width: 24px;
-  height: 24px;
 }
