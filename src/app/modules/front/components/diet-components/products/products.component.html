@@ -1,22 +1,36 @@
-<!--<table
+<table
         cdkDropList
-        class="example-list"
+        class="diet-product-list"
         id="eating_{{eatingID}}"
         [cdkDropListConnectedTo]="connectedToEatings"
         (cdkDropListDropped)="drop($event)"
         [cdkDropListData]="products"
 >
+    <tr>
+        <td></td>
+        <td>weight</td>
+        <td>protein</td>
+        <td>carbs</td>
+        <td>fat</td>
+        <td>calories</td>
+        <td></td>
+    </tr>
     <tr
             *ngFor="let product of products"
-            class="example-box"
+            class="diet-product-box"
             cdkDrag
     >
         <td>{{product.itemName}}</td>
-        <td>Это еда</td>
+        <td>100гр</td>
+        <td>{{product.nutrients.protein}}</td>
+        <td>{{product.nutrients.carbs}}</td>
+        <td>{{product.nutrients.fat}}</td>
+        <td>{{product.nutrients.calories}}</td>
+        <td>Удалить</td>
     </tr>
-</table>-->
+</table>
 
-<table
+<!--<table
         #table
         mat-table
         [dataSource]="dataSource"
@@ -43,8 +57,7 @@
             *matRowDef="let row; columns: ['Name'];"
             cdkDrag [cdkDragData]="row"
     ></tr>
-</table>
-
+</table>-->
 
 <!--<div
     cdkDropList

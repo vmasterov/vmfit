@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-import {MatTable} from '@angular/material';
+import {MatTable, MatTableModule} from '@angular/material';
 
 @Component({
     selector: 'app-products',
@@ -19,21 +19,22 @@ export class ProductsComponent implements OnInit {
 
     connectedToEatings: string[];
 
-    @ViewChild('table') table: MatTable<any>;
-    dataSource;
+    // @ViewChild('table') table: MatTable<MatTableModule>;
+    // dataSource;
 
     drop(event: CdkDragDrop<string[]>) {
-        if (event.previousContainer === event.container) {
-            // moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+        // const prevIndex = this.dataSource.findIndex(d => d === event.item.data);
 
-            const prevIndex = this.dataSource.findIndex((d) => d === event.item.data);
-            moveItemInArray(this.dataSource, prevIndex, event.currentIndex);
-            this.table.renderRows();
+        if (event.previousContainer === event.container) {
+            moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+            // moveItemInArray(this.dataSource, prevIndex, event.currentIndex);
         }
         else {
             transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+            // transferArrayItem(event.previousContainer.data, this.dataSource, prevIndex, event.currentIndex);
         }
 
+        // this.table.renderRows();
         // console.log(this.connectedToEatings);
     }
 
@@ -48,7 +49,7 @@ export class ProductsComponent implements OnInit {
         this.createConnectedToArray(this.eatingID);
         // console.log(this.connectedToEatings);
 
-        this.dataSource = this.products;
+        // this.dataSource = this.products;
     }
 
 }
