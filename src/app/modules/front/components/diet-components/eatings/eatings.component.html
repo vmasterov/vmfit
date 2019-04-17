@@ -1,6 +1,6 @@
 <div
     cdkDropList
-    class="example-list"
+    class="diet-eating-list"
     id="day_{{dayID}}"
     [cdkDropListConnectedTo]="connectedToDays"
     (cdkDropListDropped)="drop($event)"
@@ -8,7 +8,7 @@
 >
     <div
         *ngFor="let eating of eatings; let eatingID = index"
-        class="example-box"
+        class="diet-eating-box"
         cdkDrag
     >
         <p>{{eating.name}}</p>

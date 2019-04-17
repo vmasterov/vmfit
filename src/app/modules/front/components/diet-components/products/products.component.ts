@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {MatTable} from '@angular/material';
 
 @Component({
     selector: 'app-products',
@@ -18,33 +19,23 @@ export class ProductsComponent implements OnInit {
 
     connectedToEatings: string[];
 
+    @ViewChild('table') table: MatTable<any>;
+    dataSource;
+
     drop(event: CdkDragDrop<string[]>) {
         if (event.previousContainer === event.container) {
-            moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+            // moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+
+            const prevIndex = this.dataSource.findIndex((d) => d === event.item.data);
+            moveItemInArray(this.dataSource, prevIndex, event.currentIndex);
+            this.table.renderRows();
         }
         else {
             transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
         }
 
-        console.log(this.connectedToEatings);
+        // console.log(this.connectedToEatings);
     }
-
-    // createConnectedToArray(length: number, id: number) {
-    //     const array = [];
-    //     let currentID;
-    //
-    //     for (let i = 1, l = this.daysLength; i <= l; i++) {
-    //         for (let i1 = 1, l1 = this.days[i - 1].eatings.length; i1 <= l1; i1++) {
-    //             currentID = i + '' + i1;
-    //
-    //             if (+currentID !== this.eatingID) {
-    //                 array.push('eating_' + currentID);
-    //             }
-    //         }
-    //     }
-    //
-    //     return array;
-    // }
 
     createConnectedToArray(id: number) {
         this.connectedToEatings = this.connectEatings.filter(item => {
@@ -55,7 +46,9 @@ export class ProductsComponent implements OnInit {
 
     ngOnInit() {
         this.createConnectedToArray(this.eatingID);
-        // console.log(this.connectedToEatings, this.connectEatings);
+        // console.log(this.connectedToEatings);
+
+        this.dataSource = this.products;
     }
 
 }

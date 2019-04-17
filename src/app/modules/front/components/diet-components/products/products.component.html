@@ -1,4 +1,52 @@
-<div
+<!--<table
+        cdkDropList
+        class="example-list"
+        id="eating_{{eatingID}}"
+        [cdkDropListConnectedTo]="connectedToEatings"
+        (cdkDropListDropped)="drop($event)"
+        [cdkDropListData]="products"
+>
+    <tr
+            *ngFor="let product of products"
+            class="example-box"
+            cdkDrag
+    >
+        <td>{{product.itemName}}</td>
+        <td>Это еда</td>
+    </tr>
+</table>-->
+
+<table
+        #table
+        mat-table
+        [dataSource]="dataSource"
+        class="mat-elevation-z8"
+
+        cdkDropList
+        class="example-list"
+        id="eating_{{eatingID}}"
+        [cdkDropListConnectedTo]="connectedToEatings"
+        (cdkDropListDropped)="drop($event)"
+        [cdkDropListData]="products"
+>
+    <ng-container matColumnDef="Name">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">{{element.itemName}}</td>
+    </ng-container>
+
+    <tr
+            mat-header-row
+            *matHeaderRowDef="['Name']"
+    ></tr>
+    <tr
+            mat-row
+            *matRowDef="let row; columns: ['Name'];"
+            cdkDrag [cdkDragData]="row"
+    ></tr>
+</table>
+
+
+<!--<div
     cdkDropList
     class="example-list"
     id="eating_{{eatingID}}"
@@ -6,11 +54,11 @@
     (cdkDropListDropped)="drop($event)"
     [cdkDropListData]="products"
 >
-  <div
-      *ngFor="let product of products"
-      class="example-box"
-      cdkDrag
-  >
-    <p>{{product}}</p>
-  </div>
-</div>
+    <div
+        *ngFor="let product of products"
+        class="example-box"
+        cdkDrag
+    >
+        <p>{{product.itemName}}</p>
+    </div>
+</div>-->
