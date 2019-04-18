@@ -14,6 +14,8 @@ import { FoodPanelAccordeonComponent } from './components/food-panel-accordion/f
 import { SidenavToolPanelComponent } from './components/sidenav-tool-panel/sidenav-tool-panel.component';
 import { FoodPanelTableComponent } from './components/food-panel-table/food-panel-table.component';
 
+import { InputComponent } from './components/useful/input/input.component';
+
 // Material
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
@@ -32,7 +34,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
         SidenavToolPanelComponent,
         DaysComponent,
         EatingsComponent,
-        ProductsComponent
+        ProductsComponent,
+        InputComponent
     ],
     imports: [
         CommonModule,

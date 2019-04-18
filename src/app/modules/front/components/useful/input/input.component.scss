@@ -1,0 +1,43 @@
+/* All cell spans */
+.food-table__field-name{
+  cursor: pointer;
+}
+
+/* Other cell spans */
+td:not(:first-child) .food-table__field-name{
+  display: inline-block;
+  width: 40px;
+}
+
+/* All inputs */
+.food-table__field-input:focus{
+  box-shadow: 0 5px 5px rgba(25, 118, 210, 0.1);
+  border-bottom: 1px solid #1976d2;
+}
+
+/* First input */
+.food-table__field-input{
+  width: 80px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+}
+
+/* Other inputs */
+td:not(:first-child) .food-table__field-input{
+  width: 40px;
+  font-weight: normal;
+  text-align: center;
+}
+
+
+/* Media queries */
+@media(max-width: 560px){
+  /* First input */
+  .food-table__field-input{
+    width: 75px;
+  }
+}

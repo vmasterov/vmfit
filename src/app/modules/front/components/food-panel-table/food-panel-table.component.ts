@@ -53,6 +53,7 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
     }
 
     changeFoodObject(settings: ChangeFoodObjectInterface): FoodInterface {
+        console.log(settings.currentColumnsName, this.displayedColumns[0]);
         if (settings.currentColumnsName === this.displayedColumns[0]) {
             settings.foodForOnePanel.group[settings.currentRowIndex][settings.currentColumnsName] = settings.inputValue;
         }

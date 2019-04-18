@@ -1,0 +1,21 @@
+<div class="food-table__field">
+    <span
+            [ngClass]="{
+                'food-table__field-name': true,
+                'vm__hide': currentElement === displayedColumns[displayedColumnIndex] + '_' + currentIndex
+            }"
+            (click)="edit(currentIndex, displayedColumns[displayedColumnIndex])"
+    >
+        {{elementCurrentProp}}
+    </span>
+    <input
+            *ngIf="currentElement === displayedColumns[displayedColumnIndex] + '_' + currentIndex"
+            [ngClass]="{
+                'food-table__field-input': true
+            }"
+            [appAutoFocus]
+            (blur)="checkIsEmpty($event)"
+            (keyup.enter)="checkIsEmpty($event)"
+            placeholder="{{ elementCurrentProp }}"
+    >
+</div>

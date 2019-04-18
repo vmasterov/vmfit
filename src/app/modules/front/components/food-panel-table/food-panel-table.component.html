@@ -6,7 +6,7 @@
     <ng-container matColumnDef="{{displayedColumns[0]}}">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element; let i = index;">
-            <div class="food-table__field">
+            <!--<div class="food-table__field">
                 <span
                     [ngClass]="{
                         'food-table__field-name': true,
@@ -26,14 +26,22 @@
                     (keyup.enter)="checkIsEmpty($event)"
                     placeholder="{{ element.itemName }}"
                 >
-            </div>
+            </div>-->
+            <app-input
+                    [currentIndex]="i"
+                    [displayedColumns]="displayedColumns"
+                    [displayedColumnIndex]="0"
+                    [element]="element"
+                    [elementCurrentProp]="element.itemName"
+                    [foodForOnePanel]="foodForOnePanel"
+            ></app-input>
         </td>
     </ng-container>
     
     <ng-container matColumnDef="{{displayedColumns[1]}}">
         <th mat-header-cell *matHeaderCellDef>Б<span class="vm__mobile-hide">елки</span></th>
         <td mat-cell *matCellDef="let element; let i = index;">
-            <div class="food-table__field">
+            <!--<div class="food-table__field">
                 <span
                     [ngClass]="{
                         'food-table__field-name': true,
@@ -51,7 +59,15 @@
                     (keyup.enter)="checkIsEmpty($event)"
                     placeholder="{{ element.nutrients.protein }}"
                 >
-            </div>
+            </div>-->
+            <app-input
+                    [currentIndex]="i"
+                    [displayedColumns]="displayedColumns"
+                    [displayedColumnIndex]="1"
+                    [element]="element"
+                    [elementCurrentProp]="element.nutrients.protein"
+                    [foodForOnePanel]="foodForOnePanel"
+            ></app-input>
         </td>
     </ng-container>
     
