@@ -11,7 +11,7 @@
         class="diet-eating-box"
         cdkDrag
     >
-        <p>{{eating.name}}</p>
+        <div class="eating-name eating-name-{{eatingID}}">{{eating.name}}</div>
         <app-products
             [products]="eating.product"
             [eatingID]="eating.id"

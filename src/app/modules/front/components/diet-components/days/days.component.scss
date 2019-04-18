@@ -67,17 +67,14 @@
 
 .product-table{
   width: 100%;
-  max-width: 100%;
-  min-height: 60px;
   background: #FFFFFF;
-  border-radius: 4px;
   border-collapse: collapse;
 }
 
 .product-table td,
 .product-table th{
-  padding: 7px 0;
-  border: solid 1px #CCCCCC;
+  padding: 0;
+  height: 10px;
 }
 
 .product-table th{
@@ -99,4 +96,9 @@
 .product-table__button,
 .product-table__th-button{
   width: 5%;
+}
+
+.day-name{
+  font-size: 18px;
+  font-weight: 500;
 }
