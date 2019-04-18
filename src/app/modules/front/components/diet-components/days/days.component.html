@@ -2,29 +2,32 @@
     <div class="diet-day-box" *ngFor="let day of days" cdkDrag>
         <mat-accordion>
             <mat-expansion-panel
-                    [expanded]="day.id == 1 ? true : false"
+                [expanded]="day.id == 1 ? true : false"
             >
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        <div class="diet-handle" cdkDragHandle>
-                            <mat-icon
-                                class="example-icon"
-                                aria-hidden="false"
-                                aria-label="Example user verified icon"
-                            >
-                                drag_indicator
-                            </mat-icon>
-                        </div>
                         {{day.name}}
                     </mat-panel-title>
                 </mat-expansion-panel-header>
+                
+                <table class="product-table">
+                    <tr>
+                        <th class="mat-header-cell product-table__th-caption product-table__th-name"></th>
+                        <th class="mat-header-cell product-table__th-num product-table__th-weight">Вес</th>
+                        <th class="mat-header-cell product-table__th-num product-table__th-protein">Белки</th>
+                        <th class="mat-header-cell product-table__th-num product-table__th-carbs">Углеводы</th>
+                        <th class="mat-header-cell product-table__th-num product-table__th-fat">Жиры</th>
+                        <th class="mat-header-cell product-table__th-num product-table__th-calories">Калории</th>
+                        <th class="mat-header-cell product-table__th-button product-table__th-delete"></th>
+                    </tr>
+                </table>
                 
                 <app-eatings
                     [eatings]="day.eatings"
                     [days]="days"
                     [dayID]="day.id"
                     [daysLength]="days.length"
-
+                    
                     [connectDays]="connectDays"
                     [connectEatings]="connectEatings"
                 ></app-eatings>

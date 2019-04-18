@@ -69,84 +69,102 @@ export class DaysComponent implements OnInit {
                         }
 
                     ]
-                }
-
-
-
-                /*,
-                {
-                    id: 12,
-                    name:
-                        '1-Обед',
-                    product:
-                        [
-                            '121-Слива',
-                            '122-Перец'
-                        ]
                 },
                 {
                     id: 13,
-                    name:
-                        '1-Ужин',
-                    product:
-                        [
-                            '131-Картофель',
-                            '132-Свёкла',
-                            '133-Огурец',
-                        ]
-                },
-                */
+                    name: '1-Ужин',
+                    product: [
+                        {
+                            id: 131,
+                            groupName: 'фрукты',
+                            itemName: '131-банан',
+                            nutrients: {
+                                protein: 10,
+                                carbs: 20,
+                                fat: 30,
+                                calories: 40
+                            }
+                        },
+                        {
+                            id: 132,
+                            groupName: 'фрукты',
+                            itemName: '132-апельсин',
+                            nutrients: {
+                                protein: 10,
+                                carbs: 20,
+                                fat: 30,
+                                calories: 40
+                            }
+                        }
+
+                    ]
+                }
             ]
-        }/*,
+        },
         {
             id: 2,
-            name:
-                'День второй',
-            eatings:
-                [
-                    {
-                        id: 21,
-                        name: '2-Завтрак',
-                        product: [
-                            '211-Арбуз',
-                            '212-Кукуруза'
-                        ]
-                    },
-                    {
-                        id: 22,
-                        name: '2-Обед',
-                        product: [
-                            '221-Малина',
-                            '222-Дыня'
-                        ]
-                    }
-                ]
-        },
-        {
-            id: 3,
-            name:
-                'День тертий',
-            eatings:
-                [
-                    {
-                        id: 31,
-                        name: '3-Завтрак',
-                        product: [
-                            '311-Фейхуа',
-                            '312-Свинина'
-                        ]
-                    },
-                    {
-                        id: 32,
-                        name: '3-Обед',
-                        product: [
-                            '321-Баранина',
-                            '322-Конина'
-                        ]
-                    }
-                ]
-        },
-        */
+            name: 'День второй',
+            eatings: [
+                {
+                    id: 21,
+                    name: '2-Завтрак',
+                    product: [
+                        {
+                            id: 211,
+                            groupName: 'фрукты',
+                            itemName: '211-мандарин',
+                            nutrients: {
+                                protein: 10,
+                                carbs: 20,
+                                fat: 30,
+                                calories: 40
+                            }
+                        },
+                        {
+                            id: 212,
+                            groupName: 'фрукты',
+                            itemName: '212-ананас',
+                            nutrients: {
+                                protein: 10,
+                                carbs: 20,
+                                fat: 30,
+                                calories: 40
+                            }
+                        }
+
+                    ]
+                },
+                {
+                    id: 22,
+                    name: '2-Обед',
+                    product: [
+                        {
+                            id: 221,
+                            groupName: 'фрукты',
+                            itemName: '221-слива',
+                            nutrients: {
+                                protein: 10,
+                                carbs: 20,
+                                fat: 30,
+                                calories: 40
+                            }
+                        },
+                        {
+                            id: 222,
+                            groupName: 'фрукты',
+                            itemName: '222-абрикос',
+                            nutrients: {
+                                protein: 10,
+                                carbs: 20,
+                                fat: 30,
+                                calories: 40
+                            }
+                        }
+
+                    ]
+                }
+            ]
+        }
     ];
 
     connectDays: string[] = [];

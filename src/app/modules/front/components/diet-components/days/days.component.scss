@@ -64,3 +64,39 @@
 .diet-day-list.cdk-drop-list-dragging .diet-day-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
+
+.product-table{
+  width: 100%;
+  max-width: 100%;
+  min-height: 60px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border-collapse: collapse;
+}
+
+.product-table td,
+.product-table th{
+  padding: 7px 0;
+  border: solid 1px #CCCCCC;
+}
+
+.product-table th{
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.product-table__caption,
+.product-table__th-caption{
+  width: 20%;
+}
+
+.product-table__num,
+.product-table__th-num{
+  width: 15%;
+  text-align: center;
+}
+
+.product-table__button,
+.product-table__th-button{
+  width: 5%;
+}

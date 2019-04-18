@@ -1,23 +1,57 @@
-.diet-product-list {
+.diet-product-list{
   width: 100%;
   max-width: 100%;
-  min-height: 60px;
-  background: #fff;
+  background: #FFFFFF;
   border-radius: 4px;
   border-collapse: collapse;
   overflow: hidden;
 }
 
-.diet-product-box {
+.product-table td,
+.product-table th{
+  padding: 7px 0;
+  border: solid 1px #CCCCCC;
+}
+
+.product-table .tr-th{
+  height: 0;
+}
+
+.product-table .tr-th .th{
+  padding: 0;
+  height: 0;
+}
+
+.product-table .tr-th:last-child .th{
+  height: 35px;
+}
+
+.product-table__caption,
+.product-table__th-caption{
+  width: 20%;
+}
+
+.product-table__num,
+.product-table__th-num{
+  width: 15%;
+  text-align: center;
+}
+
+.product-table__button,
+.product-table__th-button{
+  width: 5%;
+}
+
+.diet-product-box{
   padding: 20px 10px;
-  border-bottom: solid 1px #ccc;
+  border-bottom: solid 1px #CCCCCC;
   color: rgba(0, 0, 0, 0.87);
   box-sizing: border-box;
-  background: #fff;
+  background: #FFFFFF;
   font-size: 14px;
 }
 
-.cdk-drag-preview {
+.cdk-drag-preview{
   box-sizing: border-box;
   border-radius: 4px;
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
@@ -25,18 +59,18 @@
   0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
-.cdk-drag-placeholder {
+.cdk-drag-placeholder{
   opacity: 0;
 }
 
-.cdk-drag-animating {
+.cdk-drag-animating{
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.diet-product-box:last-child {
+.diet-product-box:last-child{
   border: none;
 }
 
-.diet-product-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+.diet-product-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder){
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
