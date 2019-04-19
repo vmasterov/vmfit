@@ -23,6 +23,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { HeaderControlsComponent } from './components/diet/header-controls/header-controls.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
         DaysComponent,
         EatingsComponent,
         ProductsComponent,
-        InputComponent
+        InputComponent,
+        HeaderControlsComponent
     ],
     imports: [
         CommonModule,

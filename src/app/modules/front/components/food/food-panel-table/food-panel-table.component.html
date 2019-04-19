@@ -6,27 +6,6 @@
     <ng-container matColumnDef="{{displayedColumns[0]}}">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element; let i = index;">
-            <!--<div class="food-table__field">
-                <span
-                    [ngClass]="{
-                        'food-table__field-name': true,
-                        'vm__hide': currentElement === displayedColumns[0] + '_' + i
-                    }"
-                    (click)="edit(i, displayedColumns[0])"
-                >
-                    {{element.itemName}}
-                </span>
-                <input
-                    *ngIf="currentElement === displayedColumns[0] + '_' + i"
-                    [ngClass]="{
-                        'food-table__field-input': true
-                    }"
-                    [appAutoFocus]
-                    (blur)="checkIsEmpty($event)"
-                    (keyup.enter)="checkIsEmpty($event)"
-                    placeholder="{{ element.itemName }}"
-                >
-            </div>-->
             <app-input
                     [currentIndex]="i"
                     [displayedColumns]="displayedColumns"
@@ -41,25 +20,6 @@
     <ng-container matColumnDef="{{displayedColumns[1]}}">
         <th mat-header-cell *matHeaderCellDef>Б<span class="vm__mobile-hide">елки</span></th>
         <td mat-cell *matCellDef="let element; let i = index;">
-            <!--<div class="food-table__field">
-                <span
-                    [ngClass]="{
-                        'food-table__field-name': true,
-                        'vm__hide': currentElement === displayedColumns[1] + '_' + i
-                    }"
-                    (click)="edit(i, displayedColumns[1])"
-                >
-                    {{element.nutrients.protein}}
-                </span>
-                <input
-                    *ngIf="currentElement === displayedColumns[1] + '_' + i"
-                    [ngClass]="{'food-table__field-input': true}"
-                    [appAutoFocus]
-                    (blur)="checkIsEmpty($event)"
-                    (keyup.enter)="checkIsEmpty($event)"
-                    placeholder="{{ element.nutrients.protein }}"
-                >
-            </div>-->
             <app-input
                     [currentIndex]="i"
                     [displayedColumns]="displayedColumns"
@@ -74,25 +34,6 @@
     <ng-container matColumnDef="{{displayedColumns[2]}}">
         <th mat-header-cell *matHeaderCellDef>У<span class="vm__mobile-hide">глеводы</span></th>
         <td mat-cell *matCellDef="let element; let i = index;">
-            <!--<div class="food-table__field">
-                <span
-                    [ngClass]="{
-                        'food-table__field-name': true,
-                        'vm__hide': currentElement === displayedColumns[2] + '_' + i
-                    }"
-                    (click)="edit(i, displayedColumns[2])"
-                >
-                    {{element.nutrients.carbs}}
-                </span>
-                <input
-                    *ngIf="currentElement === displayedColumns[2] + '_' + i"
-                    [ngClass]="{'food-table__field-input': true}"
-                    [appAutoFocus]
-                    (blur)="checkIsEmpty($event)"
-                    (keyup.enter)="checkIsEmpty($event)"
-                    placeholder="{{ element.nutrients.carbs }}"
-                >
-            </div>-->
             <app-input
                 [currentIndex]="i"
                 [displayedColumns]="displayedColumns"
@@ -107,25 +48,6 @@
     <ng-container matColumnDef="{{displayedColumns[3]}}">
         <th mat-header-cell *matHeaderCellDef>Ж<span class="vm__mobile-hide">иры</span></th>
         <td mat-cell *matCellDef="let element; let i = index;">
-            <!--<div class="food-table__field">
-                <span
-                    [ngClass]="{
-                        'food-table__field-name': true,
-                        'vm__hide': currentElement === displayedColumns[3] + '_' + i
-                    }"
-                    (click)="edit(i, displayedColumns[3])"
-                >
-                    {{element.nutrients.fat}}
-                </span>
-                <input
-                    *ngIf="currentElement === displayedColumns[3] + '_' + i"
-                    [ngClass]="{'food-table__field-input': true}"
-                    [appAutoFocus]
-                    (blur)="checkIsEmpty($event)"
-                    (keyup.enter)="checkIsEmpty($event)"
-                    placeholder="{{ element.nutrients.fat }}"
-                >
-            </div>-->
             <app-input
                     [currentIndex]="i"
                     [displayedColumns]="displayedColumns"
@@ -140,25 +62,6 @@
     <ng-container matColumnDef="{{displayedColumns[4]}}">
         <th mat-header-cell *matHeaderCellDef>К<span class="vm__mobile-hide">алории</span></th>
         <td mat-cell *matCellDef="let element; let i = index;">
-            <!--<div class="food-table__field">
-                <span
-                    [ngClass]="{
-                        'food-table__field-name': true,
-                        'vm__hide': currentElement === displayedColumns[4] + '_' + i
-                    }"
-                    (click)="edit(i, displayedColumns[4])"
-                >
-                    {{element.nutrients.calories}}
-                </span>
-                <input
-                    *ngIf="currentElement === displayedColumns[4] + '_' + i"
-                    [ngClass]="{'food-table__field-input': true}"
-                    [appAutoFocus]
-                    (blur)="checkIsEmpty($event)"
-                    (keyup.enter)="checkIsEmpty($event)"
-                    placeholder="{{ element.nutrients.calories }}"
-                >
-            </div>-->
             <app-input
                     [currentIndex]="i"
                     [displayedColumns]="displayedColumns"

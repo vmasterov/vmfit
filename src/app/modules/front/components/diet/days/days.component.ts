@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 import {DietInterface} from '../../../../../interfaces/diet.interface';
+import {DietService} from '../../../services/diet.service';
 
 @Component({
     selector: 'app-days',
@@ -9,6 +10,7 @@ import {DietInterface} from '../../../../../interfaces/diet.interface';
     styleUrls: ['./days.component.scss']
 })
 export class DaysComponent implements OnInit {
+    /*
     days: DietInterface[] = [
         {
             id: 1,
@@ -168,15 +170,19 @@ export class DaysComponent implements OnInit {
             ]
         }
     ];
+    */
+
+    diet: DietInterface[];
 
     connectDays: string[] = [];
     connectEatings: string[] = [];
 
+    constructor(
+        private dietService: DietService
+    ) {}
+
     createConnectArrays(days: any): void {
-        for (let i = 1, l = days.length;
-             i <= l;
-             i++
-        ) {
+        for (let i = 1, l = days.length; i <= l; i++) {
             this.connectDays.push('day_' + i);
 
             for (let i1 = 1, l1 = days[i - 1].eatings.length; i1 <= l1; i1++) {
@@ -186,11 +192,16 @@ export class DaysComponent implements OnInit {
     }
 
     drop(event: CdkDragDrop<string[]>) {
-        moveItemInArray(this.days, event.previousIndex, event.currentIndex);
+        moveItemInArray(this.diet, event.previousIndex, event.currentIndex);
     }
 
     ngOnInit() {
-        this.createConnectArrays(this.days);
+        this.dietService.getDiet().subscribe(
+            diet => {
+                this.diet = diet;
+                this.createConnectArrays(this.diet);
+            }
+        );
     }
 
 }

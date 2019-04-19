@@ -1,0 +1,24 @@
+<div class="diet-header">
+  <div class="diet-caption">
+    <h2>{{title}}</h2>
+  </div>
+  <div class="diet-controls">
+    <button
+            class="diet__add-day"
+            mat-raised-button
+            color="primary"
+    >
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">add</mat-icon>
+      <span>Добавить день</span>
+    </button>
+    <button
+            class="diet__save"
+            mat-raised-button
+            color="accent"
+            [disabled]="true"
+    >
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">save</mat-icon>
+      <span>Сохранить</span>
+    </button>
+  </div>
+</div>

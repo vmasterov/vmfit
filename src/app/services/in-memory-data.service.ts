@@ -1,7 +1,6 @@
 import {InMemoryDbService} from 'angular-in-memory-web-api';
 import {Injectable} from '@angular/core';
 
-
 @Injectable({
     providedIn: 'root'
 })
@@ -66,6 +65,20 @@ export class InMemoryDataService implements InMemoryDbService {
             }
         ];
 
+        const diet = [
+            {
+                id: 1,
+                name: 'День первый',
+                eatings: [
+                    {
+                        id: 11,
+                        name: '1-Завтрак',
+                        product: []
+                    }
+                ]
+            }
+        ];
+        /*
         const diet = [
             {
                 id: 1,
@@ -225,6 +238,7 @@ export class InMemoryDataService implements InMemoryDbService {
                 ]
             }
         ];
+        */
 
         return {
             food,

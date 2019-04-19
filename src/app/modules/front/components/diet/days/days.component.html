@@ -1,5 +1,5 @@
 <div cdkDropList class="diet-day-list" (cdkDropListDropped)="drop($event)">
-    <div class="diet-day-box" *ngFor="let day of days" cdkDrag>
+    <div class="diet-day-box" *ngFor="let day of diet" cdkDrag>
         <mat-accordion>
             <mat-expansion-panel
                 [expanded]="day.id == 1 ? true : false"
@@ -22,9 +22,9 @@
                 
                 <app-eatings
                     [eatings]="day.eatings"
-                    [days]="days"
+                    [days]="diet"
                     [dayID]="day.id"
-                    [daysLength]="days.length"
+                    [daysLength]="diet.length"
                     
                     [connectDays]="connectDays"
                     [connectEatings]="connectEatings"

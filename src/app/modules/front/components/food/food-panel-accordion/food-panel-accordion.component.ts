@@ -11,18 +11,15 @@ export class FoodPanelAccordeonComponent implements OnInit {
 
     food: FoodInterface[];
 
-    constructor(
-        private foodService: FoodService
-    ) {
+    constructor(private foodService: FoodService) {
     }
 
     ngOnInit() {
-        this.foodService.getFood()
-            .subscribe(
-                (food) => {
-                    this.food = food;
-                }
-            );
+        this.foodService.getFood().subscribe(
+            (food) => {
+                this.food = food;
+            }
+        );
     }
 
 }
