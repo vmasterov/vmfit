@@ -1,10 +1,10 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Subscription} from 'rxjs/index';
 
-import {FoodService} from '../../services/food.service';
-import {FoodInterface} from '../../../../interfaces/food.interface';
-import {DataExchangeBetweenComponents} from '../../../../services/data-exchange-between-components.service';
-import {ChangeFoodObjectInterface} from '../../../../interfaces/changed-food-object.interface';
+import {FoodService} from '../../../services/food.service';
+import {FoodInterface} from '../../../../../interfaces/food.interface';
+import {DataExchangeBetweenComponents} from '../../../../../services/data-exchange-between-components.service';
+import {ChangeFoodObjectInterface} from '../../../../../interfaces/changed-food-object.interface';
 
 @Component({
     selector: 'app-sidenav-tool-panel',

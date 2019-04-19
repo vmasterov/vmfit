@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-import {MainComponent} from './components/diet-components/main/main.component';
+import {MainComponent} from './components/diet/main/main.component';
 
 const routes: Routes = [
     {path: 'diet', component: MainComponent},

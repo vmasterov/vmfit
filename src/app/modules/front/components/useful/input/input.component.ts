@@ -46,7 +46,7 @@ export class InputComponent implements OnInit {
             this.dataExchangeBetweenComponents.send(this.changeFoodObject(changedFoodObject));
         }
 
-        // this.currentElement = undefined;
+        this.currentElement = undefined;
     }
 
     changeFoodObject(settings: ChangeFoodObjectInterface): FoodInterface {

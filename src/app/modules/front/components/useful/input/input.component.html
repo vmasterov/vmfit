@@ -1,7 +1,7 @@
-<div class="food-table__field">
+<div class="product-table__field product-table__field-{{displayedColumns[displayedColumnIndex]}}">
     <span
             [ngClass]="{
-                'food-table__field-name': true,
+                'product-table__field-name': true,
                 'vm__hide': currentElement === displayedColumns[displayedColumnIndex] + '_' + currentIndex
             }"
             (click)="edit(currentIndex, displayedColumns[displayedColumnIndex])"
@@ -11,7 +11,7 @@
     <input
             *ngIf="currentElement === displayedColumns[displayedColumnIndex] + '_' + currentIndex"
             [ngClass]="{
-                'food-table__field-input': true
+                'product-table__field-input': true
             }"
             [appAutoFocus]
             (blur)="checkIsEmpty($event)"

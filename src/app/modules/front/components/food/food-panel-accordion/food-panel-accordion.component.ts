@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FoodService} from '../../services/food.service';
-import {FoodInterface} from '../../../../interfaces/food.interface';
+import {FoodService} from '../../../services/food.service';
+import {FoodInterface} from '../../../../../interfaces/food.interface';
 
 @Component({
     selector: 'app-food-panel-accordion',

@@ -1,43 +1,49 @@
 /* All cell spans */
-.food-table__field-name{
+.product-table__field-name{
   cursor: pointer;
 }
 
 /* Other cell spans */
-td:not(:first-child) .food-table__field-name{
+.product-table__field-name{
   display: inline-block;
   width: 40px;
 }
 
 /* All inputs */
-.food-table__field-input:focus{
-  box-shadow: 0 5px 5px rgba(25, 118, 210, 0.1);
-  border-bottom: 1px solid #1976d2;
+.product-table__field-input{
+  width: 40px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  outline: none;
 }
 
 /* First input */
-.food-table__field-input{
+.product-table__field-itemName .product-table__field-input{
   width: 80px;
   border: none;
   border-bottom: 1px solid #e0e0e0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   font-weight: 500;
+  text-align: left;
   outline: none;
 }
 
-/* Other inputs */
-td:not(:first-child) .food-table__field-input{
-  width: 40px;
-  font-weight: normal;
-  text-align: center;
+/* All inputs focused */
+.product-table__field-input:focus{
+  box-shadow: 0 5px 5px rgba(25, 118, 210, 0.1);
+  border-bottom: 1px solid #1976d2;
 }
 
 
 /* Media queries */
 @media(max-width: 560px){
   /* First input */
-  .food-table__field-input{
+  .product-table__field-input{
     width: 75px;
   }
 }

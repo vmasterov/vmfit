@@ -5,14 +5,14 @@ import {ClickOutsideDirective} from '../../directives/click-outside.directive';
 import {AutofocusDirective} from '../../directives/auto-focus.directive';
 
 import {FrontRoutingModule} from './front-routing.module';
-import {MainComponent} from './components/diet-components/main/main.component';
-import {DaysComponent} from './components/diet-components/days/days.component';
-import {EatingsComponent} from './components/diet-components/eatings/eatings.component';
-import {ProductsComponent} from './components/diet-components/products/products.component';
+import {MainComponent} from './components/diet/main/main.component';
+import {DaysComponent} from './components/diet/days/days.component';
+import {EatingsComponent} from './components/diet/eatings/eatings.component';
+import {ProductsComponent} from './components/diet/products/products.component';
 
-import { FoodPanelAccordeonComponent } from './components/food-panel-accordion/food-panel-accordion.component';
-import { SidenavToolPanelComponent } from './components/sidenav-tool-panel/sidenav-tool-panel.component';
-import { FoodPanelTableComponent } from './components/food-panel-table/food-panel-table.component';
+import { FoodPanelAccordeonComponent } from './components/food/food-panel-accordion/food-panel-accordion.component';
+import { SidenavToolPanelComponent } from './components/food/sidenav-tool-panel/sidenav-tool-panel.component';
+import { FoodPanelTableComponent } from './components/food/food-panel-table/food-panel-table.component';
 
 import { InputComponent } from './components/useful/input/input.component';
 
