@@ -1,13 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
+import {DietInterface} from '../../../../../interfaces/diet.interface';
+
 @Component({
     selector: 'app-days',
     templateUrl: './days.component.html',
     styleUrls: ['./days.component.scss']
 })
 export class DaysComponent implements OnInit {
-    days = [
+    days: DietInterface[] = [
         {
             id: 1,
             name: 'День первый',
@@ -21,10 +23,10 @@ export class DaysComponent implements OnInit {
                             groupName: 'фрукты',
                             itemName: '111-яблоко',
                             nutrients: {
-                                protein: 10,
-                                carbs: 20,
-                                fat: 30,
-                                calories: 40
+                                protein: '10',
+                                carbs: '20',
+                                fat: '30',
+                                calories: '40'
                             }
                         },
                         {
@@ -32,10 +34,10 @@ export class DaysComponent implements OnInit {
                             groupName: 'фрукты',
                             itemName: '112-груша',
                             nutrients: {
-                                protein: 10,
-                                carbs: 20,
-                                fat: 30,
-                                calories: 40
+                                protein: '10',
+                                carbs: '20',
+                                fat: '30',
+                                calories: '40'
                             }
                         }
 
@@ -50,10 +52,10 @@ export class DaysComponent implements OnInit {
                             groupName: 'фрукты',
                             itemName: '121-персик',
                             nutrients: {
-                                protein: 10,
-                                carbs: 20,
-                                fat: 30,
-                                calories: 40
+                                protein: '10',
+                                carbs: '20',
+                                fat: '30',
+                                calories: '40'
                             }
                         },
                         {
@@ -61,10 +63,10 @@ export class DaysComponent implements OnInit {
                             groupName: 'фрукты',
                             itemName: '122-киви',
                             nutrients: {
-                                protein: 10,
-                                carbs: 20,
-                                fat: 30,
-                                calories: 40
+                                protein: '10',
+                                carbs: '20',
+                                fat: '30',
+                                calories: '40'
                             }
                         }
 
@@ -79,10 +81,10 @@ export class DaysComponent implements OnInit {
                             groupName: 'фрукты',
                             itemName: '131-банан',
                             nutrients: {
-                                protein: 10,
-                                carbs: 20,
-                                fat: 30,
-                                calories: 40
+                                protein: '10',
+                                carbs: '20',
+                                fat: '30',
+                                calories: '40'
                             }
                         },
                         {
@@ -90,10 +92,10 @@ export class DaysComponent implements OnInit {
                             groupName: 'фрукты',
                             itemName: '132-апельсин',
                             nutrients: {
-                                protein: 10,
-                                carbs: 20,
-                                fat: 30,
-                                calories: 40
+                                protein: '10',
+                                carbs: '20',
+                                fat: '30',
+                                calories: '40'
                             }
                         }
 
@@ -114,10 +116,10 @@ export class DaysComponent implements OnInit {
                             groupName: 'фрукты',
                             itemName: '211-мандарин',
                             nutrients: {
-                                protein: 10,
-                                carbs: 20,
-                                fat: 30,
-                                calories: 40
+                                protein: '10',
+                                carbs: '20',
+                                fat: '30',
+                                calories: '40'
                             }
                         },
                         {
@@ -125,10 +127,10 @@ export class DaysComponent implements OnInit {
                             groupName: 'фрукты',
                             itemName: '212-ананас',
                             nutrients: {
-                                protein: 10,
-                                carbs: 20,
-                                fat: 30,
-                                calories: 40
+                                protein: '10',
+                                carbs: '20',
+                                fat: '30',
+                                calories: '40'
                             }
                         }
 
@@ -143,10 +145,10 @@ export class DaysComponent implements OnInit {
                             groupName: 'фрукты',
                             itemName: '221-слива',
                             nutrients: {
-                                protein: 10,
-                                carbs: 20,
-                                fat: 30,
-                                calories: 40
+                                protein: '10',
+                                carbs: '20',
+                                fat: '30',
+                                calories: '40'
                             }
                         },
                         {
@@ -154,10 +156,10 @@ export class DaysComponent implements OnInit {
                             groupName: 'фрукты',
                             itemName: '222-абрикос',
                             nutrients: {
-                                protein: 10,
-                                carbs: 20,
-                                fat: 30,
-                                calories: 40
+                                protein: '10',
+                                carbs: '20',
+                                fat: '30',
+                                calories: '40'
                             }
                         }
 
