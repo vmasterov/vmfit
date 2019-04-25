@@ -40,9 +40,11 @@ export class SidenavToolPanelComponent implements OnInit, OnDestroy {
         this.toggleFoodPanelSubscribe = this.dataExchangeBetweenComponents.data$
             .subscribe(
                 (data) => {
-                    // Get changed data from food table
-                    if (typeof data === 'object') {
-                        this.updatedFoodObject = data;
+                    // Get changed data,
+                    // or info about deleted food table row
+                    // from input.component.ts
+                    if (data.dataType === 'changedFoodObject' || data.dataType === 'deleteFoodTableRow') {
+                        this.updatedFoodObject = data.data;
                     }
                 }
             );

@@ -29,7 +29,11 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
 
         this.foodForOnePanel.group = this.dataSource;
 
-        this.dataExchangeBetweenComponents.send(this.foodForOnePanel);
+        // Send info about deleted food table row to sidenav-tool-panel.component.ts
+        this.dataExchangeBetweenComponents.send({
+            dataType: 'deleteFoodTableRow',
+            data: this.foodForOnePanel
+        });
     }
 
     ngOnInit() {

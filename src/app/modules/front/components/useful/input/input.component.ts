@@ -43,7 +43,11 @@ export class InputComponent implements OnInit {
                 foodForOnePanel: this.foodForOnePanel
             };
 
-            this.dataExchangeBetweenComponents.send(this.changeFoodObject(changedFoodObject));
+            // Send changed the food object to sidenav-tool-panel.component.ts
+            this.dataExchangeBetweenComponents.send({
+                dataType: 'changedFoodObject',
+                data: this.changeFoodObject(changedFoodObject)
+            });
         }
 
         this.currentElement = undefined;

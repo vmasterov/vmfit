@@ -17,9 +17,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
     ) {
         this.toggleFoodPanelSubscribe = dataExchangeBetweenComponents.data$
             .subscribe(
-                (isOpen) => {
+                /*(isOpen) => {
                     if (typeof isOpen === 'boolean') {
                         isOpen === true ? this.foodPanelButtonName = 'Закрыть список продуктов' : this.foodPanelButtonName = 'Открыть список продуктов';
+                    }*/
+                    (data) => {
+                        if (data.dataType === 'toggleFoodPanel_changePanelState') {
+                            if (data.data === true) {
+                                this.foodPanelButtonName = 'Закрыть список продуктов';
+                            }
+                            else {
+                                this.foodPanelButtonName = 'Открыть список продуктов';
+                            }
                     }
                 }
             );
@@ -32,7 +41,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
 
     toggleFoodPanel() {
-        this.dataExchangeBetweenComponents.send('toggling food panel');
+        // Send click event to main.component.ts
+        this.dataExchangeBetweenComponents.send({
+            dataType: 'toggleFoodPanel_click',
+            data: 'Toggling food panel'
+        });
     }
 
     ngOnDestroy() {

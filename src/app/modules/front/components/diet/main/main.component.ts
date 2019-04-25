@@ -35,19 +35,28 @@ export class MainComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.toggleFoodPanelSubscribe = this.dataExchangeBetweenComponents.data$
+            // Subscribe on click event from header.component.ts
             .subscribe(
                 (data) => {
-                    // Toggle food panel
-                    if (typeof data === 'string') {
+                    if (data.dataType === 'toggleFoodPanel_click') {
                         this.foodPanel.toggle();
-                        this.dataExchangeBetweenComponents.send(this.foodPanel.opened);
+
+                        // Send state of the food panel to header.component.ts
+                        this.dataExchangeBetweenComponents.send({
+                            dataType: 'toggleFoodPanel',
+                            data: this.foodPanel.opened
+                        });
                     }
                 }
             );
     }
 
     openedChangeFoodPanel() {
-        this.dataExchangeBetweenComponents.send(this.foodPanel.opened);
+        // Send state of the food panel to header.component.ts
+        this.dataExchangeBetweenComponents.send({
+            dataType: 'toggleFoodPanel_changePanelState',
+            data: this.foodPanel.opened
+        });
     }
 
     ngOnDestroy() {

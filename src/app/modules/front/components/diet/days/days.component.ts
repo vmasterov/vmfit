@@ -1,15 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 import {DietInterface} from '../../../../../interfaces/diet.interface';
 import {DietService} from '../../../services/diet.service';
+import {DataExchangeBetweenComponents} from '../../../../../services/data-exchange-between-components.service';
+import {Subscription} from 'rxjs';
 
 @Component({
     selector: 'app-days',
     templateUrl: './days.component.html',
     styleUrls: ['./days.component.scss']
 })
-export class DaysComponent implements OnInit {
+export class DaysComponent implements OnInit, OnDestroy {
     /*
     days: DietInterface[] = [
         {
@@ -172,13 +174,16 @@ export class DaysComponent implements OnInit {
     ];
     */
 
+    toggleFoodPanelSubscribe: Subscription;
+
     diet: DietInterface[];
 
     connectDays: string[] = [];
     connectEatings: string[] = [];
 
     constructor(
-        private dietService: DietService
+        private dietService: DietService,
+        private dataExchangeBetweenComponents: DataExchangeBetweenComponents
     ) {}
 
     createConnectArrays(days: any): void {
@@ -202,6 +207,25 @@ export class DaysComponent implements OnInit {
                 this.createConnectArrays(this.diet);
             }
         );
+
+        this.toggleFoodPanelSubscribe = this.dataExchangeBetweenComponents.data$
+            .subscribe(
+                (data) => {
+                    if (typeof data === 'string') {
+                        this.dietService.getDiet().subscribe(
+                            diet => {
+                                /*this.diet = diet;
+                                this.createConnectArrays(this.diet);*/
+                                console.log('addDay: answer from DB');
+                            }
+                        );
+                    }
+                }
+            );
+    }
+
+    ngOnDestroy() {
+        this.toggleFoodPanelSubscribe.unsubscribe();
     }
 
 }
