@@ -19,11 +19,15 @@ export class HeaderControlsComponent implements OnInit {
     }
 
     addDay() {
-        /*this.dietService.addDiet({}).subscribe(
+        this.dietService.addDiet({}).subscribe(
             () => {
-                this.dataExchangeBetweenComponents.send('addDay');
+                // Send message about create a new day to days.component.ts
+                this.dataExchangeBetweenComponents.send({
+                    dataType: 'addDay',
+                    data: 'add'
+                });
             }
-        );*/
+        );
     }
 
     ngOnInit() {

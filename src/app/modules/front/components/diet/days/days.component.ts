@@ -174,12 +174,14 @@ export class DaysComponent implements OnInit, OnDestroy {
     ];
     */
 
-    toggleFoodPanelSubscribe: Subscription;
+    addDaySubscribe: Subscription;
 
     diet: DietInterface[];
 
     connectDays: string[] = [];
     connectEatings: string[] = [];
+
+    lastID: number;
 
     constructor(
         private dietService: DietService,
@@ -189,6 +191,7 @@ export class DaysComponent implements OnInit, OnDestroy {
     createConnectArrays(days: any): void {
         for (let i = 1, l = days.length; i <= l; i++) {
             this.connectDays.push('day_' + i);
+            this.lastID = i;
 
             for (let i1 = 1, l1 = days[i - 1].eatings.length; i1 <= l1; i1++) {
                 this.connectEatings.push('eating_' + i + i1);
@@ -200,6 +203,11 @@ export class DaysComponent implements OnInit, OnDestroy {
         moveItemInArray(this.diet, event.previousIndex, event.currentIndex);
     }
 
+    /*addDay() {
+        const
+        return
+    }*/
+
     ngOnInit() {
         this.dietService.getDiet().subscribe(
             diet => {
@@ -208,15 +216,15 @@ export class DaysComponent implements OnInit, OnDestroy {
             }
         );
 
-        this.toggleFoodPanelSubscribe = this.dataExchangeBetweenComponents.data$
+        // Receive the message from header-controls.component.ts
+        this.addDaySubscribe = this.dataExchangeBetweenComponents.data$
             .subscribe(
                 (data) => {
-                    if (typeof data === 'string') {
+                    if (data.dataType === 'addDay') {
                         this.dietService.getDiet().subscribe(
                             diet => {
-                                /*this.diet = diet;
-                                this.createConnectArrays(this.diet);*/
-                                console.log('addDay: answer from DB');
+                                console.log('addDay: answer from DB', this.lastID);
+                                addDay();
                             }
                         );
                     }
@@ -225,7 +233,7 @@ export class DaysComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.toggleFoodPanelSubscribe.unsubscribe();
+        this.addDaySubscribe.unsubscribe();
     }
 
 }
