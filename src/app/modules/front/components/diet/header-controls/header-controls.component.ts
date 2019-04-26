@@ -1,15 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 
 import {DietService} from '../../../services/diet.service';
 import {DataExchangeBetweenComponents} from '../../../../../services/data-exchange-between-components.service';
+import {Subscription} from 'rxjs';
 
 @Component({
     selector: 'app-header-controls',
     templateUrl: './header-controls.component.html',
     styleUrls: ['./header-controls.component.scss']
 })
-export class HeaderControlsComponent implements OnInit {
-
+export class HeaderControlsComponent implements OnInit, OnDestroy {
+    changeDietSubscribe: Subscription;
+    dietSaveButtonDisable = true;
     title = 'План';
 
     constructor(
@@ -30,7 +32,22 @@ export class HeaderControlsComponent implements OnInit {
         );
     }
 
-    ngOnInit() {
+    saveDietDB() {
+        alert('Данные сохранены');
+        this.dietSaveButtonDisable = true;
     }
 
+    ngOnInit() {
+        this.changeDietSubscribe = this.dataExchangeBetweenComponents.data$
+            .subscribe(
+                (data) => {
+                    if (data.dataType === 'changeDiet') {
+                        this.dietSaveButtonDisable = false;
+                    }
+                });
+    }
+
+    ngOnDestroy() {
+        this.changeDietSubscribe.unsubscribe();
+    }
 }

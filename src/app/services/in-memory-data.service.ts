@@ -68,11 +68,11 @@ export class InMemoryDataService implements InMemoryDbService {
         const diet = [
             {
                 id: 1,
-                name: 'День первый',
+                name: 'День №1',
                 eatings: [
                     {
                         id: 11,
-                        name: '1-Завтрак',
+                        name: '11-Завтрак',
                         product: []
                     }
                 ]

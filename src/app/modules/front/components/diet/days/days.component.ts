@@ -12,168 +12,6 @@ import {Subscription} from 'rxjs';
     styleUrls: ['./days.component.scss']
 })
 export class DaysComponent implements OnInit, OnDestroy {
-    /*
-    days: DietInterface[] = [
-        {
-            id: 1,
-            name: 'День первый',
-            eatings: [
-                {
-                    id: 11,
-                    name: '1-Завтрак',
-                    product: [
-                        {
-                            id: 111,
-                            groupName: 'фрукты',
-                            itemName: '111-яблоко',
-                            nutrients: {
-                                protein: '10',
-                                carbs: '20',
-                                fat: '30',
-                                calories: '40'
-                            }
-                        },
-                        {
-                            id: 112,
-                            groupName: 'фрукты',
-                            itemName: '112-груша',
-                            nutrients: {
-                                protein: '10',
-                                carbs: '20',
-                                fat: '30',
-                                calories: '40'
-                            }
-                        }
-
-                    ]
-                },
-                {
-                    id: 12,
-                    name: '1-Обед',
-                    product: [
-                        {
-                            id: 121,
-                            groupName: 'фрукты',
-                            itemName: '121-персик',
-                            nutrients: {
-                                protein: '10',
-                                carbs: '20',
-                                fat: '30',
-                                calories: '40'
-                            }
-                        },
-                        {
-                            id: 122,
-                            groupName: 'фрукты',
-                            itemName: '122-киви',
-                            nutrients: {
-                                protein: '10',
-                                carbs: '20',
-                                fat: '30',
-                                calories: '40'
-                            }
-                        }
-
-                    ]
-                },
-                {
-                    id: 13,
-                    name: '1-Ужин',
-                    product: [
-                        {
-                            id: 131,
-                            groupName: 'фрукты',
-                            itemName: '131-банан',
-                            nutrients: {
-                                protein: '10',
-                                carbs: '20',
-                                fat: '30',
-                                calories: '40'
-                            }
-                        },
-                        {
-                            id: 132,
-                            groupName: 'фрукты',
-                            itemName: '132-апельсин',
-                            nutrients: {
-                                protein: '10',
-                                carbs: '20',
-                                fat: '30',
-                                calories: '40'
-                            }
-                        }
-
-                    ]
-                }
-            ]
-        },
-        {
-            id: 2,
-            name: 'День второй',
-            eatings: [
-                {
-                    id: 21,
-                    name: '2-Завтрак',
-                    product: [
-                        {
-                            id: 211,
-                            groupName: 'фрукты',
-                            itemName: '211-мандарин',
-                            nutrients: {
-                                protein: '10',
-                                carbs: '20',
-                                fat: '30',
-                                calories: '40'
-                            }
-                        },
-                        {
-                            id: 212,
-                            groupName: 'фрукты',
-                            itemName: '212-ананас',
-                            nutrients: {
-                                protein: '10',
-                                carbs: '20',
-                                fat: '30',
-                                calories: '40'
-                            }
-                        }
-
-                    ]
-                },
-                {
-                    id: 22,
-                    name: '2-Обед',
-                    product: [
-                        {
-                            id: 221,
-                            groupName: 'фрукты',
-                            itemName: '221-слива',
-                            nutrients: {
-                                protein: '10',
-                                carbs: '20',
-                                fat: '30',
-                                calories: '40'
-                            }
-                        },
-                        {
-                            id: 222,
-                            groupName: 'фрукты',
-                            itemName: '222-абрикос',
-                            nutrients: {
-                                protein: '10',
-                                carbs: '20',
-                                fat: '30',
-                                calories: '40'
-                            }
-                        }
-
-                    ]
-                }
-            ]
-        }
-    ];
-    */
-
     addDaySubscribe: Subscription;
 
     diet: DietInterface[];
@@ -189,7 +27,11 @@ export class DaysComponent implements OnInit, OnDestroy {
     ) {}
 
     createConnectArrays(days: any): void {
+        this.connectDays = [];
+        this.connectEatings = [];
+
         for (let i = 1, l = days.length; i <= l; i++) {
+            // console.log(days.length);
             this.connectDays.push('day_' + i);
             this.lastID = i;
 
@@ -203,10 +45,21 @@ export class DaysComponent implements OnInit, OnDestroy {
         moveItemInArray(this.diet, event.previousIndex, event.currentIndex);
     }
 
-    /*addDay() {
-        const
-        return
-    }*/
+    addDay(lastID: number) {
+        const newDay = {
+            id: lastID + 1,
+            name: 'День №' + (lastID + 1),
+            eatings: [
+                {
+                    id: (lastID + 1) + 10,
+                    name: ((lastID + 1) * 10) + 1 + '-Завтрак',
+                    product: []
+                }
+            ]
+        };
+
+        return newDay;
+    }
 
     ngOnInit() {
         this.dietService.getDiet().subscribe(
@@ -223,8 +76,14 @@ export class DaysComponent implements OnInit, OnDestroy {
                     if (data.dataType === 'addDay') {
                         this.dietService.getDiet().subscribe(
                             diet => {
-                                console.log('addDay: answer from DB', this.lastID);
-                                addDay();
+                                this.diet.push(this.addDay(this.lastID));
+                                this.createConnectArrays(this.diet);
+
+                                // Send 'changeDiet' message to header-controls.component.ts
+                                this.dataExchangeBetweenComponents.send({
+                                   dataType: 'changeDiet',
+                                   data: ''
+                                });
                             }
                         );
                     }

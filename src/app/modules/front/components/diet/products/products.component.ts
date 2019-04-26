@@ -19,34 +19,24 @@ export class ProductsComponent implements OnInit {
 
     connectedToEatings: string[];
 
-    // @ViewChild('table') table: MatTable<MatTableModule>;
-    // dataSource;
-
     drop(event: CdkDragDrop<string[]>) {
-        // const prevIndex = this.dataSource.findIndex(d => d === event.item.data);
-
         if (event.previousContainer === event.container) {
             moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-            // moveItemInArray(this.dataSource, prevIndex, event.currentIndex);
         }
         else {
             transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
-            // transferArrayItem(event.previousContainer.data, this.dataSource, prevIndex, event.currentIndex);
         }
-
-        // this.table.renderRows();
-        // console.log(this.connectedToEatings);
     }
 
-    createConnectedToArray(id: number) {
+   /* createConnectedToArray(id: number) {
         this.connectedToEatings = this.connectEatings.filter(item => {
             const index = item.match(/_(\d+)$/)[1];
             return +index !== id;
         });
-    }
+    }*/
 
     ngOnInit() {
-        this.createConnectedToArray(this.eatingID);
+        // this.createConnectedToArray(this.eatingID);
         // console.log(this.connectedToEatings);
 
         // this.dataSource = this.products;

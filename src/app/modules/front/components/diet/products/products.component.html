@@ -2,7 +2,7 @@
         cdkDropList
         class="diet-product-list product-table"
         id="eating_{{eatingID}}"
-        [cdkDropListConnectedTo]="connectedToEatings"
+        [cdkDropListConnectedTo]="connectEatings"
         (cdkDropListDropped)="drop($event)"
         [cdkDropListData]="products"
 >

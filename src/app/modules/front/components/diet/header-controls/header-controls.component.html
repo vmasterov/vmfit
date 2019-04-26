@@ -17,7 +17,8 @@
                 class="diet__save"
                 mat-raised-button
                 color="accent"
-                [disabled]="true"
+                [disabled]="dietSaveButtonDisable"
+                (click)="saveDietDB()"
         >
             <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">save</mat-icon>
             <span>Сохранить</span>

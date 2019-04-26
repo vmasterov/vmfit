@@ -26,28 +26,15 @@ export class EatingsComponent implements OnInit {
         }
     }
 
-    // createConnectedToArray(length: number, id: number) {
-    //     const array = [];
-    //
-    //     for (let i = 1, l = length; i <= l; i++) {
-    //         if (i !== id) {
-    //             array.push('day_' + i);
-    //         }
-    //     }
-    //
-    //     return array;
-    // }
-
-    createConnectedToArray(id: number) {
+    /*createConnectedToArray(id: number) {
         this.connectedToDays = this.connectDays.filter(item => {
             const index = item.match(/_(\d+)$/)[1];
             return +index !== id;
         });
-    }
+    }*/
 
 
     ngOnInit() {
-        this.createConnectedToArray(this.dayID);
-        // console.log(this.connectedToDays, this.connectDays);
+        // this.createConnectedToArray(this.dayID);
     }
 }

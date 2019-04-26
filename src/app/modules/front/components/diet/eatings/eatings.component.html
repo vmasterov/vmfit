@@ -2,7 +2,8 @@
     cdkDropList
     class="diet-eating-list"
     id="day_{{dayID}}"
-    [cdkDropListConnectedTo]="connectedToDays"
+    [attr.data-days]="days.length"
+    [cdkDropListConnectedTo]="connectDays"
     (cdkDropListDropped)="drop($event)"
     [cdkDropListData]="eatings"
 >
@@ -19,7 +20,6 @@
             [dayID]="dayID"
             [eatingsLength]="eatings.length"
             [daysLength]="daysLength"
-            
             [connectEatings]="connectEatings"
         ></app-products>
     </div>
