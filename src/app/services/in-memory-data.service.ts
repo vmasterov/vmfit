@@ -78,8 +78,8 @@ export class InMemoryDataService implements InMemoryDbService {
                 ]
             }
         ];
-        /*
-        const diet = [
+
+       /* const diet = [
             {
                 id: 1,
                 name: 'День первый',
@@ -237,8 +237,8 @@ export class InMemoryDataService implements InMemoryDbService {
                     }
                 ]
             }
-        ];
-        */
+        ];*/
+
 
         return {
             food,

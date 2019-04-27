@@ -1,9 +1,9 @@
 import {Component, OnInit, Input, OnDestroy} from '@angular/core';
 
-import {FoodService} from '../../../services/food.service';
 import {FoodInterface} from '../../../../../interfaces/food.interface';
 import {FoodTableRowInterface} from '../../../../../interfaces/food-table-row.interface';
 import {DataExchangeBetweenComponents} from '../../../../../services/data-exchange-between-components.service';
+import {DietInterface} from '../../../../../interfaces/diet.interface';
 
 @Component({
     selector: 'app-food-panel-table',
@@ -12,6 +12,7 @@ import {DataExchangeBetweenComponents} from '../../../../../services/data-exchan
 })
 export class FoodPanelTableComponent implements OnInit, OnDestroy {
     @Input() foodForOnePanel: FoodInterface;
+    @Input() diet: DietInterface[];
 
     dataSource: FoodTableRowInterface[];
     displayedColumns: string[] = ['itemName', 'protein', 'carbs', 'fat', 'calories', 'add', 'remove'];
@@ -19,7 +20,6 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
     rowIndex: number;
 
     constructor(
-        private foodService: FoodService,
         private dataExchangeBetweenComponents: DataExchangeBetweenComponents
     ) {
     }
@@ -33,6 +33,14 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
         this.dataExchangeBetweenComponents.send({
             dataType: 'deleteFoodTableRow',
             data: this.foodForOnePanel
+        });
+    }
+
+    addProduct(element, dayID: number, eatingID: number) {
+        // Send product object to days.component.ts
+        this.dataExchangeBetweenComponents.send({
+            dataType: 'productObject',
+            data: [element, dayID, eatingID]
         });
     }
 

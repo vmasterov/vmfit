@@ -24,8 +24,6 @@ export class SidenavToolPanelComponent implements OnInit, OnDestroy {
     }
 
     getDBData() {
-        this.updatedFoodData = this.foodService.updateFood(this.updatedFoodObject).subscribe();
-
         this.foodService.getFood()
             .subscribe(
                 (food) => {
@@ -45,6 +43,7 @@ export class SidenavToolPanelComponent implements OnInit, OnDestroy {
                     // from input.component.ts
                     if (data.dataType === 'changedFoodObject' || data.dataType === 'deleteFoodTableRow') {
                         this.updatedFoodObject = data.data;
+                        this.updatedFoodData = this.foodService.updateFood(this.updatedFoodObject).subscribe();
                     }
                 }
             );

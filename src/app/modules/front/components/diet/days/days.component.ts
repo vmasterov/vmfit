@@ -13,6 +13,7 @@ import {Subscription} from 'rxjs';
 })
 export class DaysComponent implements OnInit, OnDestroy {
     addDaySubscribe: Subscription;
+    getProductSubscribe: Subscription;
 
     diet: DietInterface[];
 
@@ -21,17 +22,15 @@ export class DaysComponent implements OnInit, OnDestroy {
 
     lastID: number;
 
-    constructor(
-        private dietService: DietService,
-        private dataExchangeBetweenComponents: DataExchangeBetweenComponents
-    ) {}
+    constructor(private dietService: DietService,
+                private dataExchangeBetweenComponents: DataExchangeBetweenComponents) {
+    }
 
     createConnectArrays(days: any): void {
         this.connectDays = [];
         this.connectEatings = [];
 
         for (let i = 1, l = days.length; i <= l; i++) {
-            // console.log(days.length);
             this.connectDays.push('day_' + i);
             this.lastID = i;
 
@@ -51,7 +50,7 @@ export class DaysComponent implements OnInit, OnDestroy {
             name: 'День №' + (lastID + 1),
             eatings: [
                 {
-                    id: (lastID + 1) + 10,
+                    id: ((lastID + 1) * 10) + 1,
                     name: ((lastID + 1) * 10) + 1 + '-Завтрак',
                     product: []
                 }
@@ -69,7 +68,7 @@ export class DaysComponent implements OnInit, OnDestroy {
             }
         );
 
-        // Receive the message from header-controls.component.ts
+        // Receive the request about create new day from header-controls.component.ts
         this.addDaySubscribe = this.dataExchangeBetweenComponents.data$
             .subscribe(
                 (data) => {
@@ -79,13 +78,23 @@ export class DaysComponent implements OnInit, OnDestroy {
                                 this.diet.push(this.addDay(this.lastID));
                                 this.createConnectArrays(this.diet);
 
-                                // Send 'changeDiet' message to header-controls.component.ts
+                                // Send 'changeDiet' message and updates diet object to header-controls.component.ts
                                 this.dataExchangeBetweenComponents.send({
-                                   dataType: 'changeDiet',
-                                   data: ''
+                                    dataType: 'changeDiet',
+                                    data: this.diet
                                 });
                             }
                         );
+                    }
+                }
+            );
+
+        // Receive the product object from food-panel-table.component.ts
+        this.getProductSubscribe = this.dataExchangeBetweenComponents.data$
+            .subscribe(
+                (data) => {
+                    if (data.dataType === 'productObject') {
+                        this.diet[data.data[1]].eatings[data.data[2]].product.push(data.data[0]);
                     }
                 }
             );
@@ -93,6 +102,7 @@ export class DaysComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.addDaySubscribe.unsubscribe();
+        this.getProductSubscribe.unsubscribe();
     }
 
 }

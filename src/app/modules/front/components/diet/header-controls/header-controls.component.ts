@@ -23,10 +23,10 @@ export class HeaderControlsComponent implements OnInit, OnDestroy {
     addDay() {
         this.dietService.addDiet({}).subscribe(
             () => {
-                // Send message about create a new day to days.component.ts
+                // Send request to create a new day to days.component.ts
                 this.dataExchangeBetweenComponents.send({
                     dataType: 'addDay',
-                    data: 'add'
+                    data: ''
                 });
             }
         );

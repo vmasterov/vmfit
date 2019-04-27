@@ -35,11 +35,6 @@ export class ProductsComponent implements OnInit {
         });
     }*/
 
-    ngOnInit() {
-        // this.createConnectedToArray(this.eatingID);
-        // console.log(this.connectedToEatings);
-
-        // this.dataSource = this.products;
-    }
+    ngOnInit() {}
 
 }
