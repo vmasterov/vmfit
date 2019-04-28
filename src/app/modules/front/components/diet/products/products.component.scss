@@ -74,3 +74,25 @@
 .diet-product-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder){
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
+
+.product-table__caption.product-table__name{
+  font-weight: 500;
+}
+
+
+/* Media queries */
+@media(max-width: 480px){
+  .diet-product-box{
+    font-size: 12px;
+  }
+
+  .diet-product-list{
+    margin: 0 5px;
+    width: calc(100% - 10px);
+  }
+
+  .product-table td,
+  .product-table th{
+    padding: 10px 0;
+  }
+}

@@ -2,6 +2,7 @@
     <div class="diet-day-box" *ngFor="let day of diet" cdkDrag>
         <mat-accordion>
             <mat-expansion-panel
+                class="diet-day-box__expansion-panel"
                 [expanded]="day.id == 1 ? true : false"
             >
                 <mat-expansion-panel-header>
@@ -11,11 +12,21 @@
                 <table class="product-table">
                     <tr>
                         <th class="mat-header-cell product-table__th-caption product-table__th-name"></th>
-                        <th class="mat-header-cell product-table__th-num product-table__th-weight">Вес</th>
-                        <th class="mat-header-cell product-table__th-num product-table__th-protein">Белки</th>
-                        <th class="mat-header-cell product-table__th-num product-table__th-carbs">Углеводы</th>
-                        <th class="mat-header-cell product-table__th-num product-table__th-fat">Жиры</th>
-                        <th class="mat-header-cell product-table__th-num product-table__th-calories">Калории</th>
+                        <th class="mat-header-cell product-table__th-num product-table__th-weight">
+                            В<span class="vm__mobile-hide">ес</span>
+                        </th>
+                        <th class="mat-header-cell product-table__th-num product-table__th-protein">
+                            Б<span class="vm__mobile-hide">елки</span>
+                        </th>
+                        <th class="mat-header-cell product-table__th-num product-table__th-carbs">
+                            У<span class="vm__mobile-hide">глеводы</span>
+                        </th>
+                        <th class="mat-header-cell product-table__th-num product-table__th-fat">
+                            Ж<span class="vm__mobile-hide">иры</span>
+                        </th>
+                        <th class="mat-header-cell product-table__th-num product-table__th-calories">
+                            К<span class="vm__mobile-hide">алории</span>
+                        </th>
                         <th class="mat-header-cell product-table__th-button product-table__th-delete"></th>
                     </tr>
                 </table>

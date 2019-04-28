@@ -79,13 +79,14 @@
             <button
                 mat-button
                 [matMenuTriggerFor]="menuDays"
+                class="add-product-button table-product-button"
             >
                 <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">add_circle</mat-icon>
             </button>
-            <mat-menu #menuDays="matMenu">
+            <mat-menu #menuDays="matMenu" class="day-menu">
                 <div *ngIf="!diet">
                     <div>
-                        <span>Day 1</span>
+                        <div class="day-name">Day 1</div>
                         <button
                             mat-menu-item
                             (click)="addProduct(element, 0, 0)"
@@ -96,7 +97,7 @@
                 </div>
                 <div *ngIf="diet">
                     <div *ngFor="let day of diet; let dayID = index">
-                        <span>{{day.name}}</span>
+                        <div class="day-name">{{day.name}}</div>
                         <button
                             mat-menu-item
                             *ngFor="let eating of day.eatings; let eatingID = index"
@@ -117,6 +118,7 @@
                 mat-button
                 (click)="deleteRow(element)"
                 [attr.data-rowID]="element.id"
+                class="remove-product-button table-product-button"
             >
                 <mat-icon
                     class="example-icon"

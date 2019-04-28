@@ -38,11 +38,15 @@ export class HeaderControlsComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        // Reсeive message from days.component about change diet object or remove diet row
         this.changeDietSubscribe = this.dataExchangeBetweenComponents.data$
             .subscribe(
                 (data) => {
-                    if (data.dataType === 'changeDiet') {
+                    if (data.dataType === 'changeDiet' || data.dataType === 'deleteDietRowRequest') {
                         this.dietSaveButtonDisable = false;
+
+                        // Implement save diet object to DB
+                        // ...
                     }
                 });
     }

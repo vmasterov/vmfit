@@ -1,6 +1,10 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-import {MatTable, MatTableModule} from '@angular/material';
+
+import {FoodTableRowInterface} from '../../../../../interfaces/food-table-row.interface';
+import {DataExchangeBetweenComponents} from '../../../../../services/data-exchange-between-components.service';
+import {Subscription} from 'rxjs';
+
 
 @Component({
     selector: 'app-products',
@@ -17,7 +21,10 @@ export class ProductsComponent implements OnInit {
 
     @Input() connectEatings: string[];
 
-    connectedToEatings: string[];
+    constructor(
+        private dataExchangeBetweenComponents: DataExchangeBetweenComponents
+    ) {
+    }
 
     drop(event: CdkDragDrop<string[]>) {
         if (event.previousContainer === event.container) {
@@ -28,12 +35,15 @@ export class ProductsComponent implements OnInit {
         }
     }
 
-   /* createConnectedToArray(id: number) {
-        this.connectedToEatings = this.connectEatings.filter(item => {
-            const index = item.match(/_(\d+)$/)[1];
-            return +index !== id;
+    deleteRow(product: FoodTableRowInterface, productRow: HTMLElement) {
+        productRow.remove();
+
+        // Send diet row delete request from diet DB (header-controls.component.ts)
+        this.dataExchangeBetweenComponents.send({
+            dataType: 'deleteDietRowRequest',
+            data: ''
         });
-    }*/
+    }
 
     ngOnInit() {}
 

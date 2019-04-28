@@ -103,3 +103,10 @@
   font-size: 18px;
   font-weight: 500;
 }
+
+/* Media queries */
+@media(max-width: 480px){
+  .diet-day-box .mat-expansion-panel-header{
+    padding: 5px 10px 5px 5px;
+  }
+}

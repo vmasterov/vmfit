@@ -39,11 +39,22 @@
   border-bottom: 1px solid #1976d2;
 }
 
+/* First input focused */
+.product-table__field-itemName .product-table__field-input:focus{
+  border-bottom: 1px solid #1976d2;
+}
+
 
 /* Media queries */
 @media(max-width: 560px){
-  /* First input */
+  /* All inputs */
   .product-table__field-input{
+    font-size: 11px;
+  }
+
+  /* First input */
+  .product-table__field-itemName .product-table__field-input{
     width: 75px;
+    font-size: 11px;
   }
 }

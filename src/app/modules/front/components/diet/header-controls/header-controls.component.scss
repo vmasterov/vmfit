@@ -1,14 +1,25 @@
 .diet-header{
   display: flex;
 }
+
 .diet-header > div:last-child{
   flex-grow: 1;
   text-align: right;
 }
+
 .diet-header > div:last-child button{
   margin: 18px 0 0 10px;
 }
+
 .diet__save .example-icon.material-icons{
   padding-right: 4px;
   font-size: 22px;
+}
+
+
+// Media queries
+@media (max-width: 480px){
+  .diet-controls-text{
+    display: none;
+  }
 }

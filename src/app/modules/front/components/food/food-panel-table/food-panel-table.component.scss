@@ -45,11 +45,11 @@ td:not(:first-child) .food-table__field-name{
 }
 
 /* Add, remove buttons */
-.food-table td .mat-button{
-  padding-left: 10px;
-  padding-right: 10px;
-  min-width: 55px;
-}
+//.table-product-button{
+//  padding-left: 10px;
+//  padding-right: 10px;
+//  min-width: 55px;
+//}
 
 /* All inputs */
 .food-table__field-input:focus{
@@ -73,6 +73,14 @@ td:not(:first-child) .food-table__field-input{
   width: 40px;
   font-weight: normal;
   text-align: center;
+}
+
+.day-name{
+  padding: 10px 16px;
+  font-size: 14px;
+  display: block;
+  font-weight: 500;
+  background-color: #f1f1f1;
 }
 
 
@@ -111,11 +119,11 @@ td:not(:first-child) .food-table__field-input{
   }
 
   /* Add, remove buttons */
-  .food-table td .mat-button{
-    padding-left: 7px;
-    padding-right: 7px;
-    min-width: 30px;
-  }
+  //.table-product-button{
+  //  padding-left: 7px;
+  //  padding-right: 7px;
+  //  min-width: 30px;
+  //}
 
   .food-table td .material-icons{
     font-size: 21px;

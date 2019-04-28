@@ -34,10 +34,35 @@ body{
   padding: 0;
 }
 
+// Menu from food table
+.mat-menu-panel .mat-menu-content:not(:empty){
+  padding: 0;
+}
+
+/* Add, remove buttons */
+.mat-button.table-product-button{
+  padding-left: 10px;
+  padding-right: 10px;
+  min-width: 55px;
+}
+
 
 /* Media queries */
 @media(max-width: 560px){
   .vm__mobile-hide{
     display: none !important;
+  }
+
+  /* Add, remove buttons */
+  .mat-button.table-product-button{
+    padding-left: 7px;
+    padding-right: 7px;
+    min-width: 30px;
+  }
+}
+
+@media(max-width: 480px){
+  .diet-day-box__expansion-panel .mat-expansion-panel-body{
+    padding: 0 0 16px;
   }
 }
