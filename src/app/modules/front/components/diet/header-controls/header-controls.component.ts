@@ -13,6 +13,8 @@ export class HeaderControlsComponent implements OnInit, OnDestroy {
     changeDietSubscribe: Subscription;
     dietSaveButtonDisable = true;
     title = 'План';
+    changedDietStorage: any;
+    test: any;
 
     constructor(
         private dietService: DietService,
@@ -38,6 +40,8 @@ export class HeaderControlsComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.changedDietStorage = [];
+
         // Reсeive message from days.component about change diet object or remove diet row
         this.changeDietSubscribe = this.dataExchangeBetweenComponents.data$
             .subscribe(
@@ -45,8 +49,21 @@ export class HeaderControlsComponent implements OnInit, OnDestroy {
                     if (data.dataType === 'changeDiet' || data.dataType === 'deleteDietRowRequest') {
                         this.dietSaveButtonDisable = false;
 
+                        console.log('deit:', data.data.eatings[0].product.length, 'test:', this.test);
+                        console.log(data.data === this.test);
+                        this.test = data.data;
+
                         // Implement save diet object to DB
-                        // ...
+                        /*function contains(arr, elem) {
+                            for (let i = 0; i < arr.length; i++) {
+                                if (arr[i] === elem) {
+                                    return true;
+                                }
+                            }
+                            return false;
+                        }
+
+                        contains(this.changedDietStorage, data.data);*/
                     }
                 });
     }

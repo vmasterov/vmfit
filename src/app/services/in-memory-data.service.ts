@@ -88,6 +88,52 @@ export class InMemoryDataService implements InMemoryDbService {
                         ]
                     }
                 ]
+            },
+            {
+                id: 2,
+                name: 'День №2',
+                eatings: [
+                    {
+                        id: 21,
+                        name: '21-Завтрак',
+                        product: [
+                            {
+                                id: 211,
+                                groupName: 'фрукты',
+                                itemName: '111-яблоко',
+                                nutrients: {
+                                    protein: '10',
+                                    carbs: '20',
+                                    fat: '30',
+                                    calories: '40'
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 3,
+                name: 'День №3',
+                eatings: [
+                    {
+                        id: 31,
+                        name: '11-Завтрак',
+                        product: [
+                            {
+                                id: 311,
+                                groupName: 'фрукты',
+                                itemName: '311-яблоко',
+                                nutrients: {
+                                    protein: '10',
+                                    carbs: '20',
+                                    fat: '30',
+                                    calories: '40'
+                                }
+                            }
+                        ]
+                    }
+                ]
             }
         ];
 

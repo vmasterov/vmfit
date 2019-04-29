@@ -17,10 +17,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     ) {
         this.toggleFoodPanelSubscribe = dataExchangeBetweenComponents.data$
             .subscribe(
-                /*(isOpen) => {
-                    if (typeof isOpen === 'boolean') {
-                        isOpen === true ? this.foodPanelButtonName = 'Закрыть список продуктов' : this.foodPanelButtonName = 'Открыть список продуктов';
-                    }*/
                     (data) => {
                         if (data.dataType === 'toggleFoodPanel_changePanelState') {
                             if (data.data === true) {
