@@ -72,7 +72,7 @@ export class DaysComponent implements OnInit, OnDestroy {
         this.addDaySubscribe = this.dataExchangeBetweenComponents.data$
             .subscribe(
                 (data) => {
-                    if (data.dataType === 'addDay') {
+                    if (data.dataType === 'addDayRequest') {
                         this.dietService.getDiet().subscribe(
                             diet => {
                                 this.diet.push(this.addDay(this.lastID));
@@ -81,7 +81,7 @@ export class DaysComponent implements OnInit, OnDestroy {
                                 // Send 'changeDiet' message and updates diet object to
                                 // header-controls.component.ts
                                 this.dataExchangeBetweenComponents.send({
-                                    dataType: 'changeDiet',
+                                    dataType: 'addedDayToDB',
                                     data: this.diet[this.diet.length - 1]
                                 });
 
@@ -106,7 +106,7 @@ export class DaysComponent implements OnInit, OnDestroy {
 
                         // Send message about added product to diet table (header-controls.component.ts)
                         this.dataExchangeBetweenComponents.send({
-                            dataType: 'addProductToDiet',
+                            dataType: 'addProductToEatingToDB',
                             data: this.diet[data.data[1]]
                         });
                     }

@@ -22,8 +22,6 @@ export class FoodPanelAccordeonComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.diet = [];
-
         this.foodService.getFood().subscribe(
             (food) => {
                 this.food = food;
@@ -34,7 +32,6 @@ export class FoodPanelAccordeonComponent implements OnInit, OnDestroy {
         this.getDaysResponseSubscribe = this.dataExchangeBetweenComponents.data$
             .subscribe(
                 (data) => {
-                    // if (data.dataType === 'changeDiet') {
                     if (data.dataType === 'changeDietFoodPanel') {
                         this.diet = data.data;
                     }
