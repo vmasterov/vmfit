@@ -73,6 +73,20 @@ export class InMemoryDataService implements InMemoryDbService {
                     {
                         id: 11,
                         name: '11-Завтрак',
+                        product: []
+                    }
+                ]
+            }
+        ];
+
+        /*const diet = [
+            {
+                id: 1,
+                name: 'День №1',
+                eatings: [
+                    {
+                        id: 11,
+                        name: '11-Завтрак',
                         product: [
                             {
                                 id: 111,
@@ -135,7 +149,7 @@ export class InMemoryDataService implements InMemoryDbService {
                     }
                 ]
             }
-        ];
+        ];*/
 
        /* const diet = [
             {

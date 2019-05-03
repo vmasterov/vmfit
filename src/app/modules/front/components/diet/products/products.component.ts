@@ -38,12 +38,8 @@ export class ProductsComponent implements OnInit {
     deleteRow(product: FoodTableRowInterface, productRow: HTMLElement) {
         productRow.remove();
         this.days[this.dayID - 1].eatings[0].product = this.days[this.dayID - 1].eatings[0].product.filter(item => {
-            // console.log(item, this.eatingID);
-            // console.log(item.id, product.id, item.id === product.id);
             return item.id !== product.id;
         });
-
-        // console.dir(this.days[this.dayID-1].eatings[0].product);
 
         // Send diet row delete request from diet DB (header-controls.component.ts)
         this.dataExchangeBetweenComponents.send({

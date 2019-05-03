@@ -33,9 +33,9 @@ export class DietService {
             );
     }
 
-    addDiet(day: any): Observable<any> {
+    addDay(day: any): Observable<any> {
         return this.http.post<any>(this.url, day, httpOptions).pipe(
-            catchError(this.handleError('addDiet', day))
+            catchError(this.handleError('addDay', day))
         );
     }
 

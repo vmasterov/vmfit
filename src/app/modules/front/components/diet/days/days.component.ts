@@ -78,9 +78,17 @@ export class DaysComponent implements OnInit, OnDestroy {
                                 this.diet.push(this.addDay(this.lastID));
                                 this.createConnectArrays(this.diet);
 
-                                // Send 'changeDiet' message and updates diet object to header-controls.component.ts
+                                // Send 'changeDiet' message and updates diet object to
+                                // header-controls.component.ts
                                 this.dataExchangeBetweenComponents.send({
                                     dataType: 'changeDiet',
+                                    data: this.diet[this.diet.length - 1]
+                                });
+
+                                // Send 'changeDiet' message and updates diet object to
+                                // food-panel-accordion.component.ts
+                                this.dataExchangeBetweenComponents.send({
+                                    dataType: 'changeDietFoodPanel',
                                     data: this.diet
                                 });
                             }
@@ -95,6 +103,12 @@ export class DaysComponent implements OnInit, OnDestroy {
                 (data) => {
                     if (data.dataType === 'productObject') {
                         this.diet[data.data[1]].eatings[data.data[2]].product.push(data.data[0]);
+
+                        // Send message about added product to diet table (header-controls.component.ts)
+                        this.dataExchangeBetweenComponents.send({
+                            dataType: 'addProductToDiet',
+                            data: this.diet[data.data[1]]
+                        });
                     }
                 }
             );

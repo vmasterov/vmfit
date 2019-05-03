@@ -23,7 +23,7 @@ export class HeaderControlsComponent implements OnInit, OnDestroy {
     }
 
     addDay() {
-        this.dietService.addDiet({}).subscribe(
+        /*this.dietService.addDay({}).subscribe(
             () => {
                 // Send request to create a new day to days.component.ts
                 this.dataExchangeBetweenComponents.send({
@@ -31,7 +31,13 @@ export class HeaderControlsComponent implements OnInit, OnDestroy {
                     data: ''
                 });
             }
-        );
+        );*/
+
+        // Send request to create a new day to days.component.ts
+        this.dataExchangeBetweenComponents.send({
+            dataType: 'addDay',
+            data: ''
+        });
     }
 
     saveDietDB() {
@@ -46,24 +52,27 @@ export class HeaderControlsComponent implements OnInit, OnDestroy {
         this.changeDietSubscribe = this.dataExchangeBetweenComponents.data$
             .subscribe(
                 (data) => {
-                    if (data.dataType === 'changeDiet' || data.dataType === 'deleteDietRowRequest') {
+                    if (data.dataType === 'changeDiet' ||
+                        data.dataType === 'deleteDietRowRequest' ||
+                        data.dataType === 'addProductToDiet') {
                         this.dietSaveButtonDisable = false;
 
-                        console.log('deit:', data.data.eatings[0].product.length, 'test:', this.test);
-                        console.log(data.data === this.test);
-                        this.test = data.data;
-
-                        // Implement save diet object to DB
-                        /*function contains(arr, elem) {
-                            for (let i = 0; i < arr.length; i++) {
-                                if (arr[i] === elem) {
-                                    return true;
-                                }
-                            }
-                            return false;
+                        console.log('contains:', !contains(this.changedDietStorage, data.data));
+                        if (!contains(this.changedDietStorage, data.data)) {
+                            this.changedDietStorage.push(data.data);
                         }
 
-                        contains(this.changedDietStorage, data.data);*/
+                        console.log(this.changedDietStorage);
+                    }
+
+                    // Implement save diet object to DB
+                    function contains(arr, elem) {
+                        for (let i = 0; i < arr.length; i++) {
+                            if (arr[i] === elem) {
+                                return true;
+                            }
+                        }
+                        return false;
                     }
                 });
     }
