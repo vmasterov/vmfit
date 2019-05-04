@@ -24,6 +24,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatMenuModule} from '@angular/material/menu';
+import { FooterComponent } from './components/diet/footer/footer.component';
+import {MatCardModule} from '@angular/material/card';
+import { DeitCaptionTableComponent } from './components/useful/deit-caption-table/deit-caption-table.component';
 
 @NgModule({
     declarations: [
@@ -37,7 +40,9 @@ import {MatMenuModule} from '@angular/material/menu';
         EatingsComponent,
         ProductsComponent,
         InputComponent,
-        HeaderControlsComponent
+        HeaderControlsComponent,
+        FooterComponent,
+        DeitCaptionTableComponent
     ],
     imports: [
         CommonModule,
@@ -51,7 +56,8 @@ import {MatMenuModule} from '@angular/material/menu';
         MatExpansionModule,
         MatTableModule,
         DragDropModule,
-        MatMenuModule
+        MatMenuModule,
+        MatCardModule
     ]
 })
 export class FrontModule {

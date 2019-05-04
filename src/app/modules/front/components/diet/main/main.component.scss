@@ -1,5 +1,15 @@
+.lalka{
+   position: absolute;
+   left: 0;
+   overflow: auto;
+   margin: 0 30px;
+   width: calc(100% - 60px );
+   height: calc(100% - 120px);
+}
+
 .diet-container{
   padding: 0 30px;
+  //height: calc(100% - 51px);
 }
 
 .content {

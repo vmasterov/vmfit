@@ -43,7 +43,7 @@ export class ProductsComponent implements OnInit {
 
         // Send diet row delete request from diet DB (header-controls.component.ts)
         this.dataExchangeBetweenComponents.send({
-            dataType: 'deleteEatingRowFromDB',
+            dataType: 'DIET_DB__deleteEatingRow',
             data: this.days[this.dayID - 1] // day from which row was deleted
         });
     }

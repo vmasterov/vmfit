@@ -81,7 +81,7 @@ export class DaysComponent implements OnInit, OnDestroy {
                                 // Send 'changeDiet' message and updates diet object to
                                 // header-controls.component.ts
                                 this.dataExchangeBetweenComponents.send({
-                                    dataType: 'addedDayToDB',
+                                    dataType: 'DIET_DB__addedDay',
                                     data: this.diet[this.diet.length - 1]
                                 });
 
@@ -106,7 +106,7 @@ export class DaysComponent implements OnInit, OnDestroy {
 
                         // Send message about added product to diet table (header-controls.component.ts)
                         this.dataExchangeBetweenComponents.send({
-                            dataType: 'addProductToEatingToDB',
+                            dataType: 'DIET_DB__addProductToEating',
                             data: this.diet[data.data[1]]
                         });
                     }

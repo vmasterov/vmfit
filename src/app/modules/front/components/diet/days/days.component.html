@@ -9,8 +9,8 @@
                     <mat-panel-title class="day-name">{{day.name}}</mat-panel-title>
                 </mat-expansion-panel-header>
                 
-                <table class="product-table">
-                    <tr>
+                <!--<table class="product-table">
+                    <tr class="product-table__header">
                         <th class="mat-header-cell product-table__th-caption product-table__th-name"></th>
                         <th class="mat-header-cell product-table__th-num product-table__th-weight">
                             В<span class="vm__mobile-hide">ес</span>
@@ -29,7 +29,9 @@
                         </th>
                         <th class="mat-header-cell product-table__th-button product-table__th-delete"></th>
                     </tr>
-                </table>
+                </table>-->
+
+                <app-deit-caption-table></app-deit-caption-table>
                 
                 <app-eatings
                     [eatings]="day.eatings"

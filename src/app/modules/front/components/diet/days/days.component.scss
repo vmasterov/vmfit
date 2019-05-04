@@ -65,45 +65,6 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.product-table{
-  width: 100%;
-  background: #FFFFFF;
-  border-collapse: collapse;
-}
-
-.product-table td,
-.product-table th{
-  padding: 0;
-  height: 10px;
-  border: none;
-}
-
-.product-table th{
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.product-table__caption,
-.product-table__th-caption{
-  width: 20%;
-}
-
-.product-table__num,
-.product-table__th-num{
-  width: 15%;
-  text-align: center;
-}
-
-.product-table__button,
-.product-table__th-button{
-  width: 5%;
-}
-
-.day-name{
-  font-size: 18px;
-  font-weight: 500;
-}
-
 /* Media queries */
 @media(max-width: 480px){
   .diet-day-box .mat-expansion-panel-header{

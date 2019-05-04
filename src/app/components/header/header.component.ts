@@ -30,7 +30,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
             );
     }
 
-    title = 'vmfit';
+    title = 'Комментарии к коду. Типы переменных. Сохранять при изм. кол-ва элементов в eating or day';
+    // title = 'vmfit -- Комментарии к коду. Типы переменных';
     foodPanelButtonName = 'Закрыть список продуктов';
 
     ngOnInit() {
