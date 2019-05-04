@@ -104,6 +104,12 @@ export class DaysComponent implements OnInit, OnDestroy {
                     if (data.dataType === 'productObject') {
                         this.diet[data.data[1]].eatings[data.data[2]].product.push(data.data[0]);
 
+                        // Send message about weight of added product to footer.component.ts
+                        this.dataExchangeBetweenComponents.send({
+                            dataType: 'total',
+                            data: data.data[0].nutrients
+                        });
+
                         // Send message about added product to diet table (header-controls.component.ts)
                         this.dataExchangeBetweenComponents.send({
                             dataType: 'DIET_DB__addProductToEating',

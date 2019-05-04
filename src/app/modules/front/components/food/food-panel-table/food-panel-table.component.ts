@@ -37,6 +37,7 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
     }
 
     addProduct(element, dayID: number, eatingID: number) {
+
         // Send product object to days.component.ts
         this.dataExchangeBetweenComponents.send({
             dataType: 'productObject',

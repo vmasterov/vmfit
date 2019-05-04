@@ -1,21 +1,31 @@
 <table class="product-table">
-  <tr class="product-table__header">
-    <th class="mat-header-cell product-table__th-caption product-table__th-name"></th>
-    <th class="mat-header-cell product-table__th-num product-table__th-weight">
-      В<span class="vm__mobile-hide">ес</span>
-    </th>
-    <th class="mat-header-cell product-table__th-num product-table__th-protein">
-      Б<span class="vm__mobile-hide">елки</span>
-    </th>
-    <th class="mat-header-cell product-table__th-num product-table__th-carbs">
-      У<span class="vm__mobile-hide">глеводы</span>
-    </th>
-    <th class="mat-header-cell product-table__th-num product-table__th-fat">
-      Ж<span class="vm__mobile-hide">иры</span>
-    </th>
-    <th class="mat-header-cell product-table__th-num product-table__th-calories">
-      К<span class="vm__mobile-hide">алории</span>
-    </th>
-    <th class="mat-header-cell product-table__th-button product-table__th-delete"></th>
-  </tr>
+    <tr class="product-table__header">
+        <th class="mat-header-cell product-table__th-caption product-table__th-name"></th>
+        <th class="mat-header-cell product-table__th-num product-table__th-weight">
+            В<span class="vm__mobile-hide">ес</span>
+        </th>
+        <th class="mat-header-cell product-table__th-num product-table__th-protein">
+            Б<span class="vm__mobile-hide">елки</span>
+        </th>
+        <th class="mat-header-cell product-table__th-num product-table__th-carbs">
+            У<span class="vm__mobile-hide">глеводы</span>
+        </th>
+        <th class="mat-header-cell product-table__th-num product-table__th-fat">
+            Ж<span class="vm__mobile-hide">иры</span>
+        </th>
+        <th class="mat-header-cell product-table__th-num product-table__th-calories">
+            К<span class="vm__mobile-hide">алории</span>
+        </th>
+        <th class="mat-header-cell product-table__th-button product-table__th-delete"></th>
+    </tr>
+    
+    <tr>
+        <td class="product-table__caption product-table__name"></td>
+        <td class="product-table__num product-table__weight">{{total?.weight}}</td>
+        <td class="product-table__num product-table__protein">{{total?.protein}}</td>
+        <td class="product-table__num product-table__carbs">{{total?.carbs}}</td>
+        <td class="product-table__num product-table__fat">{{total?.fat}}</td>
+        <td class="product-table__num product-table__calories">{{total?.calories}}</td>
+        <td class="product-table__button product-table__delete">
+    </tr>
 </table>
