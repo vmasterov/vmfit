@@ -43,14 +43,6 @@ export class InputComponent implements OnInit {
                 foodForOnePanel: this.foodForOnePanel
             };
 
-            // Send the data about change of nutrients weight to footer.component.ts
-            this.dataExchangeBetweenComponents.send({
-                dataType: 'nutrientsWeight',
-
-                // ['nutrient name', 'difference between past and current values']
-                data: [this.currentColumnsName, (+this.elementCurrentProp - +event.target.value)]
-            });
-
             // Send changed the food object to sidenav-tool-panel.component.ts
             this.dataExchangeBetweenComponents.send({
                 dataType: 'changedFoodObject',

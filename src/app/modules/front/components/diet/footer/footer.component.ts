@@ -12,46 +12,51 @@ export class FooterComponent implements OnInit, OnDestroy {
     getTotalSubscribe: Subscription;
 
     total: any;
+    diet: any;
 
     constructor(
         private dataExchangeBetweenComponents: DataExchangeBetweenComponents
     ) {
     }
 
-    getTotal(product) {
-        for (const key in product) {
-            this.total[key] += +product[key];
-            this.total['prev' + key] = +product[key];
+    getTotal(days) {
+        this.total = {
+            weight: 0,
+            protein: 0,
+            carbs: 0,
+            fat: 0,
+            calories: 0
+        };
+
+        for (let i = 0, l = days.length; i < l; i++) {
+            for (let i1 = 0, l1 = days[i].eatings.length; i1 < l1; i1++) {
+                for (let i2 = 0, l2 = days[i].eatings[i1].product.length; i2 < l2; i2++) {
+                    this.total.weight += 100;
+                    this.total.protein += +days[i].eatings[i1].product[i2].nutrients.protein;
+                    this.total.carbs += +days[i].eatings[i1].product[i2].nutrients.carbs;
+                    this.total.fat += +days[i].eatings[i1].product[i2].nutrients.fat;
+                    this.total.calories += +days[i].eatings[i1].product[i2].nutrients.calories;
+                }
+            }
         }
     }
 
     ngOnInit() {
-        this.total = {
-            weight: 0,
-            prev_weight: 0,
-            protein: 0,
-            prev_protein: 0,
-            carbs: 0,
-            prev_carbs: 0,
-            fat: 0,
-            prev_fat: 0,
-            calories: 0,
-            prev_calories: 0
-        };
-
         // Receive the total weight of products from days.component.ts
         this.getTotalSubscribe = this.dataExchangeBetweenComponents.data$
             .subscribe(
                 (data) => {
+                    // Get total after adding nutrients value into Diet table into days.component.ts
                     if (data.dataType === 'total') {
-                        data.data.weight = 100;
-
-                        this.getTotal(data.data);
+                        this.diet = data.data;
+                        this.getTotal(this.diet);
                     }
 
-                    if (data.dataType === 'nutrientsWeight') {
-                        console.log(this.total[data.data[0]], data.data[1]);
-                        this.total[data.data[0]] -= data.data[1];
+                    // Get total after change nutrients value into food-panel-table.component.ts
+                    // Get total after delete row from product.component.ts
+                    if ((data.dataType === 'changedFoodObject' && this.diet) ||
+                        (data.dataType === 'DIET_DB__deleteEatingRow' && this.diet)) {
+                        this.getTotal(this.diet);
                     }
                 }
             );

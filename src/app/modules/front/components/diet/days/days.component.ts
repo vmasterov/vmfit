@@ -5,6 +5,7 @@ import {DietInterface} from '../../../../../interfaces/diet.interface';
 import {DietService} from '../../../services/diet.service';
 import {DataExchangeBetweenComponents} from '../../../../../services/data-exchange-between-components.service';
 import {Subscription} from 'rxjs';
+import {resolveRendererType2} from "@angular/core/src/view/util";
 
 @Component({
     selector: 'app-days',
@@ -107,7 +108,7 @@ export class DaysComponent implements OnInit, OnDestroy {
                         // Send message about weight of added product to footer.component.ts
                         this.dataExchangeBetweenComponents.send({
                             dataType: 'total',
-                            data: data.data[0].nutrients
+                            data: this.diet
                         });
 
                         // Send message about added product to diet table (header-controls.component.ts)
@@ -126,3 +127,10 @@ export class DaysComponent implements OnInit, OnDestroy {
     }
 
 }
+
+// TODO: First iteration
+// TODO: create button "Add eating"
+
+// TODO: Second iteration
+// TODO: activate Save button if nutrients in Food table was changed
+// TODO: activate Save button if row in Diet table (days, eatings, products) was sorted
