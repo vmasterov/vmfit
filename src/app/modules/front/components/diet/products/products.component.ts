@@ -36,8 +36,11 @@ export class ProductsComponent implements OnInit {
     }
 
     deleteRow(product: FoodTableRowInterface, productRow: HTMLElement) {
+        const dayNumber = this.dayID - 1;
+        const eatingNumber = this.eatingID - ((this.dayID * 10) + 1);
+
         productRow.remove();
-        this.days[this.dayID - 1].eatings[0].product = this.days[this.dayID - 1].eatings[0].product.filter(item => {
+        this.days[dayNumber].eatings[eatingNumber].product = this.days[dayNumber].eatings[eatingNumber].product.filter(item => {
             return item.id !== product.id;
         });
 

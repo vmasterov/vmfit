@@ -65,6 +65,14 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
+.diet__add-eating{
+  margin-left: auto;
+  display: block;
+  @media(max-width: 480px){
+    margin-right: 5px;
+  }
+}
+
 /* Media queries */
 @media(max-width: 480px){
   .diet-day-box .mat-expansion-panel-header{

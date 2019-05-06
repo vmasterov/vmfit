@@ -5,7 +5,7 @@ import {DietInterface} from '../../../../../interfaces/diet.interface';
 import {DietService} from '../../../services/diet.service';
 import {DataExchangeBetweenComponents} from '../../../../../services/data-exchange-between-components.service';
 import {Subscription} from 'rxjs';
-import {resolveRendererType2} from "@angular/core/src/view/util";
+import {DietEatingsInterface} from "../../../../../interfaces/diet-eatings.interface";
 
 @Component({
     selector: 'app-days',
@@ -45,20 +45,47 @@ export class DaysComponent implements OnInit, OnDestroy {
         moveItemInArray(this.diet, event.previousIndex, event.currentIndex);
     }
 
-    addDay(lastID: number) {
+    createDay(lastID: number) {
         const newDay = {
             id: lastID + 1,
             name: 'День №' + (lastID + 1),
             eatings: [
                 {
                     id: ((lastID + 1) * 10) + 1,
-                    name: ((lastID + 1) * 10) + 1 + '-Завтрак',
+                    name: ((lastID + 1) * 10) + 1 + '-Приём пищи',
                     product: []
                 }
             ]
         };
 
         return newDay;
+    }
+
+    addEating(clickedDayID: number, lastEatingID: number) {
+        this.diet[clickedDayID - 1].eatings.push(this.createEating(lastEatingID, clickedDayID));
+        this.createConnectArrays(this.diet);
+
+        // Send 'changeDiet' message and updates diet object to
+        // header-controls.component.ts
+        this.dataExchangeBetweenComponents.send({
+            dataType: 'DIET_DB__addedDay',
+            data: this.diet[clickedDayID - 1]
+        });
+
+        // Send 'changeDiet' message and updates diet object to
+        // food-panel-accordion.component.ts
+        this.dataExchangeBetweenComponents.send({
+            dataType: 'changeDietFoodPanel',
+            data: this.diet
+        });
+    }
+
+    createEating(lastEatingID: number, clickedDayID: number): DietEatingsInterface {
+        return {
+                    id: clickedDayID * 10 + lastEatingID + 1,
+                    name: clickedDayID * 10 + lastEatingID + 1 + '-Приём пищи',
+                    product: []
+                };
     }
 
     ngOnInit() {
@@ -74,7 +101,7 @@ export class DaysComponent implements OnInit, OnDestroy {
             .subscribe(
                 (data) => {
                     if (data.dataType === 'addDayRequest') {
-                        this.dietService.getDiet().subscribe(
+                        /*this.dietService.getDiet().subscribe(
                             diet => {
                                 this.diet.push(this.addDay(this.lastID));
                                 this.createConnectArrays(this.diet);
@@ -93,7 +120,24 @@ export class DaysComponent implements OnInit, OnDestroy {
                                     data: this.diet
                                 });
                             }
-                        );
+                        );*/
+
+                        this.diet.push(this.createDay(this.lastID));
+                        this.createConnectArrays(this.diet);
+
+                        // Send 'changeDiet' message and updates diet object to
+                        // header-controls.component.ts
+                        this.dataExchangeBetweenComponents.send({
+                            dataType: 'DIET_DB__addedDay',
+                            data: this.diet[this.diet.length - 1]
+                        });
+
+                        // Send 'changeDiet' message and updates diet object to
+                        // food-panel-accordion.component.ts
+                        this.dataExchangeBetweenComponents.send({
+                            dataType: 'changeDietFoodPanel',
+                            data: this.diet
+                        });
                     }
                 }
             );
@@ -130,6 +174,7 @@ export class DaysComponent implements OnInit, OnDestroy {
 
 // TODO: First iteration
 // TODO: create button "Add eating"
+// TODO: add code comments and TS data types
 
 // TODO: Second iteration
 // TODO: activate Save button if nutrients in Food table was changed

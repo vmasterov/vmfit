@@ -8,28 +8,6 @@
                 <mat-expansion-panel-header>
                     <mat-panel-title class="day-name">{{day.name}}</mat-panel-title>
                 </mat-expansion-panel-header>
-                
-                <!--<table class="product-table">
-                    <tr class="product-table__header">
-                        <th class="mat-header-cell product-table__th-caption product-table__th-name"></th>
-                        <th class="mat-header-cell product-table__th-num product-table__th-weight">
-                            В<span class="vm__mobile-hide">ес</span>
-                        </th>
-                        <th class="mat-header-cell product-table__th-num product-table__th-protein">
-                            Б<span class="vm__mobile-hide">елки</span>
-                        </th>
-                        <th class="mat-header-cell product-table__th-num product-table__th-carbs">
-                            У<span class="vm__mobile-hide">глеводы</span>
-                        </th>
-                        <th class="mat-header-cell product-table__th-num product-table__th-fat">
-                            Ж<span class="vm__mobile-hide">иры</span>
-                        </th>
-                        <th class="mat-header-cell product-table__th-num product-table__th-calories">
-                            К<span class="vm__mobile-hide">алории</span>
-                        </th>
-                        <th class="mat-header-cell product-table__th-button product-table__th-delete"></th>
-                    </tr>
-                </table>-->
 
                 <app-deit-caption-table></app-deit-caption-table>
                 
@@ -42,6 +20,15 @@
                     [connectDays]="connectDays"
                     [connectEatings]="connectEatings"
                 ></app-eatings>
+                
+                <button class="diet__add-eating"
+                        mat-raised-button
+                        color="primary"
+                        (click)="addEating(day.id, day.eatings.length)"
+                >
+                    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">add</mat-icon>
+                    <span class="diet-controls-text">Добавить приём пищи</span>
+                </button>
             </mat-expansion-panel>
         </mat-accordion>
     </div>

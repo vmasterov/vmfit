@@ -46,7 +46,6 @@ body{
   min-width: 55px;
 }
 
-
 /* Media queries */
 @media(max-width: 560px){
   .vm__mobile-hide{
@@ -64,5 +63,8 @@ body{
 @media(max-width: 480px){
   .diet-day-box__expansion-panel .mat-expansion-panel-body{
     padding: 0 0 16px;
+  }
+  .diet-controls-text{
+    display: none;
   }
 }
