@@ -52,7 +52,7 @@ export class DaysComponent implements OnInit, OnDestroy {
             eatings: [
                 {
                     id: ((lastID + 1) * 10) + 1,
-                    name: ((lastID + 1) * 10) + 1 + '-Приём пищи',
+                    name: 'Приём пищи №1',
                     product: []
                 }
             ]
@@ -61,15 +61,15 @@ export class DaysComponent implements OnInit, OnDestroy {
         return newDay;
     }
 
-    addEating(clickedDayID: number, lastEatingID: number) {
-        this.diet[clickedDayID - 1].eatings.push(this.createEating(lastEatingID, clickedDayID));
+    addEating(fixedDayID: number, clickedDayID: number, lastEatingID: number) {
+        this.diet[clickedDayID].eatings.push(this.createEating(lastEatingID, fixedDayID));
         this.createConnectArrays(this.diet);
 
         // Send 'changeDiet' message and updates diet object to
         // header-controls.component.ts
         this.dataExchangeBetweenComponents.send({
             dataType: 'DIET_DB__addedDay',
-            data: this.diet[clickedDayID - 1]
+            data: this.diet[clickedDayID]
         });
 
         // Send 'changeDiet' message and updates diet object to
@@ -80,12 +80,12 @@ export class DaysComponent implements OnInit, OnDestroy {
         });
     }
 
-    createEating(lastEatingID: number, clickedDayID: number): DietEatingsInterface {
+    createEating(lastEatingID: number, fixedDayID: number): DietEatingsInterface {
         return {
-                    id: clickedDayID * 10 + lastEatingID + 1,
-                    name: clickedDayID * 10 + lastEatingID + 1 + '-Приём пищи',
-                    product: []
-                };
+            id: fixedDayID * 10 + lastEatingID + 1,
+            name: 'Приём пищи № ' + (lastEatingID + 1),
+            product: []
+        };
     }
 
     ngOnInit() {
@@ -101,27 +101,6 @@ export class DaysComponent implements OnInit, OnDestroy {
             .subscribe(
                 (data) => {
                     if (data.dataType === 'addDayRequest') {
-                        /*this.dietService.getDiet().subscribe(
-                            diet => {
-                                this.diet.push(this.addDay(this.lastID));
-                                this.createConnectArrays(this.diet);
-
-                                // Send 'changeDiet' message and updates diet object to
-                                // header-controls.component.ts
-                                this.dataExchangeBetweenComponents.send({
-                                    dataType: 'DIET_DB__addedDay',
-                                    data: this.diet[this.diet.length - 1]
-                                });
-
-                                // Send 'changeDiet' message and updates diet object to
-                                // food-panel-accordion.component.ts
-                                this.dataExchangeBetweenComponents.send({
-                                    dataType: 'changeDietFoodPanel',
-                                    data: this.diet
-                                });
-                            }
-                        );*/
-
                         this.diet.push(this.createDay(this.lastID));
                         this.createConnectArrays(this.diet);
 

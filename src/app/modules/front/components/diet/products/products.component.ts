@@ -14,9 +14,11 @@ import {Subscription} from 'rxjs';
 export class ProductsComponent implements OnInit {
     @Input() products;
     @Input() eatingID: number;
+    @Input() eatingCurrentID: number;
     @Input() eatingsLength: number;
     @Input() days;
     @Input() dayID: number;
+    @Input() dayCurrentID: number;
     @Input() daysLength: number;
 
     @Input() connectEatings: string[];
@@ -36,11 +38,10 @@ export class ProductsComponent implements OnInit {
     }
 
     deleteRow(product: FoodTableRowInterface, productRow: HTMLElement) {
-        const dayNumber = this.dayID - 1;
-        const eatingNumber = this.eatingID - ((this.dayID * 10) + 1);
-
         productRow.remove();
-        this.days[dayNumber].eatings[eatingNumber].product = this.days[dayNumber].eatings[eatingNumber].product.filter(item => {
+
+        this.days[this.dayCurrentID].eatings[this.eatingCurrentID].product = this.days[this.dayCurrentID].eatings[this.eatingCurrentID].product
+            .filter(item => {
             return item.id !== product.id;
         });
 

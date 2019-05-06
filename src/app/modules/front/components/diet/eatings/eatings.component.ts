@@ -10,6 +10,7 @@ export class EatingsComponent implements OnInit {
     @Input() eatings;
     @Input() days;
     @Input() dayID: number;
+    @Input() dayCurrentID: number;
     @Input() daysLength: number;
 
     @Input() connectDays: string[];

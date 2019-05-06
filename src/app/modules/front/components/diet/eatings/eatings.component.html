@@ -15,11 +15,13 @@
         <div class="eating-name eating-name-{{eatingID}}">{{eating.name}}</div>
         <app-products
             [products]="eating.product"
+            [eatingsLength]="eatings.length"
             [eatingID]="eating.id"
+            [eatingCurrentID]="eatingID"
             [days]="days"
             [dayID]="dayID"
-            [eatingsLength]="eatings.length"
             [daysLength]="daysLength"
+            [dayCurrentID]="dayCurrentID"
             [connectEatings]="connectEatings"
         ></app-products>
     </div>

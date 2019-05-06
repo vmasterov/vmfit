@@ -1,5 +1,5 @@
 <div cdkDropList class="diet-day-list" (cdkDropListDropped)="drop($event)">
-    <div class="diet-day-box" *ngFor="let day of diet" cdkDrag>
+    <div class="diet-day-box" *ngFor="let day of diet; let dayID = index" cdkDrag>
         <mat-accordion>
             <mat-expansion-panel
                 class="diet-day-box__expansion-panel"
@@ -15,6 +15,7 @@
                     [eatings]="day.eatings"
                     [days]="diet"
                     [dayID]="day.id"
+                    [dayCurrentID]="dayID"
                     [daysLength]="diet.length"
                     
                     [connectDays]="connectDays"
@@ -24,7 +25,7 @@
                 <button class="diet__add-eating"
                         mat-raised-button
                         color="primary"
-                        (click)="addEating(day.id, day.eatings.length)"
+                        (click)="addEating(day.id, dayID, day.eatings.length)"
                 >
                     <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">add</mat-icon>
                     <span class="diet-controls-text">Добавить приём пищи</span>

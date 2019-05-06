@@ -72,7 +72,7 @@ export class InMemoryDataService implements InMemoryDbService {
                 eatings: [
                     {
                         id: 11,
-                        name: '11-Завтрак',
+                        name: 'Приём пищи №1',
                         product: []
                     }
                 ]
