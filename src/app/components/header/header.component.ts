@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     ngOnInit() {
     }
 
-    toggleFoodPanel() {
+    toggleFoodPanel(): void {
         // Send click event to main.component.ts
         this.dataExchangeBetweenComponents.send({
             dataType: 'toggleFoodPanel_click',

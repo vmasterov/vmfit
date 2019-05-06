@@ -1,6 +1,8 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {DataExchangeBetweenComponents} from '../../../../../services/data-exchange-between-components.service';
 import {Subscription} from 'rxjs/index';
+import {DietInterface} from '../../../../../interfaces/diet.interface';
+import {NutrientsInterface} from '../../../../../interfaces/nutrients.interface';
 
 @Component({
     selector: 'app-footer',
@@ -11,15 +13,15 @@ export class FooterComponent implements OnInit, OnDestroy {
 
     getTotalSubscribe: Subscription;
 
-    total: any;
-    diet: any;
+    total: NutrientsInterface;
+    diet: DietInterface[];
 
     constructor(
         private dataExchangeBetweenComponents: DataExchangeBetweenComponents
     ) {
     }
 
-    getTotal(days) {
+    getTotal(days: DietInterface[]): void {
         this.total = {
             weight: 0,
             protein: 0,

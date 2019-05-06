@@ -3,6 +3,7 @@ import {Observable, of} from 'rxjs/index';
 import {catchError} from 'rxjs/internal/operators';
 import {FoodInterface} from '../../../interfaces/food.interface';
 import {Injectable} from '@angular/core';
+import {ChangeFoodObjectInterface} from '../../../interfaces/changed-food-object.interface';
 
 const httpOptions = {
     headers: new HttpHeaders()
@@ -24,8 +25,8 @@ export class FoodService {
         );
     }
 
-    updateFood(food: any): Observable<any> {
-        return this.http.put<FoodInterface>(this.url, food, httpOptions)
+    updateFood(food: ChangeFoodObjectInterface): Observable<ChangeFoodObjectInterface> {
+        return this.http.put<ChangeFoodObjectInterface>(this.url, food, httpOptions)
             .pipe(
                 catchError(this.handleError('updateFood', food))
             );

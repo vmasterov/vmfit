@@ -18,9 +18,9 @@ export class InputComponent implements OnInit {
     @Input() element;
     @Input() elementCurrentProp;
 
-    currentElement;
-    currentRowIndex;
-    currentColumnsName;
+    currentElement: string;
+    currentRowIndex: number;
+    currentColumnsName: string;
 
     constructor(
         private foodService: FoodService,
@@ -28,13 +28,13 @@ export class InputComponent implements OnInit {
     ) {
     }
 
-    edit(rowIndex: number, columnsName: string) {
+    edit(rowIndex: number, columnsName: string): void {
         this.currentRowIndex = rowIndex;
         this.currentColumnsName = columnsName;
         this.currentElement = columnsName + '_' + rowIndex;
     }
 
-    checkIsEmpty(event) {
+    checkIsEmpty(event: any): void {
         if (event.target.value.trim().length) {
             const changedFoodObject = {
                 currentRowIndex: this.currentRowIndex,

@@ -1,4 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {NutrientsInterface} from '../../../../../interfaces/nutrients.interface';
 
 @Component({
     selector: 'app-deit-caption-table',
@@ -6,7 +7,7 @@ import {Component, OnInit, Input} from '@angular/core';
     styleUrls: ['./deit-caption-table.component.scss']
 })
 export class DeitCaptionTableComponent implements OnInit {
-    @Input() total;
+    @Input() total: NutrientsInterface;
 
     constructor() {
     }

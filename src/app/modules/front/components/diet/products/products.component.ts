@@ -3,7 +3,8 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 
 import {FoodTableRowInterface} from '../../../../../interfaces/food-table-row.interface';
 import {DataExchangeBetweenComponents} from '../../../../../services/data-exchange-between-components.service';
-import {Subscription} from 'rxjs';
+import {DietInterface} from '../../../../../interfaces/diet.interface';
+import {NutrientsInterface} from '../../../../../interfaces/nutrients.interface';
 
 
 @Component({
@@ -12,11 +13,11 @@ import {Subscription} from 'rxjs';
     styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-    @Input() products;
+    @Input() products: NutrientsInterface[];
     @Input() eatingID: number;
     @Input() eatingCurrentID: number;
     @Input() eatingsLength: number;
-    @Input() days;
+    @Input() days: DietInterface[];
     @Input() dayID: number;
     @Input() dayCurrentID: number;
     @Input() daysLength: number;
@@ -37,7 +38,7 @@ export class ProductsComponent implements OnInit {
         }
     }
 
-    deleteRow(product: FoodTableRowInterface, productRow: HTMLElement) {
+    deleteRow(product: FoodTableRowInterface, productRow: HTMLElement): void {
         productRow.remove();
 
         this.days[this.dayCurrentID].eatings[this.eatingCurrentID].product = this.days[this.dayCurrentID].eatings[this.eatingCurrentID].product

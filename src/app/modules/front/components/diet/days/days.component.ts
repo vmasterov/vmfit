@@ -27,7 +27,7 @@ export class DaysComponent implements OnInit, OnDestroy {
                 private dataExchangeBetweenComponents: DataExchangeBetweenComponents) {
     }
 
-    createConnectArrays(days: any): void {
+    createConnectArrays(days: DietInterface[]): void {
         this.connectDays = [];
         this.connectEatings = [];
 
@@ -45,7 +45,7 @@ export class DaysComponent implements OnInit, OnDestroy {
         moveItemInArray(this.diet, event.previousIndex, event.currentIndex);
     }
 
-    createDay(lastID: number) {
+    createDay(lastID: number): DietInterface {
         const newDay = {
             id: lastID + 1,
             name: 'День №' + (lastID + 1),
@@ -61,8 +61,9 @@ export class DaysComponent implements OnInit, OnDestroy {
         return newDay;
     }
 
-    addEating(fixedDayID: number, clickedDayID: number, lastEatingID: number) {
+    addEating(fixedDayID: number, clickedDayID: number, lastEatingID: number): void {
         this.diet[clickedDayID].eatings.push(this.createEating(lastEatingID, fixedDayID));
+
         this.createConnectArrays(this.diet);
 
         // Send 'changeDiet' message and updates diet object to
@@ -151,9 +152,6 @@ export class DaysComponent implements OnInit, OnDestroy {
 
 }
 
-// TODO: First iteration
-// TODO: create button "Add eating"
-// TODO: add code comments and TS data types
 
 // TODO: Second iteration
 // TODO: activate Save button if nutrients in Food table was changed

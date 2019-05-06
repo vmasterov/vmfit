@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy, ViewChild, ChangeDetectorRef} from '@angular/core';
-import {Subscription} from "rxjs/index";
+import {Subscription} from 'rxjs/index';
 
 import {DataExchangeBetweenComponents} from '../../../../../services/data-exchange-between-components.service';
 import {FoodService} from '../../../services/food.service';
@@ -51,7 +51,7 @@ export class MainComponent implements OnInit, OnDestroy {
             );
     }
 
-    openedChangeFoodPanel() {
+    openedChangeFoodPanel(): void {
         // Send state of the food panel to header.component.ts
         this.dataExchangeBetweenComponents.send({
             dataType: 'toggleFoodPanel_changePanelState',

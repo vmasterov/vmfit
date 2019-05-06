@@ -3,6 +3,7 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 import {DietService} from '../../../services/diet.service';
 import {DataExchangeBetweenComponents} from '../../../../../services/data-exchange-between-components.service';
 import {Subscription} from 'rxjs';
+import {DietInterface} from '../../../../../interfaces/diet.interface';
 
 @Component({
     selector: 'app-header-controls',
@@ -11,18 +12,19 @@ import {Subscription} from 'rxjs';
 })
 export class HeaderControlsComponent implements OnInit, OnDestroy {
     changeDietSubscribe: Subscription;
+    changedDietStorage: DietInterface[];
+    addDaysDietStorage: DietInterface[];
+
     dietSaveButtonDisable = true;
     title = 'План';
-    changedDietStorage: any;
-    addDaysDietStorage: any;
 
-    testUpdatedDiet: any = [];
+    testUpdatedDiet: any = []; // Test array for debugging
 
     constructor(private dietService: DietService,
                 private dataExchangeBetweenComponents: DataExchangeBetweenComponents) {
     }
 
-    addDay() {
+    addDay(): void {
         // Send request to create a new day to days.component.ts
         this.dataExchangeBetweenComponents.send({
             dataType: 'addDayRequest',
@@ -30,16 +32,14 @@ export class HeaderControlsComponent implements OnInit, OnDestroy {
         });
     }
 
-    saveDietDB() {
-        // alert('Данные сохранены');
-
+    saveDietDB(): void {
         this.dietSaveButtonDisable = true;
 
         this.addDaysToDietDB();
         this.updateDietDB();
     }
 
-    contains(elem) {
+    contains(elem: DietInterface): boolean {
         for (const item of this.changedDietStorage) {
             if (item === elem) {
                 return true;
@@ -49,7 +49,7 @@ export class HeaderControlsComponent implements OnInit, OnDestroy {
         return false;
     }
 
-    addDaysToDietDB() {
+    addDaysToDietDB(): void {
         for (const item of this.addDaysDietStorage) {
             this.dietService.addDay(item).subscribe(
                 () => {
@@ -64,7 +64,7 @@ export class HeaderControlsComponent implements OnInit, OnDestroy {
         this.addDaysDietStorage = [];
     }
 
-    updateDietDB() {
+    updateDietDB(): void {
         for (const item of this.changedDietStorage) {
             this.dietService.updateDiet(item).subscribe(
                 () => {

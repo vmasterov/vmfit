@@ -16,10 +16,10 @@ export class InMemoryDataService implements InMemoryDbService {
                         groupName: 'Птица',
                         itemName: 'Курица',
                         nutrients: {
-                            protein: '30',
-                            carbs: '20',
-                            fat: '10',
-                            calories: '210'
+                            protein: 30,
+                            carbs: 20,
+                            fat: 10,
+                            calories: 210
                         }
                     },
                     {
@@ -27,10 +27,10 @@ export class InMemoryDataService implements InMemoryDbService {
                         groupName: 'Птица',
                         itemName: 'Индейка',
                         nutrients: {
-                            protein: '30',
-                            carbs: '21',
-                            fat: '11',
-                            calories: '211'
+                            protein: 30,
+                            carbs: 21,
+                            fat: 11,
+                            calories: 211
                         }
                     }
                 ]
@@ -44,10 +44,10 @@ export class InMemoryDataService implements InMemoryDbService {
                         groupName: 'Красные',
                         itemName: 'Яблоко',
                         nutrients: {
-                            protein: '30',
-                            carbs: '20',
-                            fat: '10',
-                            calories: '210'
+                            protein: 30,
+                            carbs: 20,
+                            fat: 10,
+                            calories: 210
                         }
                     },
                     {
@@ -55,10 +55,10 @@ export class InMemoryDataService implements InMemoryDbService {
                         groupName: 'Зелёные',
                         itemName: 'Груша',
                         nutrients: {
-                            protein: '30',
-                            carbs: '21',
-                            fat: '11',
-                            calories: '211'
+                            protein: 30,
+                            carbs: 21,
+                            fat: 11,
+                            calories: 211
                         }
                     }
                 ]

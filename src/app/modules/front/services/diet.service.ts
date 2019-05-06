@@ -26,15 +26,15 @@ export class DietService {
         );
     }
 
-    updateDiet(diet: any): Observable<any> {
+    updateDiet(diet: DietInterface): Observable<DietInterface> {
         return this.http.put<DietInterface>(this.url, diet, httpOptions)
             .pipe(
                 catchError(this.handleError('updateDiet', diet))
             );
     }
 
-    addDay(day: any): Observable<any> {
-        return this.http.post<any>(this.url, day, httpOptions).pipe(
+    addDay(day: DietInterface): Observable<DietInterface> {
+        return this.http.post<DietInterface>(this.url, day, httpOptions).pipe(
             catchError(this.handleError('addDay', day))
         );
     }

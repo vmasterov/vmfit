@@ -4,6 +4,7 @@ import {FoodInterface} from '../../../../../interfaces/food.interface';
 import {FoodTableRowInterface} from '../../../../../interfaces/food-table-row.interface';
 import {DataExchangeBetweenComponents} from '../../../../../services/data-exchange-between-components.service';
 import {DietInterface} from '../../../../../interfaces/diet.interface';
+import {NutrientsInterface} from '../../../../../interfaces/nutrients.interface';
 
 @Component({
     selector: 'app-food-panel-table',
@@ -24,7 +25,7 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
     ) {
     }
 
-    deleteRow(element) {
+    deleteRow(element: FoodTableRowInterface): void {
         this.dataSource = this.dataSource.filter(i => i !== element);
 
         this.foodForOnePanel.group = this.dataSource;
@@ -36,7 +37,8 @@ export class FoodPanelTableComponent implements OnInit, OnDestroy {
         });
     }
 
-    addProduct(element, dayID: number, eatingID: number) {
+    addProduct(element: FoodTableRowInterface, dayID: number, eatingID: number): void {
+        console.log(element);
 
         // Send product object to days.component.ts
         this.dataExchangeBetweenComponents.send({

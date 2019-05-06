@@ -13,6 +13,7 @@ export class ClickOutsideDirective {
 
     @HostListener('document: click', ['$event.target'])
     public onClick(target) {
+        console.log(target);
         const isClickInside = this.element.nativeElement.contains(target.parentElement);
 
         if (!isClickInside) {

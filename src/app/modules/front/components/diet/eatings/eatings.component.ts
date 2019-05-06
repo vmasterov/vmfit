@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {DietInterface} from '../../../../../interfaces/diet.interface';
+import {DietEatingsInterface} from '../../../../../interfaces/diet-eatings.interface';
 
 @Component({
     selector: 'app-eatings',
@@ -7,16 +9,14 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
     styleUrls: ['./eatings.component.scss']
 })
 export class EatingsComponent implements OnInit {
-    @Input() eatings;
-    @Input() days;
+    @Input() eatings: DietEatingsInterface[];
+    @Input() days: DietInterface[];
     @Input() dayID: number;
     @Input() dayCurrentID: number;
     @Input() daysLength: number;
 
     @Input() connectDays: string[];
     @Input() connectEatings: string[];
-
-    connectedToDays: string[];
 
     drop(event: CdkDragDrop<string[]>) {
         if (event.previousContainer === event.container) {
@@ -27,15 +27,5 @@ export class EatingsComponent implements OnInit {
         }
     }
 
-    /*createConnectedToArray(id: number) {
-        this.connectedToDays = this.connectDays.filter(item => {
-            const index = item.match(/_(\d+)$/)[1];
-            return +index !== id;
-        });
-    }*/
-
-
-    ngOnInit() {
-        // this.createConnectedToArray(this.dayID);
-    }
+    ngOnInit() {}
 }

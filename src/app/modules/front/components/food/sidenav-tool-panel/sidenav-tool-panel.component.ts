@@ -23,7 +23,7 @@ export class SidenavToolPanelComponent implements OnInit, OnDestroy {
         ) {
     }
 
-    getDBData() {
+    getDBData(): void {
         this.foodService.getFood()
             .subscribe(
                 (food) => {
