@@ -46,6 +46,13 @@ body{
   min-width: 55px;
 }
 
+/* Drag handler */
+.drag-handle{
+  position: absolute;
+  left: 0;
+  margin-top: -4px;
+}
+
 /* Media queries */
 @media(max-width: 560px){
   .vm__mobile-hide{

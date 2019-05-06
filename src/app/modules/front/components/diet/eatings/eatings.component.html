@@ -12,7 +12,13 @@
         class="diet-eating-box"
         cdkDrag
     >
-        <div class="eating-name eating-name-{{eatingID}}">{{eating.name}}</div>
+        <div class="eating-name eating-name-{{eatingID}}">
+            <div class="drag-handle drag-eatings-handle" cdkDragHandle>
+                <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">drag_indicator</mat-icon>
+            </div>
+
+            {{eating.name}}
+        </div>
         <app-products
             [products]="eating.product"
             [eatingsLength]="eatings.length"

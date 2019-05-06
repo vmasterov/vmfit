@@ -38,7 +38,7 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.eating-name{
+.eating-name {
   margin: 50px 0 10px;
   padding: 12px 0;
   background-color: #f1f1f1;
@@ -46,15 +46,20 @@
   font-weight: 500;
 }
 
-.eating-name.eating-name-0{
+.eating-name.eating-name-0 {
   margin-top: 10px;
 }
 
+.drag-handle.drag-eatings-handle {
+  position: static;
+  display: inline-block;
+  vertical-align: top;
+}
 
 /* Media queries */
 
-@media(max-width: 480px){
-  .eating-name{
+@media(max-width: 480px) {
+  .eating-name {
     padding: 12px 5px;
   }
 }

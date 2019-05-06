@@ -6,6 +6,10 @@
                 [expanded]="day.id == 1 ? true : false"
             >
                 <mat-expansion-panel-header>
+                    <div class="drag-handle" cdkDragHandle>
+                        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">drag_indicator</mat-icon>
+                    </div>
+                    
                     <mat-panel-title class="day-name">{{day.name}}</mat-panel-title>
                 </mat-expansion-panel-header>
 
